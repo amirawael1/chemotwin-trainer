@@ -1,9 +1,6 @@
 """
 ChemoTwin Trainer: chemotherapy-toxicity assessment training against current guidelines.
 
-Run from the project folder:
-    python -m streamlit run trainer/app.py
-
 Educational tool for doctors in training. It does not make clinical decisions.
 """
 import html
@@ -13,6 +10,7 @@ import random
 import re
 import sys
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 import streamlit as st
@@ -250,7 +248,7 @@ def answer_form(case):
         a = core.build_assessment(grades, ctrcd, ctrcd_s, decision, level, actions, data_req)
         fb = core.feedback(case, a)
         ss.results[k] = fb
-        row = {"time": datetime.now().strftime("%Y-%m-%d %H:%M"), "trainee": ss.get("trainee", ""),
+        row = {"time":  datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.get("trainee", ""),
                "case_id": k, "topic": case.topic,
                "case_type": case.case_type, "score": fb["score"], "safe": fb["safe"]}
         ss.history.append(row)

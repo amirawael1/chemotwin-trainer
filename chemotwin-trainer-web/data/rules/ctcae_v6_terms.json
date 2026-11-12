@@ -1,0 +1,120 @@
+{
+  "ctcae_version": "6.0",
+  "source_workbook": "CTCAE v6.0 Final Clean-Tracked-Mapping_w_OS_Jan2026.xlsx",
+  "source_sheets": [
+    "CTCAE v6.0 Clean Copy",
+    "CTCAE v5.0 to v6.0 Mapping"
+  ],
+  "generated_on": "2026-10-04",
+  "generated_by": "utils/convert_ctcae_excel.py",
+  "terms": {
+    "Neutrophil count decreased": {
+      "meddra_llt_code": 10029366,
+      "soc": "Investigations",
+      "grade_1": "<1500 - 1000/mm3; <1.5 - 1.0 x 10^9/L",
+      "grade_2": "<1000 - 500/mm3; <1.0 - 0.5 x 10^9/L",
+      "grade_3": "<500 - 100/mm3; <0.5 - 0.1 x 10^9/L",
+      "grade_4": "<100/mm3; <0.1 x 10^9/L",
+      "grade_5": "",
+      "definition": "A finding based on laboratory test results that indicate a decrease in number of neutrophils (ANC) in a blood specimen.",
+      "navigational_note": "",
+      "v6_change_note": "Clarification: Grade 1, 2, 3, 4, Definition"
+    },
+    "Febrile neutropenia": {
+      "meddra_llt_code": 10016288,
+      "soc": "Blood and lymphatic system disorders",
+      "grade_1": "",
+      "grade_2": "",
+      "grade_3": "ANC <1000/mm3 with a single temperature of >38.3 degrees C (101 degrees F) or a sustained temperature of >=38 degrees C (100.4 degrees F) for more than one hour",
+      "grade_4": "Life-threatening consequences; urgent intervention indicated",
+      "grade_5": "Death",
+      "definition": "A disorder characterized by an ANC <1000/mm3 and a single temperature of >38.3 degrees C (101 degrees F) or a sustained temperature of >=38 degrees C (100.4 degrees F) for more than one hour.",
+      "navigational_note": "",
+      "v6_change_note": "Clarification: Definition"
+    },
+    "Left ventricular dysfunction": {
+      "meddra_llt_code": 10049694,
+      "soc": "Cardiac disorders",
+      "grade_1": "Left ventricular ejection fraction (LVEF) ≥50% AND one or more of the following:\n1) New relative decline in Global Longitudinal Strain (GLS) >15% from baseline\n2) New rise in cardiac biomarkers",
+      "grade_2": "LVEF 40 - 49% AND one or more of the following:\n1) LVEF reduction by ≥10%\n2) New relative decline in GLS >15% from baseline\n3) New rise in cardiac biomarkers",
+      "grade_3": "New LVEF reduction to <40%",
+      "grade_4": "",
+      "grade_5": "",
+      "definition": "A disorder characterized by an ASYMPTOMATIC abnormality of cardiac function.",
+      "navigational_note": "If symptomatic, consider Cardiac disorders: Heart failure.",
+      "v6_change_note": "Addition: Term"
+    },
+    "Heart failure": {
+      "meddra_llt_code": 10019279,
+      "soc": "Cardiac disorders",
+      "grade_1": "Mild symptoms; no initiation or intensification of treatment",
+      "grade_2": "Outpatient initiation or intensification of treatment",
+      "grade_3": "Hospitalization indicated",
+      "grade_4": "Requiring inotropic support, mechanical circulatory support, or consideration of cardiac transplantation",
+      "grade_5": "Death",
+      "definition": "A disorder characterized by the inability of the heart to pump blood at an adequate volume to meet tissue metabolic requirements, or, the ability to do so only at an elevation in the filling pressure.",
+      "navigational_note": "If asymptomatic, consider Cardiac disorders: Left ventricular dysfunction.",
+      "v6_change_note": "Clarification: Grade 1, 2, 3, 4, Navigational Note"
+    },
+    "Blood bilirubin increased": {
+      "meddra_llt_code": 10005364,
+      "soc": "Investigations",
+      "grade_1": ">ULN - 1.5 x ULN if baseline was normal or less than normal; 1.0 - 1.5 x baseline if baseline was >ULN",
+      "grade_2": ">1.5 - 3.0 x ULN if baseline was normal or less than normal; >1.5 - 2.5 x baseline if baseline was >ULN",
+      "grade_3": ">3.0 - 10.0 x ULN if baseline was normal or less than normal; >2.5 - 10.0 x baseline if baseline was >ULN",
+      "grade_4": ">10.0 x ULN if baseline was normal or less than normal; >10.0 x baseline if baseline was >ULN",
+      "grade_5": "",
+      "definition": "A finding based on laboratory test results that indicate an abnormally high level of total bilirubin in the blood. Excess bilirubin is associated with jaundice.",
+      "navigational_note": "Consider Hepatobiliary disorders: Hepatic failure. Report Autoimmune hepatitis under Hepatobiliary disorders: Other, specify.",
+      "v6_change_note": "Clarification: Grade 1, 2, 3, 4, Definition, Navigational Note"
+    },
+    "Creatinine increased": {
+      "meddra_llt_code": 10011368,
+      "soc": "Investigations",
+      "grade_1": ">ULN - 1.5 x ULN",
+      "grade_2": ">1.5 - 3.0 x baseline if baseline is below LLN; >1.5 - 3.0 x ULN",
+      "grade_3": ">3.0 x baseline if baseline is below LLN; >3.0 - 6.0 x ULN",
+      "grade_4": ">6.0 x ULN",
+      "grade_5": "",
+      "definition": "A finding based on laboratory test results that indicate increased levels of creatinine in a biological specimen.",
+      "navigational_note": "Consider Renal and urinary disorders: Acute kidney injury, Glomerulonephritis, Tubulointerstitial nephritis.",
+      "v6_change_note": "Clarification: Grade 2, 3, Navigational Note"
+    },
+    "Alanine aminotransferase increased": {
+      "meddra_llt_code": 10001551,
+      "soc": "Investigations",
+      "grade_1": ">ULN - 3.0 x ULN if baseline was normal or less than normal; 1.0 - 1.5 x baseline if baseline was >ULN",
+      "grade_2": ">3.0 - 5.0 x ULN if baseline was normal or less than normal; >1.5 - 2.0 x baseline if baseline was >ULN",
+      "grade_3": ">5.0 - 20.0 x ULN if baseline was normal or less than normal; >2.0 - 4.0 x baseline if baseline was >ULN up to 5 x ULN",
+      "grade_4": ">20.0 x ULN if baseline was normal or less than normal; >4.0 x baseline if baseline was >ULN",
+      "grade_5": "",
+      "definition": "A finding based on laboratory test results that indicate an increase in the level of alanine aminotransferase (ALT or SGPT) in the blood specimen.",
+      "navigational_note": "Consider Hepatobiliary disorders: Hepatic failure. Report Autoimmune hepatitis under Hepatobiliary disorders: Other, specify.",
+      "v6_change_note": "Clarification: Grade 1, 2, 3, 4, Navigational Note"
+    },
+    "Aspartate aminotransferase increased": {
+      "meddra_llt_code": 10003481,
+      "soc": "Investigations",
+      "grade_1": ">ULN - 3.0 x ULN if baseline was normal or less than normal; 1.0 - 1.5 x baseline if baseline was >ULN",
+      "grade_2": ">3.0 - 5.0 x ULN if baseline was normal or less than normal; >1.5 - 2.0 x baseline if baseline was >ULN",
+      "grade_3": ">5.0 - 20.0 x ULN if baseline was normal or less than normal; >2.0 - 4.0 x baseline if baseline was >ULN up to 5 x ULN",
+      "grade_4": ">20.0 x ULN if baseline was normal or less than normal; >4.0 x baseline if baseline was >ULN",
+      "grade_5": "",
+      "definition": "A finding based on laboratory test results that indicate an increase in the level of aspartate aminotransferase (AST or SGOT) in a blood specimen.",
+      "navigational_note": "Consider Hepatobiliary disorders: Hepatic failure. Report Autoimmune hepatitis under Hepatobiliary disorders: Other, specify.",
+      "v6_change_note": "Clarification: Grade 1, 2, 3, 4, Navigational Note"
+    }
+  },
+  "removed_in_v6": {
+    "Left ventricular systolic dysfunction": {
+      "v5_meddra_code": 10069501,
+      "change": "Deletion",
+      "replaced_by_v6_term": "Heart failure"
+    },
+    "Ejection fraction decreased": {
+      "v5_meddra_code": 10050528,
+      "change": "Deletion",
+      "replaced_by_v6_term": "Left ventricular dysfunction"
+    }
+  }
+}

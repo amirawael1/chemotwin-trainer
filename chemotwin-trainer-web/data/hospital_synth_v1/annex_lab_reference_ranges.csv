@@ -1,0 +1,13 @@
+test_name,unit,lln,uln,valid_from_day
+anc,cells/uL,1800,7700,
+wbc,x10^3/uL,4.0,11.0,
+platelet_count,x10^9/L,150,400,
+hemoglobin,g/dL,12.0,15.5,
+total_bilirubin,mg/dL,0.2,1.2,
+alt,U/L,0,33,
+ast,U/L,0,32,
+creatinine,mg/dL,0.5,1.1,
+troponin_hs-TnI,ng/L,0,26.0,
+troponin_hs-TnT,ng/L,0,14.0,
+troponin_TnI (conventional),ng/mL,0,0.04,
+NT-proBNP,pg/mL,0,125,

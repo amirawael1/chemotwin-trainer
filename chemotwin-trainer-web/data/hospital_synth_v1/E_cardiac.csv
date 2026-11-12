@@ -1,0 +1,1197 @@
+patient_id,assessment_day,modality,lvef,gls,assessment_context,other_findings
+PT-0001,-22,2D echo,64.0,-23.6,Baseline,grade I diastolic dysfunction
+PT-0001,66,2D echo,68.0,-23.2,routine surveillance,grade I diastolic dysfunction
+PT-0001,142,2D echo,63.0,-22.7,routine surveillance,grade I diastolic dysfunction
+PT-0001,243,2D echo,61.0,,routine surveillance,
+PT-0001,384,2D echo,67.0,-22.7,routine surveillance,trivial MR
+PT-0001,429,2D echo,57.0,-22.7,routine surveillance,
+PT-0002,-18,2D echo,54.0,-24.6,Baseline,
+PT-0002,89,2D echo,54.0,,routine surveillance,grade I diastolic dysfunction
+PT-0002,403,2D echo,52.0,,routine surveillance,grade I diastolic dysfunction
+PT-0003,-15,2D echo,61.0,-17.4,Baseline,trivial MR
+PT-0003,442,2D echo,54.0,,routine surveillance,trivial MR
+PT-0004,-31,2D echo,69.0,-20.0,Baseline,trivial MR
+PT-0004,84,2D echo,69.0,,routine surveillance,trivial MR
+PT-0004,180,2D echo,67.0,,routine surveillance,trivial MR
+PT-0004,261,2D echo,68.0,-16.5,routine surveillance,
+PT-0004,345,2D echo,66.0,-16.5,routine surveillance,
+PT-0004,435,2D echo,67.0,-16.5,routine surveillance,
+PT-0004,452,2D echo,71.0,,routine surveillance,
+PT-0005,-6,2D echo,62.0,-20.6,Baseline,trivial MR
+PT-0005,79,3D echo,62.0,,routine surveillance,
+PT-0005,433,2D echo,62.0,-19.8,routine surveillance,
+PT-0006,-20,2D echo,66.0,,Baseline,
+PT-0006,82,2D echo,68.0,-21.9,routine surveillance,trivial MR
+PT-0006,183,2D echo,66.0,,routine surveillance,
+PT-0006,271,2D echo,60.0,-21.5,routine surveillance,
+PT-0006,346,2D echo,66.0,-21.5,routine surveillance,
+PT-0006,400,2D echo,67.0,-21.5,routine surveillance,
+PT-0006,448,2D echo,63.0,-21.5,routine surveillance,trivial MR
+PT-0007,-22,2D echo,59.0,-19.6,Baseline,
+PT-0007,94,2D echo,53.0,-19.1,routine surveillance,
+PT-0007,454,2D echo,58.0,,routine surveillance,
+PT-0008,-40,2D echo,61.0,-24.3,Baseline,grade I diastolic dysfunction
+PT-0008,94,2D echo,57.0,,routine surveillance,grade I diastolic dysfunction
+PT-0008,438,2D echo,56.0,-23.3,routine surveillance,trivial MR
+PT-0009,-35,2D echo,59.0,-20.6,Baseline,
+PT-0009,188,2D echo,53.0,,routine surveillance,
+PT-0009,263,2D echo,57.0,,routine surveillance,
+PT-0009,352,3D echo,58.0,-19.8,routine surveillance,grade I diastolic dysfunction
+PT-0009,444,2D echo,53.0,-19.8,routine surveillance,trivial MR
+PT-0009,448,2D echo,59.0,-19.8,routine surveillance,grade I diastolic dysfunction
+PT-0010,-13,2D echo,58.0,,Baseline,
+PT-0010,62,2D echo,59.0,,routine surveillance,trivial MR
+PT-0010,406,2D echo,60.0,-14.9,routine surveillance,trivial MR
+PT-0011,-22,2D echo,55.0,-23.2,Baseline,trivial MR
+PT-0011,125,2D echo,57.0,-22.4,routine surveillance,
+PT-0011,477,2D echo,52.0,-22.3,routine surveillance,
+PT-0012,-3,2D echo,65.0,-22.2,Baseline,
+PT-0012,98,2D echo,65.0,,routine surveillance,
+PT-0012,453,MUGA,55.0,-17.1,routine surveillance,
+PT-0013,-12,2D echo,65.0,-19.1,Baseline,
+PT-0013,97,2D echo,64.0,-18.6,routine surveillance,grade I diastolic dysfunction
+PT-0013,172,2D echo,63.0,-18.3,routine surveillance,
+PT-0013,265,2D echo,67.0,-18.3,routine surveillance,grade I diastolic dysfunction
+PT-0013,359,2D echo,58.0,-18.3,routine surveillance,
+PT-0013,422,2D echo,60.0,,routine surveillance,trivial MR
+PT-0013,449,2D echo,65.0,,routine surveillance,
+PT-0014,-6,2D echo,64.0,-20.4,Baseline,
+PT-0014,85,2D echo,63.0,-19.9,routine surveillance,grade I diastolic dysfunction
+PT-0014,164,2D echo,59.0,,routine surveillance,grade I diastolic dysfunction
+PT-0014,269,2D echo,63.0,-16.4,routine surveillance,
+PT-0014,356,2D echo,63.0,-16.4,routine surveillance,trivial MR
+PT-0014,435,2D echo,70.0,,routine surveillance,trivial MR
+PT-0015,-28,2D echo,56.0,-23.7,Baseline,
+PT-0016,-38,2D echo,53.0,-22.7,Baseline,
+PT-0016,97,2D echo,49.0,-22.1,routine surveillance,grade I diastolic dysfunction
+PT-0016,404,2D echo,60.0,,routine surveillance,
+PT-0017,-28,2D echo,57.0,-22.3,Baseline,grade I diastolic dysfunction
+PT-0017,63,2D echo,61.0,-21.9,routine surveillance,
+PT-0017,158,2D echo,55.0,,routine surveillance,
+PT-0017,251,2D echo,58.0,-21.4,routine surveillance,
+PT-0017,319,2D echo,51.0,,routine surveillance,
+PT-0017,390,2D echo,56.0,-21.4,routine surveillance,trivial MR
+PT-0018,-26,2D echo,60.0,-17.4,Baseline,trivial MR
+PT-0018,73,2D echo,56.0,,routine surveillance,
+PT-0018,380,2D echo,61.0,,routine surveillance,trivial MR
+PT-0019,-10,2D echo,68.0,-20.1,Baseline,
+PT-0019,58,2D echo,69.0,-19.8,routine surveillance,grade I diastolic dysfunction
+PT-0019,429,2D echo,63.0,,routine surveillance,trivial MR
+PT-0020,-14,2D echo,65.0,,Baseline,trivial MR
+PT-0020,368,MUGA,67.0,,routine surveillance,
+PT-0020,425,2D echo,64.0,,routine surveillance,
+PT-0020,435,2D echo,65.0,,routine surveillance,trivial MR
+PT-0021,-22,2D echo,57.0,-19.7,Baseline,
+PT-0021,77,2D echo,52.0,,routine surveillance,trivial MR
+PT-0021,417,2D echo,56.0,,routine surveillance,
+PT-0022,-6,2D echo,60.0,-20.4,Baseline,grade I diastolic dysfunction
+PT-0022,60,2D echo,61.0,,routine surveillance,grade I diastolic dysfunction
+PT-0022,387,2D echo,57.0,,routine surveillance,trivial MR
+PT-0023,-13,3D echo,54.0,-23.8,Baseline,trivial MR
+PT-0023,81,2D echo,61.0,,routine surveillance,
+PT-0023,412,2D echo,50.0,-22.8,routine surveillance,
+PT-0024,-35,2D echo,61.0,-18.4,Baseline,
+PT-0024,81,2D echo,56.0,,routine surveillance,grade I diastolic dysfunction
+PT-0024,181,2D echo,51.0,,routine surveillance,
+PT-0024,271,2D echo,58.0,-14.0,routine surveillance,trivial MR
+PT-0024,369,MUGA,55.0,-14.0,routine surveillance,
+PT-0024,425,3D echo,54.0,-14.0,routine surveillance,
+PT-0025,-3,2D echo,58.0,-18.4,Baseline,trivial MR
+PT-0025,87,2D echo,55.0,,routine surveillance,trivial MR
+PT-0025,449,2D echo,58.0,-17.7,routine surveillance,trivial MR
+PT-0026,-35,2D echo,62.0,-18.7,Baseline,
+PT-0026,76,2D echo,58.0,,routine surveillance,trivial MR
+PT-0026,424,2D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0027,-40,2D echo,53.0,-22.3,Baseline,grade I diastolic dysfunction
+PT-0027,79,MUGA,50.0,-21.8,routine surveillance,grade I diastolic dysfunction
+PT-0027,186,2D echo,51.0,-21.4,routine surveillance,
+PT-0027,264,2D echo,54.0,-21.4,routine surveillance,
+PT-0027,368,2D echo,51.0,-21.4,routine surveillance,grade I diastolic dysfunction
+PT-0027,444,2D echo,48.0,,routine surveillance,
+PT-0027,445,2D echo,46.0,,routine surveillance,
+PT-0028,-10,2D echo,62.0,-22.7,Baseline,
+PT-0028,77,2D echo,59.0,-22.2,routine surveillance,trivial MR
+PT-0028,408,2D echo,60.0,,routine surveillance,
+PT-0029,-15,2D echo,61.0,-21.5,Baseline,grade I diastolic dysfunction
+PT-0029,94,2D echo,62.0,,routine surveillance,
+PT-0029,171,2D echo,58.0,-17.7,routine surveillance,grade I diastolic dysfunction
+PT-0029,266,2D echo,61.0,,routine surveillance,trivial MR
+PT-0029,362,2D echo,65.0,-17.7,routine surveillance,
+PT-0029,413,2D echo,65.0,-17.7,routine surveillance,trivial MR
+PT-0029,434,3D echo,57.0,-17.7,routine surveillance,
+PT-0030,-14,2D echo,55.0,,Baseline,grade I diastolic dysfunction
+PT-0030,65,2D echo,52.0,,routine surveillance,grade I diastolic dysfunction
+PT-0030,396,2D echo,39.0,-14.5,routine surveillance,
+PT-0031,-12,2D echo,62.0,-23.4,Baseline,trivial MR
+PT-0031,81,2D echo,63.0,-22.9,routine surveillance,grade I diastolic dysfunction
+PT-0031,424,2D echo,64.0,-22.5,routine surveillance,
+PT-0032,-23,2D echo,61.0,-20.1,Baseline,
+PT-0032,58,2D echo,58.0,-19.8,routine surveillance,trivial MR
+PT-0032,402,2D echo,61.0,-19.3,routine surveillance,
+PT-0033,-14,2D echo,54.0,-25,Baseline,trivial MR
+PT-0033,80,2D echo,51.0,,routine surveillance,trivial MR
+PT-0033,182,2D echo,40.0,,routine surveillance,trivial MR
+PT-0033,273,3D echo,42.0,-19.0,routine surveillance,
+PT-0033,348,2D echo,42.0,-19.0,routine surveillance,
+PT-0033,441,2D echo,41.0,,routine surveillance,trivial MR
+PT-0034,-19,2D echo,65.0,-22.2,Baseline,grade I diastolic dysfunction
+PT-0034,88,2D echo,70.0,,routine surveillance,trivial MR
+PT-0034,452,2D echo,60.0,,routine surveillance,
+PT-0035,-27,2D echo,60.0,-21.3,Baseline,
+PT-0035,85,2D echo,61.0,-20.8,routine surveillance,grade I diastolic dysfunction
+PT-0035,418,2D echo,59.0,,routine surveillance,grade I diastolic dysfunction
+PT-0036,-7,2D echo,62.0,,Baseline,
+PT-0036,91,2D echo,60.0,-20.8,routine surveillance,
+PT-0036,420,2D echo,60.0,-20.4,routine surveillance,
+PT-0037,-9,2D echo,59.0,-22.1,Baseline,
+PT-0037,438,2D echo,53.0,-21.2,routine surveillance,trivial MR
+PT-0038,-19,2D echo,60.0,,Baseline,trivial MR
+PT-0038,81,2D echo,57.0,-21.5,routine surveillance,
+PT-0038,179,2D echo,59.0,,routine surveillance,
+PT-0038,268,2D echo,57.0,,routine surveillance,
+PT-0038,360,2D echo,59.0,-21.1,routine surveillance,trivial MR
+PT-0038,411,2D echo,63.0,,routine surveillance,
+PT-0039,-15,2D echo,59.0,,Baseline,
+PT-0039,87,2D echo,65.0,-20.0,routine surveillance,trivial MR
+PT-0039,450,2D echo,54.0,-19.7,routine surveillance,
+PT-0040,-36,3D echo,66.0,-24.3,Baseline,
+PT-0040,73,2D echo,65.0,-23.8,routine surveillance,
+PT-0040,381,2D echo,63.0,-23.3,routine surveillance,grade I diastolic dysfunction
+PT-0041,-14,2D echo,65.0,-19.3,Baseline,trivial MR
+PT-0041,70,2D echo,72.0,,routine surveillance,
+PT-0041,409,2D echo,61.0,,routine surveillance,grade I diastolic dysfunction
+PT-0042,-18,2D echo,70.0,-22.1,Baseline,
+PT-0042,87,2D echo,70.0,-21.6,routine surveillance,
+PT-0042,371,MUGA,66.0,,routine surveillance,trivial MR
+PT-0042,424,2D echo,69.0,-21.2,routine surveillance,
+PT-0042,448,2D echo,69.0,,routine surveillance,
+PT-0043,-37,2D echo,64.0,-20.9,Baseline,
+PT-0043,57,2D echo,62.0,,routine surveillance,trivial MR
+PT-0043,437,2D echo,64.0,,routine surveillance,
+PT-0044,-29,2D echo,67.0,-19.1,Baseline,trivial MR
+PT-0044,98,3D echo,74.0,,routine surveillance,grade I diastolic dysfunction
+PT-0044,418,2D echo,62.0,-18.3,routine surveillance,
+PT-0045,-18,2D echo,68.0,-21.0,Baseline,trivial MR
+PT-0045,68,2D echo,61.0,,routine surveillance,grade I diastolic dysfunction
+PT-0045,389,2D echo,66.0,,routine surveillance,grade I diastolic dysfunction
+PT-0046,-36,2D echo,59.0,-18.5,Baseline,trivial MR
+PT-0046,87,2D echo,62.0,,routine surveillance,
+PT-0046,186,2D echo,54.0,-17.8,routine surveillance,
+PT-0046,349,2D echo,51.0,,routine surveillance,
+PT-0046,421,2D echo,58.0,,routine surveillance,
+PT-0046,459,2D echo,56.0,-17.8,routine surveillance,
+PT-0047,-37,2D echo,61.0,-19.8,Baseline,grade I diastolic dysfunction
+PT-0047,124,2D echo,57.0,-19.1,routine surveillance,grade I diastolic dysfunction
+PT-0047,496,2D echo,61.0,-19.0,routine surveillance,grade I diastolic dysfunction
+PT-0048,-25,2D echo,57.0,-18.5,Baseline,
+PT-0048,105,MUGA,57.0,,routine surveillance,
+PT-0048,450,2D echo,53.0,-17.8,routine surveillance,
+PT-0049,-11,2D echo,72.0,-21.9,Baseline,
+PT-0049,89,3D echo,74.0,,routine surveillance,
+PT-0049,456,2D echo,68.0,-21.0,routine surveillance,grade I diastolic dysfunction
+PT-0050,-8,2D echo,57.0,-18.9,Baseline,
+PT-0050,96,2D echo,56.0,-18.4,routine surveillance,trivial MR
+PT-0050,187,2D echo,57.0,-14.4,routine surveillance,
+PT-0050,274,2D echo,55.0,-14.4,routine surveillance,grade I diastolic dysfunction
+PT-0050,362,2D echo,56.0,,routine surveillance,trivial MR
+PT-0050,409,2D echo,57.0,,routine surveillance,
+PT-0050,445,2D echo,55.0,,routine surveillance,
+PT-0051,-30,2D echo,61.0,-22.8,Baseline,
+PT-0051,66,2D echo,56.0,,routine surveillance,trivial MR
+PT-0051,157,3D echo,57.0,-21.9,routine surveillance,
+PT-0051,237,2D echo,59.0,-21.9,routine surveillance,
+PT-0051,326,2D echo,59.0,-21.9,routine surveillance,trivial MR
+PT-0051,384,2D echo,59.0,-21.9,routine surveillance,
+PT-0051,407,2D echo,61.0,-21.9,routine surveillance,trivial MR
+PT-0052,-20,2D echo,71.0,-21.2,Baseline,
+PT-0052,74,2D echo,62.0,-20.8,routine surveillance,trivial MR
+PT-0052,383,2D echo,62.0,,routine surveillance,trivial MR
+PT-0053,-24,2D echo,58.0,-23.6,Baseline,trivial MR
+PT-0053,86,2D echo,59.0,-23.1,routine surveillance,
+PT-0053,411,2D echo,52.0,-22.7,routine surveillance,
+PT-0054,-5,2D echo,55.0,-21.6,Baseline,grade I diastolic dysfunction
+PT-0054,95,2D echo,56.0,,routine surveillance,
+PT-0054,451,2D echo,53.0,-20.7,routine surveillance,trivial MR
+PT-0055,-29,2D echo,57.0,-18.6,Baseline,
+PT-0055,88,3D echo,59.0,-18.2,routine surveillance,
+PT-0055,173,2D echo,60.0,-14.3,routine surveillance,
+PT-0055,259,2D echo,51.0,-14.3,routine surveillance,trivial MR
+PT-0055,356,3D echo,57.0,-14.3,routine surveillance,grade I diastolic dysfunction
+PT-0055,406,2D echo,58.0,,routine surveillance,
+PT-0055,452,2D echo,54.0,,routine surveillance,
+PT-0056,-16,2D echo,66.0,-22.1,Baseline,
+PT-0056,86,2D echo,70.0,,routine surveillance,
+PT-0056,449,2D echo,64.0,-21.2,routine surveillance,grade I diastolic dysfunction
+PT-0057,-18,2D echo,63.0,-20.1,Baseline,trivial MR
+PT-0057,171,2D echo,63.0,-19.3,routine surveillance,trivial MR
+PT-0057,272,2D echo,63.0,,routine surveillance,
+PT-0057,366,2D echo,57.0,-15.4,routine surveillance,grade I diastolic dysfunction
+PT-0057,439,2D echo,68.0,,routine surveillance,
+PT-0058,-33,2D echo,59.0,-20.2,Baseline,
+PT-0058,96,3D echo,57.0,-19.7,routine surveillance,
+PT-0058,424,2D echo,55.0,-19.4,routine surveillance,grade I diastolic dysfunction
+PT-0059,-36,2D echo,62.0,-19.8,Baseline,
+PT-0059,79,2D echo,65.0,,routine surveillance,grade I diastolic dysfunction
+PT-0059,266,MUGA,52.0,-15.0,routine surveillance,
+PT-0059,369,2D echo,55.0,,routine surveillance,
+PT-0059,428,2D echo,54.0,-15.0,routine surveillance,
+PT-0059,448,2D echo,58.0,-15.0,routine surveillance,trivial MR
+PT-0060,-36,MUGA,66.0,-18.1,Baseline,
+PT-0060,83,2D echo,72.0,,routine surveillance,
+PT-0060,174,2D echo,61.0,,routine surveillance,
+PT-0060,269,2D echo,61.0,-17.4,routine surveillance,
+PT-0060,351,2D echo,61.0,,routine surveillance,trivial MR
+PT-0060,413,2D echo,65.0,,routine surveillance,trivial MR
+PT-0060,454,2D echo,65.0,-17.4,routine surveillance,
+PT-0061,-33,2D echo,59.0,-19.0,Baseline,
+PT-0061,56,2D echo,57.0,-18.7,routine surveillance,grade I diastolic dysfunction
+PT-0061,419,2D echo,56.0,-18.2,routine surveillance,
+PT-0062,-5,2D echo,62.0,-21.9,Baseline,trivial MR
+PT-0062,93,2D echo,66.0,,routine surveillance,
+PT-0062,168,2D echo,66.0,-21.0,routine surveillance,
+PT-0062,273,2D echo,57.0,,routine surveillance,
+PT-0062,367,2D echo,60.0,-21.0,routine surveillance,grade I diastolic dysfunction
+PT-0062,436,3D echo,60.0,,routine surveillance,
+PT-0062,455,2D echo,54.0,-21.0,routine surveillance,
+PT-0063,-6,2D echo,59.0,-21.0,Baseline,
+PT-0063,86,MUGA,62.0,,routine surveillance,trivial MR
+PT-0063,167,3D echo,60.0,,routine surveillance,
+PT-0063,258,2D echo,55.0,,routine surveillance,
+PT-0063,350,2D echo,58.0,-20.2,routine surveillance,
+PT-0063,429,2D echo,54.0,,routine surveillance,trivial MR
+PT-0063,440,2D echo,55.0,,routine surveillance,trivial MR
+PT-0064,-9,2D echo,63.0,,Baseline,
+PT-0064,70,2D echo,70.0,-22.8,routine surveillance,
+PT-0064,416,2D echo,57.0,,routine surveillance,
+PT-0065,-12,2D echo,71.0,-22.6,Baseline,
+PT-0065,77,2D echo,74.0,,routine surveillance,
+PT-0065,173,2D echo,61.0,-17.2,routine surveillance,grade I diastolic dysfunction
+PT-0065,261,2D echo,53.0,,routine surveillance,grade I diastolic dysfunction
+PT-0065,368,2D echo,52.0,,routine surveillance,grade I diastolic dysfunction
+PT-0065,454,2D echo,58.0,-17.2,routine surveillance,trivial MR
+PT-0066,-19,2D echo,71.0,-18.6,Baseline,
+PT-0066,97,2D echo,74.0,-18.1,routine surveillance,trivial MR
+PT-0066,182,2D echo,75.0,,routine surveillance,
+PT-0066,279,2D echo,72.0,,routine surveillance,
+PT-0066,346,MUGA,69.0,,routine surveillance,grade I diastolic dysfunction
+PT-0066,412,2D echo,64.0,-17.9,routine surveillance,grade I diastolic dysfunction
+PT-0066,437,2D echo,69.0,,routine surveillance,
+PT-0067,-6,2D echo,62.0,,Baseline,grade I diastolic dysfunction
+PT-0067,453,2D echo,58.0,-14.0,routine surveillance,
+PT-0068,-11,2D echo,56.0,-22.9,Baseline,
+PT-0068,89,2D echo,62.0,-22.4,routine surveillance,
+PT-0069,-17,2D echo,69.0,-19.8,Baseline,trivial MR
+PT-0069,95,2D echo,67.0,,routine surveillance,
+PT-0069,265,2D echo,67.0,-19.0,routine surveillance,
+PT-0069,351,2D echo,67.0,,routine surveillance,
+PT-0069,449,2D echo,66.0,,routine surveillance,
+PT-0070,-40,2D echo,71.0,-18.8,Baseline,
+PT-0070,171,2D echo,66.0,-14.6,routine surveillance,trivial MR
+PT-0070,273,2D echo,68.0,-14.6,routine surveillance,grade I diastolic dysfunction
+PT-0070,353,2D echo,74.0,,routine surveillance,trivial MR
+PT-0070,434,3D echo,70.0,-14.6,routine surveillance,
+PT-0070,444,2D echo,68.0,,routine surveillance,trivial MR
+PT-0071,-10,2D echo,71.0,-21.9,Baseline,
+PT-0071,76,2D echo,69.0,-21.5,routine surveillance,
+PT-0071,139,2D echo,31.0,-16.6,routine surveillance,
+PT-0071,234,2D echo,49.0,,routine surveillance,
+PT-0071,322,3D echo,53.0,,routine surveillance,
+PT-0071,418,2D echo,55.0,,routine surveillance,grade I diastolic dysfunction
+PT-0071,429,2D echo,57.0,-16.6,routine surveillance,
+PT-0072,-17,2D echo,57.0,-19.3,Baseline,
+PT-0072,415,2D echo,55.0,,routine surveillance,trivial MR
+PT-0073,-24,2D echo,60.0,-19.5,Baseline,
+PT-0073,82,2D echo,54.0,,routine surveillance,grade I diastolic dysfunction
+PT-0073,185,2D echo,43.0,-14.8,routine surveillance,
+PT-0073,268,2D echo,50.0,-14.8,routine surveillance,
+PT-0073,348,3D echo,45.0,,routine surveillance,
+PT-0073,401,2D echo,43.0,,routine surveillance,
+PT-0074,-27,2D echo,68.0,,Baseline,
+PT-0074,77,MUGA,70.0,-20.2,routine surveillance,
+PT-0074,421,2D echo,63.0,-19.8,routine surveillance,
+PT-0075,-27,2D echo,63.0,-20.9,Baseline,
+PT-0075,128,2D echo,65.0,-20.2,routine surveillance,
+PT-0075,458,MUGA,57.0,,routine surveillance,trivial MR
+PT-0076,-6,2D echo,64.0,-19.1,Baseline,
+PT-0076,79,2D echo,64.0,,routine surveillance,
+PT-0077,-10,2D echo,66.0,-24.3,Baseline,
+PT-0077,60,2D echo,61.0,-23.9,routine surveillance,
+PT-0077,250,2D echo,51.0,,routine surveillance,
+PT-0077,404,2D echo,47.0,-18.5,routine surveillance,grade I diastolic dysfunction
+PT-0077,412,2D echo,53.0,,routine surveillance,
+PT-0078,-6,2D echo,58.0,-21.7,Baseline,
+PT-0078,84,2D echo,54.0,-21.2,routine surveillance,
+PT-0078,167,MUGA,53.0,,routine surveillance,
+PT-0078,272,2D echo,50.0,,routine surveillance,
+PT-0078,367,2D echo,59.0,-20.8,routine surveillance,
+PT-0078,421,2D echo,57.0,-20.8,routine surveillance,
+PT-0079,-17,2D echo,57.0,-21.7,Baseline,
+PT-0079,146,2D echo,56.0,-20.9,routine surveillance,
+PT-0079,482,2D echo,59.0,-17.8,routine surveillance,grade I diastolic dysfunction
+PT-0080,-19,2D echo,56.0,-22.2,Baseline,grade I diastolic dysfunction
+PT-0080,69,2D echo,58.0,-21.8,routine surveillance,
+PT-0080,156,2D echo,51.0,-21.3,routine surveillance,
+PT-0080,239,2D echo,39.0,,routine surveillance,
+PT-0080,332,2D echo,43.0,,routine surveillance,
+PT-0080,406,2D echo,43.0,,routine surveillance,grade I diastolic dysfunction
+PT-0080,409,2D echo,46.0,-16.9,routine surveillance,
+PT-0081,-22,2D echo,62.0,-19.1,Baseline,
+PT-0081,88,2D echo,65.0,-18.7,routine surveillance,trivial MR
+PT-0081,448,2D echo,65.0,-18.3,routine surveillance,
+PT-0082,-16,2D echo,65.0,-16.5,Baseline,grade I diastolic dysfunction
+PT-0082,58,2D echo,68.0,,routine surveillance,
+PT-0083,-31,MUGA,70.0,-18.7,Baseline,
+PT-0083,87,2D echo,66.0,,routine surveillance,
+PT-0083,415,2D echo,68.0,-18.0,routine surveillance,
+PT-0084,-39,2D echo,60.0,-18.2,Baseline,
+PT-0084,60,2D echo,55.0,-17.9,routine surveillance,
+PT-0084,394,2D echo,57.0,-17.5,routine surveillance,
+PT-0085,-5,2D echo,60.0,-21.2,Baseline,
+PT-0085,56,2D echo,58.0,-20.9,routine surveillance,grade I diastolic dysfunction
+PT-0085,156,MUGA,58.0,,routine surveillance,grade I diastolic dysfunction
+PT-0085,250,2D echo,62.0,-20.4,routine surveillance,grade I diastolic dysfunction
+PT-0085,422,2D echo,56.0,-20.4,routine surveillance,grade I diastolic dysfunction
+PT-0085,433,2D echo,50.0,-20.4,routine surveillance,trivial MR
+PT-0086,-37,2D echo,64.0,-16.6,Baseline,
+PT-0086,88,2D echo,69.0,,routine surveillance,grade I diastolic dysfunction
+PT-0086,431,3D echo,63.0,-15.9,routine surveillance,
+PT-0087,-13,2D echo,60.0,,Baseline,
+PT-0087,95,2D echo,47.0,,routine surveillance,
+PT-0087,438,2D echo,49.0,,routine surveillance,
+PT-0088,-37,2D echo,60.0,-20.9,Baseline,trivial MR
+PT-0088,61,2D echo,64.0,-20.6,routine surveillance,
+PT-0088,427,2D echo,53.0,-20.1,routine surveillance,grade I diastolic dysfunction
+PT-0089,-39,2D echo,58.0,-23.0,Baseline,
+PT-0089,98,2D echo,57.0,,routine surveillance,
+PT-0089,188,2D echo,59.0,-22.1,routine surveillance,
+PT-0089,265,2D echo,55.0,,routine surveillance,
+PT-0089,355,2D echo,57.0,-22.1,routine surveillance,grade I diastolic dysfunction
+PT-0089,435,MUGA,60.0,-22.1,routine surveillance,
+PT-0089,446,2D echo,58.0,-22.1,routine surveillance,
+PT-0090,-23,2D echo,62.0,-22.1,Baseline,
+PT-0090,128,2D echo,60.0,-21.3,routine surveillance,
+PT-0090,465,2D echo,57.0,-21.2,routine surveillance,
+PT-0091,-17,2D echo,60.0,-24.2,Baseline,trivial MR
+PT-0091,459,2D echo,61.0,-23.2,routine surveillance,grade I diastolic dysfunction
+PT-0092,-40,3D echo,60.0,-19.7,Baseline,
+PT-0092,97,2D echo,57.0,,routine surveillance,grade I diastolic dysfunction
+PT-0092,184,MUGA,56.0,,routine surveillance,
+PT-0092,273,2D echo,53.0,-18.9,routine surveillance,
+PT-0092,359,2D echo,59.0,-18.9,routine surveillance,trivial MR
+PT-0092,415,2D echo,54.0,-18.9,routine surveillance,trivial MR
+PT-0092,445,3D echo,58.0,-18.9,routine surveillance,
+PT-0093,-3,2D echo,69.0,-25,Baseline,
+PT-0093,98,2D echo,65.0,-24.3,routine surveillance,trivial MR
+PT-0093,187,2D echo,52.0,,routine surveillance,
+PT-0093,273,2D echo,59.0,-19.0,routine surveillance,
+PT-0093,419,2D echo,59.0,-19.0,routine surveillance,
+PT-0093,442,2D echo,56.0,,routine surveillance,
+PT-0094,-27,2D echo,63.0,-16.5,Baseline,
+PT-0094,81,2D echo,58.0,-16.1,routine surveillance,trivial MR
+PT-0094,385,2D echo,57.0,-15.8,routine surveillance,
+PT-0095,-22,2D echo,64.0,-22.1,Baseline,
+PT-0095,93,2D echo,61.0,-21.6,routine surveillance,
+PT-0095,174,2D echo,50.0,,routine surveillance,trivial MR
+PT-0095,262,2D echo,58.0,-16.8,routine surveillance,trivial MR
+PT-0095,363,2D echo,60.0,,routine surveillance,trivial MR
+PT-0095,442,2D echo,59.0,-16.8,routine surveillance,
+PT-0095,445,2D echo,52.0,-16.8,routine surveillance,
+PT-0096,-6,2D echo,60.0,-19.3,Baseline,
+PT-0096,89,2D echo,62.0,-18.8,routine surveillance,
+PT-0096,178,2D echo,61.0,,routine surveillance,trivial MR
+PT-0096,262,2D echo,53.0,-18.5,routine surveillance,grade I diastolic dysfunction
+PT-0096,346,2D echo,52.0,-18.5,routine surveillance,
+PT-0096,437,2D echo,60.0,,routine surveillance,
+PT-0096,444,2D echo,54.0,,routine surveillance,grade I diastolic dysfunction
+PT-0097,-22,2D echo,58.0,-19.9,Baseline,
+PT-0098,-9,2D echo,62.0,-18.8,Baseline,
+PT-0098,452,2D echo,62.0,-18.0,routine surveillance,
+PT-0099,-20,2D echo,63.0,-21.8,Baseline,
+PT-0099,427,3D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0100,-22,2D echo,60.0,-20.3,Baseline,
+PT-0100,82,2D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0101,-28,2D echo,59.0,-19.9,Baseline,
+PT-0101,79,2D echo,54.0,-15.1,routine surveillance,
+PT-0101,449,2D echo,47.0,-15.1,routine surveillance,
+PT-0101,458,2D echo,46.0,,symptom-driven,trivial MR
+PT-0102,-20,3D echo,56.0,-20.6,Baseline,
+PT-0102,77,3D echo,54.0,,routine surveillance,
+PT-0102,425,2D echo,49.0,,routine surveillance,
+PT-0103,-27,2D echo,75.0,-22.2,Baseline,
+PT-0103,77,2D echo,73.0,,routine surveillance,
+PT-0103,418,MUGA,68.0,,routine surveillance,
+PT-0104,-28,2D echo,58.0,-19.3,Baseline,
+PT-0104,86,2D echo,58.0,-18.9,routine surveillance,
+PT-0104,411,2D echo,60.0,-18.5,routine surveillance,trivial MR
+PT-0105,-26,2D echo,55.0,-22.7,Baseline,grade I diastolic dysfunction
+PT-0105,400,2D echo,58.0,,routine surveillance,grade I diastolic dysfunction
+PT-0106,-21,2D echo,67.0,-21.2,Baseline,
+PT-0106,91,2D echo,73.0,-20.7,routine surveillance,grade I diastolic dysfunction
+PT-0106,434,2D echo,59.0,,routine surveillance,
+PT-0107,-17,2D echo,69.0,-23.4,Baseline,
+PT-0107,90,2D echo,66.0,,routine surveillance,
+PT-0108,-39,2D echo,64.0,-22.5,Baseline,
+PT-0108,81,2D echo,52.0,-17.1,routine surveillance,
+PT-0108,263,3D echo,45.0,-17.1,routine surveillance,trivial MR
+PT-0108,349,2D echo,48.0,-17.1,routine surveillance,grade I diastolic dysfunction
+PT-0108,444,2D echo,44.0,,routine surveillance,trivial MR
+PT-0108,450,2D echo,43.0,-17.1,routine surveillance,grade I diastolic dysfunction
+PT-0109,-9,2D echo,64.0,-21.5,Baseline,trivial MR
+PT-0109,63,2D echo,58.0,-21.1,routine surveillance,grade I diastolic dysfunction
+PT-0109,414,2D echo,63.0,,routine surveillance,
+PT-0110,-5,MUGA,66.0,-21.1,Baseline,
+PT-0110,128,2D echo,65.0,-20.4,routine surveillance,trivial MR
+PT-0110,466,2D echo,49.0,,routine surveillance,
+PT-0111,-28,2D echo,59.0,-20.6,Baseline,
+PT-0111,94,2D echo,51.0,,routine surveillance,
+PT-0111,274,2D echo,54.0,-16.7,routine surveillance,
+PT-0111,356,2D echo,61.0,,routine surveillance,
+PT-0111,403,2D echo,60.0,-16.7,routine surveillance,grade I diastolic dysfunction
+PT-0112,-18,2D echo,68.0,-20.4,Baseline,trivial MR
+PT-0112,120,2D echo,63.0,,routine surveillance,
+PT-0112,476,2D echo,70.0,,routine surveillance,trivial MR
+PT-0113,-3,2D echo,63.0,-22.1,Baseline,
+PT-0113,85,2D echo,60.0,,routine surveillance,grade I diastolic dysfunction
+PT-0113,454,2D echo,63.0,-21.2,routine surveillance,
+PT-0114,-23,2D echo,66.0,-18.7,Baseline,
+PT-0114,71,3D echo,67.0,,routine surveillance,
+PT-0114,426,2D echo,65.0,,routine surveillance,
+PT-0115,-16,2D echo,65.0,-21.8,Baseline,
+PT-0115,78,2D echo,64.0,-21.3,routine surveillance,trivial MR
+PT-0115,168,2D echo,64.0,-20.9,routine surveillance,
+PT-0115,269,2D echo,61.0,,routine surveillance,grade I diastolic dysfunction
+PT-0115,452,2D echo,67.0,-20.9,routine surveillance,grade I diastolic dysfunction
+PT-0116,-15,2D echo,68.0,-20.6,Baseline,grade I diastolic dysfunction
+PT-0116,81,MUGA,64.0,,routine surveillance,grade I diastolic dysfunction
+PT-0116,410,2D echo,71.0,-19.8,routine surveillance,trivial MR
+PT-0117,-4,2D echo,67.0,-23.2,Baseline,
+PT-0117,93,3D echo,65.0,,routine surveillance,
+PT-0117,178,MUGA,68.0,,routine surveillance,
+PT-0117,274,2D echo,64.0,,routine surveillance,trivial MR
+PT-0117,366,2D echo,64.0,,routine surveillance,
+PT-0117,418,2D echo,59.0,-22.3,routine surveillance,trivial MR
+PT-0117,435,3D echo,66.0,-22.3,routine surveillance,trivial MR
+PT-0118,-24,2D echo,64.0,-17.8,Baseline,
+PT-0118,84,2D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0118,408,2D echo,63.0,,routine surveillance,
+PT-0119,-40,2D echo,55.0,-21.5,Baseline,
+PT-0119,61,2D echo,55.0,-21.2,routine surveillance,
+PT-0119,379,2D echo,54.0,,routine surveillance,
+PT-0120,-24,2D echo,66.0,,Baseline,trivial MR
+PT-0120,89,2D echo,68.0,,routine surveillance,
+PT-0120,181,2D echo,54.0,,routine surveillance,
+PT-0120,261,2D echo,63.0,-14.2,routine surveillance,trivial MR
+PT-0120,351,2D echo,63.0,,routine surveillance,
+PT-0120,445,2D echo,58.0,,routine surveillance,grade I diastolic dysfunction
+PT-0120,457,2D echo,57.0,-14.2,routine surveillance,
+PT-0121,-21,2D echo,63.0,-21.7,Baseline,
+PT-0121,175,2D echo,65.0,-20.8,routine surveillance,
+PT-0121,347,2D echo,64.0,-20.8,routine surveillance,
+PT-0121,449,2D echo,60.0,,routine surveillance,
+PT-0121,454,2D echo,65.0,-20.8,routine surveillance,
+PT-0122,-23,2D echo,57.0,-20.4,Baseline,
+PT-0122,120,2D echo,58.0,-19.7,routine surveillance,
+PT-0122,448,2D echo,42.0,,routine surveillance,
+PT-0122,449,2D echo,40.0,,symptom-driven,
+PT-0123,-18,2D echo,65.0,-19.5,Baseline,
+PT-0123,98,2D echo,67.0,-19.0,routine surveillance,grade I diastolic dysfunction
+PT-0123,174,2D echo,65.0,-18.7,routine surveillance,
+PT-0123,260,2D echo,67.0,,routine surveillance,
+PT-0123,359,2D echo,65.0,-18.7,routine surveillance,
+PT-0123,439,2D echo,64.0,-18.7,routine surveillance,
+PT-0123,443,2D echo,58.0,-18.7,routine surveillance,
+PT-0124,-16,2D echo,67.0,-19.5,Baseline,
+PT-0124,80,2D echo,69.0,,routine surveillance,trivial MR
+PT-0124,439,2D echo,54.0,,routine surveillance,
+PT-0125,-33,2D echo,65.0,-18.2,Baseline,trivial MR
+PT-0125,91,2D echo,63.0,-17.8,routine surveillance,grade I diastolic dysfunction
+PT-0125,401,2D echo,63.0,-17.5,routine surveillance,grade I diastolic dysfunction
+PT-0126,-31,2D echo,58.0,-21.0,Baseline,
+PT-0126,73,2D echo,53.0,-20.6,routine surveillance,trivial MR
+PT-0127,-38,2D echo,61.0,-19.5,Baseline,grade I diastolic dysfunction
+PT-0127,88,2D echo,58.0,-19.0,routine surveillance,
+PT-0127,443,2D echo,51.0,-14.8,routine surveillance,
+PT-0128,-38,2D echo,60.0,-20.0,Baseline,trivial MR
+PT-0128,86,2D echo,62.0,,routine surveillance,
+PT-0128,188,2D echo,61.0,-19.2,routine surveillance,
+PT-0128,272,2D echo,55.0,,routine surveillance,trivial MR
+PT-0128,349,2D echo,56.0,-19.2,routine surveillance,
+PT-0128,445,2D echo,54.0,,routine surveillance,trivial MR
+PT-0129,-15,2D echo,62.0,-21.6,Baseline,trivial MR
+PT-0129,88,2D echo,59.0,,routine surveillance,
+PT-0129,183,2D echo,59.0,,routine surveillance,
+PT-0129,285,2D echo,62.0,-17.5,routine surveillance,
+PT-0129,374,2D echo,62.0,-17.5,routine surveillance,
+PT-0129,408,2D echo,58.0,-17.5,routine surveillance,
+PT-0129,444,2D echo,59.0,,routine surveillance,
+PT-0130,-31,2D echo,68.0,-25,Baseline,trivial MR
+PT-0130,194,3D echo,67.0,-24.0,routine surveillance,grade I diastolic dysfunction
+PT-0130,366,2D echo,67.0,-24.0,routine surveillance,trivial MR
+PT-0130,432,2D echo,68.0,-24.0,routine surveillance,
+PT-0130,457,2D echo,62.0,-24.0,routine surveillance,
+PT-0131,-38,2D echo,62.0,-22.8,Baseline,grade I diastolic dysfunction
+PT-0131,88,2D echo,60.0,-22.3,routine surveillance,
+PT-0131,443,2D echo,65.0,,routine surveillance,
+PT-0132,-36,2D echo,69.0,-23.0,Baseline,
+PT-0132,60,2D echo,74.0,-22.6,routine surveillance,grade I diastolic dysfunction
+PT-0132,153,2D echo,67.0,,routine surveillance,trivial MR
+PT-0132,413,2D echo,67.0,-22.1,routine surveillance,trivial MR
+PT-0132,415,2D echo,70.0,-22.1,routine surveillance,
+PT-0133,-9,2D echo,60.0,-19.0,Baseline,
+PT-0133,79,2D echo,51.0,,routine surveillance,grade I diastolic dysfunction
+PT-0133,433,2D echo,60.0,-18.2,routine surveillance,
+PT-0134,-23,2D echo,63.0,-20.9,Baseline,
+PT-0134,65,2D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0134,160,2D echo,63.0,,routine surveillance,
+PT-0134,227,2D echo,57.0,-20.1,routine surveillance,
+PT-0134,337,2D echo,63.0,,routine surveillance,
+PT-0134,382,2D echo,62.0,-20.1,routine surveillance,
+PT-0134,415,3D echo,63.0,,routine surveillance,
+PT-0135,-17,2D echo,63.0,,Baseline,trivial MR
+PT-0135,85,2D echo,60.0,-19.7,routine surveillance,grade I diastolic dysfunction
+PT-0135,439,2D echo,64.0,-19.4,routine surveillance,grade I diastolic dysfunction
+PT-0136,-40,2D echo,60.0,-21.6,Baseline,
+PT-0136,63,2D echo,54.0,-21.2,routine surveillance,grade I diastolic dysfunction
+PT-0136,137,2D echo,63.0,,routine surveillance,trivial MR
+PT-0136,247,2D echo,56.0,,routine surveillance,
+PT-0136,335,2D echo,59.0,-18.1,routine surveillance,
+PT-0136,396,2D echo,65.0,,routine surveillance,
+PT-0136,427,2D echo,57.0,,routine surveillance,trivial MR
+PT-0137,-40,2D echo,68.0,-20.1,Baseline,
+PT-0137,94,2D echo,68.0,-19.6,routine surveillance,
+PT-0137,451,2D echo,65.0,-19.3,routine surveillance,
+PT-0138,-22,2D echo,56.0,-19.6,Baseline,
+PT-0138,71,2D echo,53.0,-19.2,routine surveillance,
+PT-0138,147,2D echo,47.0,-18.8,routine surveillance,grade I diastolic dysfunction
+PT-0138,236,2D echo,58.0,-18.8,routine surveillance,
+PT-0138,318,2D echo,53.0,-18.8,routine surveillance,
+PT-0138,405,2D echo,60.0,,routine surveillance,
+PT-0138,422,2D echo,58.0,,routine surveillance,
+PT-0139,-26,2D echo,64.0,-19.1,Baseline,
+PT-0139,93,2D echo,59.0,,routine surveillance,trivial MR
+PT-0139,181,2D echo,66.0,-18.3,routine surveillance,trivial MR
+PT-0139,279,2D echo,66.0,-18.3,routine surveillance,trivial MR
+PT-0139,459,2D echo,57.0,-18.3,routine surveillance,trivial MR
+PT-0140,-6,2D echo,62.0,,Baseline,
+PT-0140,150,2D echo,65.0,,routine surveillance,grade I diastolic dysfunction
+PT-0140,243,2D echo,64.0,,routine surveillance,
+PT-0140,316,2D echo,62.0,-20.7,routine surveillance,trivial MR
+PT-0140,412,2D echo,64.0,-20.7,routine surveillance,grade I diastolic dysfunction
+PT-0140,431,2D echo,60.0,,routine surveillance,
+PT-0141,-31,2D echo,64.0,-22.9,Baseline,
+PT-0141,86,2D echo,61.0,-22.4,routine surveillance,
+PT-0141,180,2D echo,58.0,-22.0,routine surveillance,
+PT-0141,273,2D echo,56.0,-22.0,routine surveillance,trivial MR
+PT-0141,347,2D echo,63.0,,routine surveillance,
+PT-0141,448,2D echo,64.0,,routine surveillance,
+PT-0142,-26,2D echo,55.0,-17.2,Baseline,
+PT-0142,103,2D echo,56.0,-16.7,routine surveillance,
+PT-0143,-33,2D echo,50.0,-19.7,Baseline,
+PT-0143,90,2D echo,50.0,,routine surveillance,grade I diastolic dysfunction
+PT-0143,435,2D echo,49.0,,routine surveillance,
+PT-0144,-17,2D echo,58.0,-21.1,Baseline,
+PT-0144,102,2D echo,59.0,-20.5,routine surveillance,grade I diastolic dysfunction
+PT-0144,457,2D echo,60.0,-20.3,routine surveillance,
+PT-0145,-17,2D echo,62.0,-17.6,Baseline,
+PT-0145,136,3D echo,58.0,,routine surveillance,
+PT-0145,474,2D echo,57.0,,routine surveillance,trivial MR
+PT-0146,-24,2D echo,68.0,-22.6,Baseline,trivial MR
+PT-0146,101,2D echo,66.0,-22.0,routine surveillance,trivial MR
+PT-0146,472,2D echo,59.0,,routine surveillance,
+PT-0147,-13,2D echo,53.0,-20.9,Baseline,trivial MR
+PT-0147,167,2D echo,53.0,-20.1,routine surveillance,
+PT-0147,257,2D echo,51.0,,routine surveillance,grade I diastolic dysfunction
+PT-0147,405,2D echo,52.0,,routine surveillance,trivial MR
+PT-0147,453,2D echo,61.0,,routine surveillance,trivial MR
+PT-0148,-26,2D echo,65.0,-22.3,Baseline,
+PT-0148,71,2D echo,67.0,,routine surveillance,
+PT-0148,410,2D echo,68.0,,routine surveillance,grade I diastolic dysfunction
+PT-0149,-23,2D echo,59.0,,Baseline,
+PT-0149,82,2D echo,56.0,,routine surveillance,
+PT-0149,450,2D echo,60.0,,routine surveillance,
+PT-0150,-29,2D echo,60.0,-21.1,Baseline,
+PT-0150,77,2D echo,62.0,-20.7,routine surveillance,
+PT-0150,149,2D echo,67.0,-20.3,routine surveillance,grade I diastolic dysfunction
+PT-0150,242,2D echo,58.0,-20.3,routine surveillance,
+PT-0150,333,2D echo,57.0,-20.3,routine surveillance,trivial MR
+PT-0150,425,2D echo,59.0,-20.3,routine surveillance,grade I diastolic dysfunction
+PT-0150,433,2D echo,59.0,,routine surveillance,
+PT-0151,-13,2D echo,62.0,-24.1,Baseline,
+PT-0151,178,2D echo,63.0,,routine surveillance,
+PT-0151,256,MUGA,66.0,-23.1,routine surveillance,
+PT-0151,359,2D echo,60.0,,routine surveillance,
+PT-0151,439,3D echo,60.0,,routine surveillance,trivial MR
+PT-0151,445,2D echo,60.0,,routine surveillance,grade I diastolic dysfunction
+PT-0152,-11,2D echo,65.0,-20.0,Baseline,
+PT-0152,79,2D echo,66.0,-19.6,routine surveillance,
+PT-0152,173,2D echo,63.0,-19.2,routine surveillance,trivial MR
+PT-0152,260,2D echo,65.0,-19.2,routine surveillance,trivial MR
+PT-0152,356,2D echo,66.0,-19.2,routine surveillance,
+PT-0152,434,MUGA,58.0,-19.2,routine surveillance,
+PT-0153,-35,2D echo,64.0,-23.7,Baseline,trivial MR
+PT-0153,123,2D echo,60.0,-22.9,routine surveillance,
+PT-0153,453,MUGA,59.0,,routine surveillance,grade I diastolic dysfunction
+PT-0154,-31,2D echo,60.0,-21.2,Baseline,grade I diastolic dysfunction
+PT-0154,63,2D echo,60.0,,routine surveillance,grade I diastolic dysfunction
+PT-0154,398,2D echo,59.0,-17.7,routine surveillance,
+PT-0155,-26,2D echo,70.0,-20.7,Baseline,
+PT-0155,408,2D echo,66.0,,routine surveillance,
+PT-0156,-13,2D echo,70.0,-21.3,Baseline,
+PT-0156,86,2D echo,71.0,-20.8,routine surveillance,grade I diastolic dysfunction
+PT-0156,432,2D echo,70.0,-20.4,routine surveillance,
+PT-0157,-15,2D echo,61.0,-19.3,Baseline,trivial MR
+PT-0157,71,2D echo,56.0,,routine surveillance,
+PT-0157,393,2D echo,47.0,-14.7,routine surveillance,trivial MR
+PT-0158,-22,2D echo,71.0,-20.2,Baseline,
+PT-0158,94,MUGA,69.0,-19.7,routine surveillance,trivial MR
+PT-0158,260,2D echo,61.0,-19.4,routine surveillance,
+PT-0158,369,MUGA,69.0,-19.4,routine surveillance,
+PT-0158,435,2D echo,69.0,-19.4,routine surveillance,trivial MR
+PT-0158,448,2D echo,72.0,-19.4,routine surveillance,
+PT-0159,-8,2D echo,65.0,-20.3,Baseline,
+PT-0159,85,2D echo,61.0,-19.8,routine surveillance,
+PT-0159,165,2D echo,63.0,-19.5,routine surveillance,
+PT-0159,270,2D echo,66.0,-19.5,routine surveillance,
+PT-0159,353,2D echo,64.0,-19.5,routine surveillance,trivial MR
+PT-0159,436,2D echo,68.0,-19.5,routine surveillance,
+PT-0159,448,2D echo,63.0,-19.5,routine surveillance,grade I diastolic dysfunction
+PT-0160,-29,2D echo,70.0,-21.0,Baseline,
+PT-0160,135,2D echo,73.0,,routine surveillance,
+PT-0160,472,2D echo,71.0,,routine surveillance,
+PT-0161,-15,2D echo,57.0,-17.7,Baseline,
+PT-0161,89,MUGA,58.0,-17.3,routine surveillance,
+PT-0161,424,2D echo,54.0,-14.3,routine surveillance,
+PT-0162,-19,3D echo,52.0,-19.4,Baseline,
+PT-0162,90,2D echo,55.0,,routine surveillance,
+PT-0162,174,2D echo,54.0,,routine surveillance,
+PT-0162,257,2D echo,47.0,-15.0,routine surveillance,
+PT-0162,358,2D echo,47.0,,routine surveillance,
+PT-0162,405,2D echo,44.0,-15.0,routine surveillance,trivial MR
+PT-0162,455,3D echo,53.0,,routine surveillance,
+PT-0163,-38,2D echo,70.0,-18.3,Baseline,
+PT-0163,77,2D echo,68.0,-17.9,routine surveillance,grade I diastolic dysfunction
+PT-0163,425,2D echo,69.0,-17.6,routine surveillance,
+PT-0164,-4,2D echo,63.0,,Baseline,
+PT-0164,70,3D echo,68.0,-24.1,routine surveillance,grade I diastolic dysfunction
+PT-0164,436,2D echo,62.0,-23.6,routine surveillance,
+PT-0165,-40,2D echo,68.0,-18.8,Baseline,trivial MR
+PT-0165,78,MUGA,61.0,-18.4,routine surveillance,
+PT-0165,188,2D echo,61.0,,routine surveillance,
+PT-0165,278,2D echo,65.0,-18.0,routine surveillance,
+PT-0165,367,2D echo,70.0,-18.0,routine surveillance,trivial MR
+PT-0165,444,MUGA,64.0,-18.0,routine surveillance,trivial MR
+PT-0165,458,2D echo,69.0,,routine surveillance,
+PT-0166,-26,2D echo,66.0,-19.3,Baseline,trivial MR
+PT-0166,89,2D echo,66.0,,routine surveillance,grade I diastolic dysfunction
+PT-0167,-15,2D echo,63.0,,Baseline,
+PT-0167,89,2D echo,62.0,-19.4,routine surveillance,
+PT-0167,183,2D echo,61.0,-16.1,routine surveillance,
+PT-0167,347,2D echo,63.0,-16.1,routine surveillance,
+PT-0167,439,MUGA,59.0,-16.1,routine surveillance,
+PT-0167,440,2D echo,63.0,-16.1,routine surveillance,grade I diastolic dysfunction
+PT-0168,-9,2D echo,53.0,-18.8,Baseline,
+PT-0168,89,2D echo,59.0,,routine surveillance,
+PT-0168,434,2D echo,45.0,,routine surveillance,
+PT-0169,-5,2D echo,59.0,-22.7,Baseline,
+PT-0169,58,2D echo,59.0,-22.3,routine surveillance,
+PT-0169,382,2D echo,57.0,-21.8,routine surveillance,trivial MR
+PT-0170,-14,2D echo,69.0,-22.8,Baseline,trivial MR
+PT-0170,263,2D echo,69.0,,routine surveillance,
+PT-0170,358,2D echo,65.0,,routine surveillance,grade I diastolic dysfunction
+PT-0170,435,MUGA,66.0,-21.9,routine surveillance,
+PT-0170,455,2D echo,67.0,-21.9,routine surveillance,
+PT-0171,-22,2D echo,68.0,-21.4,Baseline,
+PT-0171,77,2D echo,71.0,-21.0,routine surveillance,trivial MR
+PT-0171,177,2D echo,62.0,-17.0,routine surveillance,
+PT-0171,267,MUGA,69.0,-17.0,routine surveillance,
+PT-0171,367,2D echo,64.0,-17.0,routine surveillance,
+PT-0171,442,MUGA,70.0,-17.0,routine surveillance,
+PT-0172,-23,2D echo,62.0,-19.8,Baseline,trivial MR
+PT-0172,98,2D echo,61.0,-19.3,routine surveillance,
+PT-0172,432,2D echo,62.0,,routine surveillance,
+PT-0173,-33,2D echo,67.0,-22.2,Baseline,
+PT-0173,96,2D echo,67.0,-21.6,routine surveillance,
+PT-0173,448,2D echo,71.0,-21.3,routine surveillance,
+PT-0174,-26,2D echo,63.0,-22.3,Baseline,trivial MR
+PT-0174,91,2D echo,67.0,-21.8,routine surveillance,
+PT-0174,430,2D echo,65.0,,routine surveillance,trivial MR
+PT-0175,-24,2D echo,60.0,-18.7,Baseline,
+PT-0175,86,2D echo,58.0,,routine surveillance,
+PT-0175,400,2D echo,57.0,-18.0,routine surveillance,
+PT-0176,-3,2D echo,71.0,-23.0,Baseline,
+PT-0177,-30,2D echo,65.0,-20.3,Baseline,grade I diastolic dysfunction
+PT-0177,124,2D echo,58.0,-19.6,routine surveillance,
+PT-0177,473,2D echo,55.0,,routine surveillance,grade I diastolic dysfunction
+PT-0178,-15,2D echo,62.0,-24.5,Baseline,
+PT-0178,69,2D echo,61.0,,routine surveillance,
+PT-0178,166,2D echo,57.0,-23.5,routine surveillance,grade I diastolic dysfunction
+PT-0178,234,2D echo,56.0,-23.5,routine surveillance,
+PT-0178,327,2D echo,57.0,-23.5,routine surveillance,
+PT-0178,393,2D echo,58.0,,routine surveillance,trivial MR
+PT-0178,420,2D echo,58.0,,routine surveillance,trivial MR
+PT-0179,-23,2D echo,58.0,-23.0,Baseline,grade I diastolic dysfunction
+PT-0179,83,2D echo,55.0,-22.5,routine surveillance,
+PT-0179,444,2D echo,50.0,-17.5,routine surveillance,
+PT-0180,-29,2D echo,58.0,-20.3,Baseline,
+PT-0180,56,2D echo,59.0,,routine surveillance,
+PT-0180,427,2D echo,58.0,,routine surveillance,
+PT-0181,-24,2D echo,57.0,-25,Baseline,grade I diastolic dysfunction
+PT-0181,411,2D echo,57.0,,routine surveillance,
+PT-0182,-8,2D echo,54.0,-22.8,Baseline,
+PT-0182,79,3D echo,57.0,-22.3,routine surveillance,
+PT-0182,169,2D echo,51.0,-21.9,routine surveillance,
+PT-0182,270,2D echo,52.0,-21.9,routine surveillance,
+PT-0182,361,2D echo,45.0,,routine surveillance,trivial MR
+PT-0182,441,2D echo,51.0,-21.9,routine surveillance,
+PT-0182,455,2D echo,56.0,-21.9,routine surveillance,
+PT-0183,-24,2D echo,62.0,-21.6,Baseline,
+PT-0183,98,2D echo,62.0,-21.0,routine surveillance,grade I diastolic dysfunction
+PT-0183,401,2D echo,62.0,-20.7,routine surveillance,trivial MR
+PT-0184,-39,2D echo,71.0,-21.5,Baseline,grade I diastolic dysfunction
+PT-0184,143,2D echo,63.0,-20.7,routine surveillance,grade I diastolic dysfunction
+PT-0184,496,2D echo,66.0,-20.6,routine surveillance,
+PT-0185,-16,2D echo,71.0,-18.5,Baseline,
+PT-0185,57,2D echo,74.0,,routine surveillance,
+PT-0185,404,2D echo,74.0,,routine surveillance,
+PT-0186,-11,2D echo,68.0,-18.8,Baseline,
+PT-0186,89,2D echo,67.0,,routine surveillance,
+PT-0187,-37,2D echo,61.0,-20.5,Baseline,trivial MR
+PT-0187,68,2D echo,56.0,,routine surveillance,
+PT-0187,402,2D echo,56.0,,routine surveillance,trivial MR
+PT-0188,-17,2D echo,66.0,,Baseline,
+PT-0188,70,2D echo,70.0,,routine surveillance,grade I diastolic dysfunction
+PT-0188,406,2D echo,69.0,,routine surveillance,grade I diastolic dysfunction
+PT-0189,-33,2D echo,65.0,-23.1,Baseline,grade I diastolic dysfunction
+PT-0189,92,2D echo,73.0,-22.5,routine surveillance,
+PT-0189,171,MUGA,56.0,,routine surveillance,trivial MR
+PT-0189,264,2D echo,69.0,,routine surveillance,
+PT-0189,364,2D echo,72.0,-22.2,routine surveillance,
+PT-0189,398,2D echo,66.0,,routine surveillance,
+PT-0189,438,2D echo,65.0,-22.2,routine surveillance,
+PT-0190,-39,2D echo,63.0,-20.6,Baseline,
+PT-0190,94,2D echo,64.0,,routine surveillance,
+PT-0190,406,2D echo,61.0,,routine surveillance,
+PT-0191,-11,2D echo,66.0,,Baseline,
+PT-0191,83,2D echo,68.0,-20.3,routine surveillance,
+PT-0191,433,2D echo,55.0,-15.8,routine surveillance,
+PT-0192,-36,2D echo,67.0,-20.7,Baseline,grade I diastolic dysfunction
+PT-0192,78,2D echo,62.0,-20.3,routine surveillance,
+PT-0192,187,2D echo,61.0,-15.7,routine surveillance,
+PT-0192,267,MUGA,37.0,-15.7,routine surveillance,trivial MR
+PT-0192,347,2D echo,46.0,,routine surveillance,
+PT-0192,442,2D echo,45.0,-15.7,routine surveillance,trivial MR
+PT-0192,451,3D echo,37.0,-15.7,routine surveillance,
+PT-0193,-16,2D echo,66.0,-21.5,Baseline,grade I diastolic dysfunction
+PT-0193,418,2D echo,62.0,,routine surveillance,
+PT-0194,-5,2D echo,58.0,-19.4,Baseline,grade I diastolic dysfunction
+PT-0194,119,2D echo,56.0,-18.8,routine surveillance,
+PT-0194,494,2D echo,47.0,-14.7,routine surveillance,
+PT-0195,-36,2D echo,50.0,-20.9,Baseline,
+PT-0195,92,2D echo,51.0,,routine surveillance,trivial MR
+PT-0195,448,3D echo,41.0,,routine surveillance,
+PT-0196,-4,2D echo,55.0,-22.3,Baseline,grade I diastolic dysfunction
+PT-0196,136,2D echo,46.0,,routine surveillance,trivial MR
+PT-0196,462,2D echo,49.0,-16.9,routine surveillance,trivial MR
+PT-0196,471,2D echo,47.0,,symptom-driven,
+PT-0197,-24,2D echo,58.0,-19.7,Baseline,
+PT-0197,88,2D echo,59.0,,routine surveillance,
+PT-0197,189,2D echo,50.0,,routine surveillance,
+PT-0197,267,2D echo,55.0,-18.9,routine surveillance,
+PT-0197,360,MUGA,57.0,,routine surveillance,trivial MR
+PT-0197,422,2D echo,60.0,-18.9,routine surveillance,grade I diastolic dysfunction
+PT-0197,434,2D echo,60.0,-18.9,routine surveillance,
+PT-0198,-7,2D echo,67.0,,Baseline,
+PT-0198,275,2D echo,60.0,-19.2,routine surveillance,
+PT-0198,363,2D echo,60.0,-19.2,routine surveillance,
+PT-0198,430,2D echo,63.0,-19.2,routine surveillance,trivial MR
+PT-0198,447,2D echo,75.0,-19.2,routine surveillance,grade I diastolic dysfunction
+PT-0199,-32,2D echo,61.0,-18.2,Baseline,
+PT-0199,73,2D echo,60.0,,routine surveillance,trivial MR
+PT-0199,418,2D echo,57.0,-17.5,routine surveillance,
+PT-0200,-33,2D echo,67.0,-22.0,Baseline,grade I diastolic dysfunction
+PT-0201,-7,2D echo,71.0,-24.5,Baseline,
+PT-0201,91,2D echo,71.0,-23.9,routine surveillance,trivial MR
+PT-0201,470,2D echo,68.0,,routine surveillance,trivial MR
+PT-0202,-11,2D echo,68.0,-25,Baseline,
+PT-0202,85,2D echo,62.0,-24.4,routine surveillance,
+PT-0202,165,2D echo,48.0,-19.0,routine surveillance,
+PT-0202,256,3D echo,49.0,,routine surveillance,
+PT-0202,351,2D echo,61.0,-19.0,routine surveillance,
+PT-0202,419,2D echo,62.0,-19.0,routine surveillance,
+PT-0202,453,2D echo,61.0,,routine surveillance,trivial MR
+PT-0203,-19,2D echo,65.0,-19.8,Baseline,trivial MR
+PT-0203,91,2D echo,72.0,,routine surveillance,grade I diastolic dysfunction
+PT-0203,189,2D echo,66.0,-19.0,routine surveillance,
+PT-0203,264,2D echo,60.0,,routine surveillance,
+PT-0203,363,2D echo,62.0,,routine surveillance,
+PT-0203,431,2D echo,57.0,-19.0,routine surveillance,trivial MR
+PT-0203,434,2D echo,56.0,,routine surveillance,
+PT-0204,-24,2D echo,66.0,-16.5,Baseline,trivial MR
+PT-0204,58,2D echo,70.0,,routine surveillance,
+PT-0204,145,3D echo,51.0,,routine surveillance,grade I diastolic dysfunction
+PT-0204,247,2D echo,57.0,,routine surveillance,trivial MR
+PT-0204,334,2D echo,56.0,-12.5,routine surveillance,grade I diastolic dysfunction
+PT-0204,421,2D echo,54.0,-12.5,routine surveillance,grade I diastolic dysfunction
+PT-0205,-3,2D echo,67.0,-18.3,Baseline,grade I diastolic dysfunction
+PT-0205,130,2D echo,57.0,-17.7,routine surveillance,
+PT-0205,483,3D echo,63.0,-15.0,routine surveillance,trivial MR
+PT-0206,-21,MUGA,64.0,-18.5,Baseline,
+PT-0206,85,2D echo,63.0,-18.1,routine surveillance,
+PT-0206,409,2D echo,57.0,,routine surveillance,trivial MR
+PT-0207,-10,2D echo,67.0,-21.8,Baseline,
+PT-0207,82,2D echo,71.0,,routine surveillance,
+PT-0207,441,2D echo,64.0,,routine surveillance,
+PT-0208,-22,2D echo,56.0,-20.7,Baseline,
+PT-0208,67,2D echo,57.0,-20.3,routine surveillance,grade I diastolic dysfunction
+PT-0208,404,2D echo,54.0,,routine surveillance,
+PT-0209,-26,2D echo,68.0,-20.1,Baseline,grade I diastolic dysfunction
+PT-0209,89,2D echo,66.0,-19.6,routine surveillance,grade I diastolic dysfunction
+PT-0209,419,2D echo,63.0,,routine surveillance,trivial MR
+PT-0210,-35,2D echo,61.0,,Baseline,
+PT-0210,63,2D echo,61.0,,routine surveillance,
+PT-0210,437,2D echo,59.0,-16.1,routine surveillance,grade I diastolic dysfunction
+PT-0211,-26,2D echo,65.0,,Baseline,
+PT-0211,80,2D echo,57.0,-18.3,routine surveillance,
+PT-0211,401,2D echo,63.0,-18.0,routine surveillance,
+PT-0212,-37,2D echo,62.0,-23.4,Baseline,
+PT-0212,133,2D echo,55.0,-22.6,routine surveillance,
+PT-0212,462,2D echo,58.0,-22.5,routine surveillance,
+PT-0213,-34,2D echo,64.0,-20.0,Baseline,
+PT-0213,404,2D echo,64.0,-19.2,routine surveillance,trivial MR
+PT-0214,-37,2D echo,65.0,-17.1,Baseline,grade I diastolic dysfunction
+PT-0214,77,2D echo,63.0,-16.7,routine surveillance,
+PT-0214,173,2D echo,60.0,-16.4,routine surveillance,
+PT-0214,259,2D echo,63.0,-16.4,routine surveillance,
+PT-0214,346,2D echo,58.0,,routine surveillance,
+PT-0214,401,2D echo,63.0,,routine surveillance,
+PT-0214,447,2D echo,68.0,-16.4,routine surveillance,
+PT-0215,-23,2D echo,64.0,-16.5,Baseline,trivial MR
+PT-0215,72,MUGA,64.0,-16.2,routine surveillance,trivial MR
+PT-0215,411,2D echo,59.0,,routine surveillance,
+PT-0216,-24,2D echo,60.0,-22.2,Baseline,grade I diastolic dysfunction
+PT-0216,69,2D echo,67.0,-21.8,routine surveillance,
+PT-0216,151,2D echo,60.0,,routine surveillance,
+PT-0216,228,2D echo,57.0,-21.3,routine surveillance,grade I diastolic dysfunction
+PT-0216,324,2D echo,54.0,-21.3,routine surveillance,
+PT-0216,400,3D echo,56.0,,routine surveillance,trivial MR
+PT-0216,426,2D echo,54.0,-21.3,routine surveillance,grade I diastolic dysfunction
+PT-0217,-30,2D echo,69.0,-22.8,Baseline,grade I diastolic dysfunction
+PT-0217,72,2D echo,64.0,,routine surveillance,grade I diastolic dysfunction
+PT-0217,407,MUGA,68.0,-21.9,routine surveillance,
+PT-0218,-19,2D echo,60.0,-21.1,Baseline,
+PT-0218,68,2D echo,51.0,-20.7,routine surveillance,grade I diastolic dysfunction
+PT-0218,394,2D echo,66.0,-20.3,routine surveillance,
+PT-0219,-6,2D echo,56.0,-16.5,Baseline,trivial MR
+PT-0219,61,2D echo,51.0,,routine surveillance,grade I diastolic dysfunction
+PT-0219,398,2D echo,51.0,-12.5,routine surveillance,trivial MR
+PT-0219,404,2D echo,46.0,,symptom-driven,
+PT-0220,-23,2D echo,54.0,-20.3,Baseline,grade I diastolic dysfunction
+PT-0220,87,2D echo,54.0,,routine surveillance,grade I diastolic dysfunction
+PT-0220,165,2D echo,59.0,-19.5,routine surveillance,
+PT-0220,275,2D echo,56.0,-19.5,routine surveillance,grade I diastolic dysfunction
+PT-0220,348,2D echo,57.0,,routine surveillance,trivial MR
+PT-0220,405,MUGA,53.0,-19.5,routine surveillance,trivial MR
+PT-0220,449,2D echo,57.0,-19.5,routine surveillance,trivial MR
+PT-0221,-36,3D echo,67.0,-19.9,Baseline,
+PT-0221,79,2D echo,70.0,-19.5,routine surveillance,trivial MR
+PT-0222,-23,2D echo,60.0,-19.9,Baseline,
+PT-0222,415,2D echo,55.0,,routine surveillance,
+PT-0223,-9,2D echo,55.0,-21.0,Baseline,grade I diastolic dysfunction
+PT-0223,83,2D echo,51.0,,routine surveillance,trivial MR
+PT-0223,169,3D echo,51.0,-20.2,routine surveillance,
+PT-0223,260,2D echo,51.0,,routine surveillance,
+PT-0223,363,2D echo,45.0,,routine surveillance,grade I diastolic dysfunction
+PT-0223,410,2D echo,48.0,-20.2,routine surveillance,grade I diastolic dysfunction
+PT-0223,446,2D echo,57.0,,routine surveillance,
+PT-0224,-34,2D echo,62.0,-21.5,Baseline,
+PT-0224,98,2D echo,63.0,-20.9,routine surveillance,
+PT-0224,188,2D echo,56.0,-20.6,routine surveillance,trivial MR
+PT-0224,368,2D echo,62.0,,routine surveillance,
+PT-0224,458,2D echo,61.0,-20.6,routine surveillance,
+PT-0225,-17,2D echo,67.0,-20.6,Baseline,
+PT-0225,77,2D echo,60.0,-20.2,routine surveillance,
+PT-0225,454,2D echo,61.0,,routine surveillance,
+PT-0226,-37,2D echo,72.0,-18.6,Baseline,
+PT-0226,81,2D echo,80.0,-18.2,routine surveillance,trivial MR
+PT-0226,188,2D echo,71.0,-17.9,routine surveillance,grade I diastolic dysfunction
+PT-0226,266,2D echo,71.0,,routine surveillance,
+PT-0226,451,2D echo,73.0,,routine surveillance,
+PT-0226,453,2D echo,72.0,-17.9,routine surveillance,trivial MR
+PT-0227,-22,2D echo,63.0,-16.8,Baseline,
+PT-0227,92,2D echo,61.0,-16.4,routine surveillance,
+PT-0227,176,2D echo,61.0,,routine surveillance,trivial MR
+PT-0227,279,2D echo,45.0,-12.8,routine surveillance,
+PT-0227,361,MUGA,57.0,-12.8,routine surveillance,
+PT-0227,441,2D echo,51.0,,routine surveillance,
+PT-0227,451,3D echo,52.0,-12.8,routine surveillance,
+PT-0228,-3,2D echo,64.0,-20.6,Baseline,grade I diastolic dysfunction
+PT-0228,94,MUGA,63.0,,routine surveillance,
+PT-0229,-22,2D echo,62.0,-24.9,Baseline,grade I diastolic dysfunction
+PT-0229,86,2D echo,66.0,,routine surveillance,
+PT-0229,165,2D echo,62.0,-19.5,routine surveillance,
+PT-0229,268,2D echo,64.0,,routine surveillance,
+PT-0229,349,MUGA,57.0,,routine surveillance,
+PT-0229,404,2D echo,58.0,-19.5,routine surveillance,
+PT-0229,454,2D echo,56.0,-19.5,routine surveillance,
+PT-0230,-34,2D echo,63.0,-20.0,Baseline,
+PT-0230,132,2D echo,65.0,,routine surveillance,
+PT-0230,446,2D echo,59.0,,routine surveillance,
+PT-0231,-31,2D echo,62.0,-20.8,Baseline,grade I diastolic dysfunction
+PT-0231,56,2D echo,64.0,,routine surveillance,
+PT-0232,-33,2D echo,58.0,-18.2,Baseline,
+PT-0232,105,2D echo,58.0,,routine surveillance,
+PT-0232,441,2D echo,51.0,,routine surveillance,grade I diastolic dysfunction
+PT-0233,-6,2D echo,65.0,-18.5,Baseline,
+PT-0233,78,2D echo,63.0,-18.1,routine surveillance,
+PT-0233,186,2D echo,66.0,-17.8,routine surveillance,
+PT-0233,273,2D echo,65.0,-17.8,routine surveillance,trivial MR
+PT-0233,448,2D echo,57.0,-17.8,routine surveillance,
+PT-0233,456,2D echo,66.0,-17.8,routine surveillance,grade I diastolic dysfunction
+PT-0234,-36,MUGA,61.0,-19.8,Baseline,grade I diastolic dysfunction
+PT-0234,61,2D echo,59.0,-19.5,routine surveillance,
+PT-0234,407,2D echo,56.0,-15.0,routine surveillance,
+PT-0235,-8,2D echo,67.0,-18.7,Baseline,
+PT-0235,56,2D echo,65.0,-18.4,routine surveillance,
+PT-0235,399,2D echo,63.0,,routine surveillance,trivial MR
+PT-0236,-35,2D echo,63.0,-22.8,Baseline,
+PT-0236,66,2D echo,64.0,,routine surveillance,
+PT-0236,319,3D echo,59.0,-17.3,routine surveillance,
+PT-0236,415,3D echo,54.0,,routine surveillance,
+PT-0236,420,MUGA,57.0,,routine surveillance,
+PT-0237,-17,2D echo,64.0,,Baseline,
+PT-0237,171,MUGA,66.0,-17.9,routine surveillance,trivial MR
+PT-0237,434,2D echo,66.0,-17.9,routine surveillance,grade I diastolic dysfunction
+PT-0237,459,MUGA,65.0,,routine surveillance,
+PT-0238,-26,2D echo,62.0,,Baseline,grade I diastolic dysfunction
+PT-0238,80,2D echo,56.0,,routine surveillance,
+PT-0238,186,2D echo,50.0,-20.6,routine surveillance,grade I diastolic dysfunction
+PT-0238,351,2D echo,56.0,,routine surveillance,grade I diastolic dysfunction
+PT-0238,451,2D echo,63.0,,routine surveillance,
+PT-0239,-27,2D echo,71.0,-21.9,Baseline,trivial MR
+PT-0239,67,2D echo,71.0,,routine surveillance,
+PT-0239,422,2D echo,59.0,,routine surveillance,trivial MR
+PT-0240,-10,MUGA,63.0,-19.6,Baseline,trivial MR
+PT-0240,92,2D echo,64.0,,routine surveillance,grade I diastolic dysfunction
+PT-0240,180,2D echo,55.0,-18.8,routine surveillance,trivial MR
+PT-0240,351,2D echo,66.0,,routine surveillance,grade I diastolic dysfunction
+PT-0240,420,2D echo,59.0,-15.7,routine surveillance,
+PT-0240,434,2D echo,62.0,-15.7,routine surveillance,
+PT-0241,-36,2D echo,66.0,-18.1,Baseline,trivial MR
+PT-0241,77,2D echo,68.0,,routine surveillance,trivial MR
+PT-0242,-6,2D echo,59.0,,Baseline,
+PT-0242,84,2D echo,60.0,,routine surveillance,
+PT-0243,-40,2D echo,67.0,-21.7,Baseline,grade I diastolic dysfunction
+PT-0243,127,2D echo,63.0,,routine surveillance,
+PT-0243,452,2D echo,62.0,,routine surveillance,grade I diastolic dysfunction
+PT-0244,-16,2D echo,64.0,-20.7,Baseline,
+PT-0244,188,2D echo,64.0,-19.9,routine surveillance,
+PT-0244,261,2D echo,58.0,,routine surveillance,
+PT-0244,367,2D echo,60.0,-19.9,routine surveillance,grade I diastolic dysfunction
+PT-0244,431,2D echo,59.0,-19.9,routine surveillance,
+PT-0244,457,2D echo,63.0,,routine surveillance,grade I diastolic dysfunction
+PT-0245,-30,2D echo,61.0,-21.4,Baseline,
+PT-0245,417,2D echo,63.0,,routine surveillance,trivial MR
+PT-0246,-7,2D echo,60.0,,Baseline,
+PT-0246,139,2D echo,62.0,-17.7,routine surveillance,grade I diastolic dysfunction
+PT-0246,490,3D echo,64.0,-17.7,routine surveillance,
+PT-0247,-39,3D echo,61.0,-21.9,Baseline,trivial MR
+PT-0247,86,2D echo,61.0,-21.4,routine surveillance,trivial MR
+PT-0248,-36,MUGA,60.0,-18.4,Baseline,grade I diastolic dysfunction
+PT-0248,90,2D echo,61.0,-18.0,routine surveillance,grade I diastolic dysfunction
+PT-0248,187,2D echo,59.0,,routine surveillance,grade I diastolic dysfunction
+PT-0248,277,2D echo,60.0,-14.4,routine surveillance,
+PT-0248,350,2D echo,62.0,-14.4,routine surveillance,
+PT-0248,423,2D echo,53.0,-14.4,routine surveillance,trivial MR
+PT-0248,451,2D echo,57.0,,routine surveillance,
+PT-0249,-26,2D echo,64.0,-24.2,Baseline,grade I diastolic dysfunction
+PT-0249,402,2D echo,60.0,-23.2,routine surveillance,
+PT-0250,-29,2D echo,63.0,-18.5,Baseline,
+PT-0250,88,2D echo,60.0,-18.1,routine surveillance,trivial MR
+PT-0251,-26,MUGA,63.0,-18.8,Baseline,
+PT-0251,90,2D echo,58.0,-18.3,routine surveillance,
+PT-0251,440,2D echo,65.0,,routine surveillance,trivial MR
+PT-0252,-33,2D echo,69.0,-20.0,Baseline,grade I diastolic dysfunction
+PT-0252,81,2D echo,72.0,-19.6,routine surveillance,trivial MR
+PT-0252,413,2D echo,66.0,-19.2,routine surveillance,
+PT-0253,-13,2D echo,70.0,-21.1,Baseline,trivial MR
+PT-0253,68,2D echo,76.0,-20.7,routine surveillance,
+PT-0253,426,2D echo,64.0,-16.0,routine surveillance,
+PT-0254,-27,2D echo,57.0,-19.6,Baseline,
+PT-0254,86,3D echo,56.0,-19.2,routine surveillance,
+PT-0254,457,2D echo,48.0,-18.8,routine surveillance,
+PT-0255,-37,2D echo,57.0,-16.8,Baseline,
+PT-0255,97,2D echo,59.0,,routine surveillance,
+PT-0255,188,2D echo,60.0,-16.1,routine surveillance,
+PT-0255,264,2D echo,56.0,,routine surveillance,trivial MR
+PT-0255,350,2D echo,54.0,,routine surveillance,
+PT-0255,405,2D echo,53.0,,routine surveillance,
+PT-0255,445,2D echo,48.0,,routine surveillance,
+PT-0256,-38,2D echo,58.0,-20.9,Baseline,trivial MR
+PT-0256,94,2D echo,58.0,,routine surveillance,
+PT-0256,166,2D echo,61.0,-20.1,routine surveillance,grade I diastolic dysfunction
+PT-0256,271,2D echo,51.0,,routine surveillance,trivial MR
+PT-0256,366,2D echo,59.0,,routine surveillance,
+PT-0256,412,2D echo,50.0,,routine surveillance,
+PT-0256,442,2D echo,59.0,,routine surveillance,
+PT-0257,-10,2D echo,62.0,-23.4,Baseline,
+PT-0257,98,2D echo,65.0,,routine surveillance,trivial MR
+PT-0257,457,2D echo,60.0,-22.5,routine surveillance,trivial MR
+PT-0258,-31,2D echo,70.0,-23.4,Baseline,trivial MR
+PT-0258,83,2D echo,71.0,,routine surveillance,grade I diastolic dysfunction
+PT-0259,-30,2D echo,64.0,-20.8,Baseline,trivial MR
+PT-0259,98,MUGA,66.0,,routine surveillance,
+PT-0260,-40,2D echo,59.0,-18.7,Baseline,grade I diastolic dysfunction
+PT-0260,97,2D echo,60.0,,routine surveillance,
+PT-0260,182,2D echo,60.0,-15.4,routine surveillance,
+PT-0260,255,2D echo,60.0,,routine surveillance,trivial MR
+PT-0260,369,2D echo,59.0,,routine surveillance,
+PT-0260,439,2D echo,62.0,-15.4,routine surveillance,
+PT-0260,444,2D echo,60.0,,routine surveillance,
+PT-0261,-9,2D echo,71.0,-19.2,Baseline,grade I diastolic dysfunction
+PT-0261,57,2D echo,72.0,,routine surveillance,
+PT-0261,410,2D echo,60.0,,routine surveillance,
+PT-0262,-29,2D echo,61.0,,Baseline,
+PT-0262,135,2D echo,62.0,-15.9,routine surveillance,grade I diastolic dysfunction
+PT-0263,-35,2D echo,65.0,,Baseline,
+PT-0263,93,2D echo,69.0,-19.9,routine surveillance,
+PT-0263,171,2D echo,51.0,-15.5,routine surveillance,
+PT-0263,254,2D echo,47.0,,routine surveillance,
+PT-0263,454,2D echo,50.0,-15.5,routine surveillance,
+PT-0263,457,2D echo,58.0,-15.5,routine surveillance,grade I diastolic dysfunction
+PT-0264,-32,2D echo,58.0,,Baseline,
+PT-0264,77,2D echo,53.0,-19.5,routine surveillance,trivial MR
+PT-0264,403,2D echo,63.0,-19.1,routine surveillance,
+PT-0265,-19,2D echo,69.0,-20.5,Baseline,
+PT-0265,77,2D echo,71.0,-20.1,routine surveillance,
+PT-0265,147,2D echo,54.0,,routine surveillance,
+PT-0265,240,2D echo,58.0,,routine surveillance,
+PT-0265,336,2D echo,55.0,-15.6,routine surveillance,trivial MR
+PT-0265,383,2D echo,59.0,-15.6,routine surveillance,
+PT-0265,420,2D echo,62.0,-15.6,routine surveillance,trivial MR
+PT-0266,-25,2D echo,69.0,-21.0,Baseline,trivial MR
+PT-0266,93,2D echo,72.0,-20.5,routine surveillance,
+PT-0267,-21,2D echo,63.0,-22.0,Baseline,
+PT-0267,97,2D echo,63.0,,routine surveillance,trivial MR
+PT-0268,-11,2D echo,60.0,-17.6,Baseline,grade I diastolic dysfunction
+PT-0268,68,2D echo,57.0,,routine surveillance,
+PT-0268,381,2D echo,60.0,,routine surveillance,
+PT-0269,-9,2D echo,61.0,-18.2,Baseline,
+PT-0269,63,3D echo,64.0,,routine surveillance,grade I diastolic dysfunction
+PT-0269,158,2D echo,41.0,,routine surveillance,
+PT-0269,246,3D echo,55.0,-13.8,routine surveillance,
+PT-0269,338,2D echo,46.0,-13.8,routine surveillance,trivial MR
+PT-0269,426,2D echo,54.0,-13.8,routine surveillance,trivial MR
+PT-0269,432,2D echo,50.0,-13.8,routine surveillance,
+PT-0270,-29,2D echo,59.0,,Baseline,
+PT-0270,95,2D echo,59.0,-17.7,routine surveillance,grade I diastolic dysfunction
+PT-0271,-8,2D echo,75.0,,Baseline,
+PT-0271,89,2D echo,72.0,-21.9,routine surveillance,
+PT-0271,454,2D echo,75.0,,routine surveillance,
+PT-0272,-28,2D echo,63.0,,Baseline,
+PT-0272,78,2D echo,57.0,,routine surveillance,trivial MR
+PT-0272,449,MUGA,59.0,-17.9,routine surveillance,
+PT-0273,-34,2D echo,61.0,,Baseline,
+PT-0273,84,2D echo,55.0,,routine surveillance,
+PT-0273,456,2D echo,60.0,-18.2,routine surveillance,
+PT-0274,-29,2D echo,70.0,-17.7,Baseline,
+PT-0274,77,2D echo,62.0,,routine surveillance,grade I diastolic dysfunction
+PT-0274,152,2D echo,69.0,-14.8,routine surveillance,
+PT-0274,250,2D echo,68.0,,routine surveillance,
+PT-0274,317,MUGA,71.0,-14.8,routine surveillance,grade I diastolic dysfunction
+PT-0274,408,2D echo,70.0,,routine surveillance,trivial MR
+PT-0274,427,2D echo,69.0,-14.8,routine surveillance,
+PT-0275,-30,2D echo,63.0,-17.1,Baseline,trivial MR
+PT-0275,86,2D echo,55.0,-16.7,routine surveillance,grade I diastolic dysfunction
+PT-0275,414,2D echo,58.0,-16.4,routine surveillance,grade I diastolic dysfunction
+PT-0276,-22,2D echo,72.0,-19.4,Baseline,trivial MR
+PT-0276,57,2D echo,72.0,,routine surveillance,grade I diastolic dysfunction
+PT-0276,413,2D echo,65.0,,routine surveillance,trivial MR
+PT-0277,-38,2D echo,65.0,-20.8,Baseline,grade I diastolic dysfunction
+PT-0277,494,2D echo,64.0,-20.0,routine surveillance,grade I diastolic dysfunction
+PT-0278,-30,2D echo,62.0,-20.4,Baseline,
+PT-0278,125,2D echo,59.0,,routine surveillance,
+PT-0278,456,2D echo,58.0,,routine surveillance,
+PT-0279,-10,2D echo,71.0,-23.5,Baseline,grade I diastolic dysfunction
+PT-0279,88,3D echo,73.0,-22.9,routine surveillance,
+PT-0279,430,2D echo,65.0,,routine surveillance,
+PT-0280,-9,2D echo,59.0,,Baseline,trivial MR
+PT-0280,90,2D echo,59.0,,routine surveillance,
+PT-0280,172,2D echo,51.0,,routine surveillance,
+PT-0280,264,2D echo,56.0,,routine surveillance,trivial MR
+PT-0280,362,2D echo,62.0,-19.9,routine surveillance,
+PT-0280,436,2D echo,55.0,-19.9,routine surveillance,
+PT-0280,438,2D echo,58.0,-19.9,routine surveillance,
+PT-0281,-29,2D echo,60.0,-20.1,Baseline,
+PT-0281,84,2D echo,62.0,-19.6,routine surveillance,trivial MR
+PT-0282,-31,MUGA,65.0,-19.8,Baseline,grade I diastolic dysfunction
+PT-0282,130,2D echo,69.0,,routine surveillance,trivial MR
+PT-0282,449,2D echo,61.0,-19.0,routine surveillance,
+PT-0283,-12,3D echo,72.0,-18.5,Baseline,grade I diastolic dysfunction
+PT-0283,77,2D echo,74.0,,routine surveillance,
+PT-0283,381,2D echo,71.0,-14.6,routine surveillance,
+PT-0284,-4,2D echo,63.0,-22.7,Baseline,trivial MR
+PT-0284,80,2D echo,66.0,-22.2,routine surveillance,
+PT-0284,448,2D echo,52.0,-18.1,routine surveillance,
+PT-0285,-23,2D echo,67.0,-20.4,Baseline,
+PT-0285,78,2D echo,59.0,,routine surveillance,trivial MR
+PT-0285,177,2D echo,65.0,-19.6,routine surveillance,
+PT-0285,267,2D echo,63.0,,routine surveillance,
+PT-0285,351,2D echo,57.0,,routine surveillance,grade I diastolic dysfunction
+PT-0285,405,2D echo,63.0,,routine surveillance,
+PT-0285,458,2D echo,62.0,-16.2,routine surveillance,
+PT-0286,-26,2D echo,59.0,-16.8,Baseline,
+PT-0286,92,2D echo,63.0,-16.4,routine surveillance,
+PT-0286,426,2D echo,56.0,,routine surveillance,
+PT-0287,-14,2D echo,63.0,-19.1,Baseline,trivial MR
+PT-0287,144,2D echo,63.0,-18.4,routine surveillance,grade I diastolic dysfunction
+PT-0287,454,2D echo,54.0,-14.5,routine surveillance,grade I diastolic dysfunction
+PT-0288,-38,2D echo,66.0,-18.2,Baseline,
+PT-0288,83,2D echo,62.0,,routine surveillance,grade I diastolic dysfunction
+PT-0288,443,2D echo,66.0,-17.5,routine surveillance,
+PT-0289,-9,2D echo,63.0,-21.2,Baseline,trivial MR
+PT-0289,69,2D echo,63.0,-20.8,routine surveillance,
+PT-0289,156,2D echo,63.0,-17.8,routine surveillance,trivial MR
+PT-0289,430,2D echo,65.0,,routine surveillance,
+PT-0289,433,2D echo,57.0,-17.8,routine surveillance,
+PT-0290,-15,2D echo,71.0,-21.7,Baseline,
+PT-0290,181,2D echo,64.0,-20.8,routine surveillance,trivial MR
+PT-0290,260,2D echo,66.0,-20.8,routine surveillance,
+PT-0290,348,2D echo,73.0,-20.8,routine surveillance,trivial MR
+PT-0290,427,2D echo,71.0,,routine surveillance,
+PT-0290,447,2D echo,70.0,,routine surveillance,trivial MR
+PT-0291,-33,2D echo,61.0,-21.6,Baseline,trivial MR
+PT-0291,80,2D echo,61.0,-21.1,routine surveillance,
+PT-0291,172,2D echo,57.0,,routine surveillance,grade I diastolic dysfunction
+PT-0291,270,2D echo,55.0,,routine surveillance,
+PT-0291,367,2D echo,65.0,,routine surveillance,grade I diastolic dysfunction
+PT-0291,423,2D echo,60.0,,routine surveillance,
+PT-0291,435,2D echo,61.0,,routine surveillance,
+PT-0292,-6,2D echo,58.0,,Baseline,
+PT-0292,93,2D echo,54.0,-17.5,routine surveillance,grade I diastolic dysfunction
+PT-0292,419,2D echo,54.0,,routine surveillance,grade I diastolic dysfunction
+PT-0293,-5,2D echo,64.0,-21.9,Baseline,
+PT-0293,89,2D echo,61.0,-21.4,routine surveillance,trivial MR
+PT-0293,447,2D echo,65.0,,routine surveillance,grade I diastolic dysfunction
+PT-0294,-18,2D echo,69.0,-20.9,Baseline,trivial MR
+PT-0294,413,2D echo,69.0,,routine surveillance,
+PT-0295,-32,2D echo,61.0,-16.5,Baseline,
+PT-0295,138,MUGA,55.0,,routine surveillance,trivial MR
+PT-0295,499,2D echo,62.0,-15.8,routine surveillance,
+PT-0296,-26,2D echo,55.0,-19.3,Baseline,
+PT-0296,74,MUGA,52.0,-18.9,routine surveillance,
+PT-0296,390,2D echo,54.0,-18.5,routine surveillance,
+PT-0297,-17,2D echo,68.0,-24.1,Baseline,
+PT-0297,78,2D echo,64.0,-23.6,routine surveillance,trivial MR
+PT-0297,448,2D echo,60.0,-18.3,routine surveillance,
+PT-0298,-19,2D echo,60.0,-20.5,Baseline,trivial MR
+PT-0298,94,2D echo,56.0,,routine surveillance,
+PT-0298,187,2D echo,60.0,,routine surveillance,
+PT-0298,256,2D echo,57.0,-19.7,routine surveillance,
+PT-0298,348,2D echo,58.0,-19.7,routine surveillance,
+PT-0298,443,2D echo,58.0,,routine surveillance,trivial MR
+PT-0298,448,2D echo,59.0,-19.7,routine surveillance,
+PT-0299,-17,2D echo,59.0,,Baseline,
+PT-0299,93,2D echo,54.0,-18.4,routine surveillance,trivial MR
+PT-0299,429,2D echo,53.0,-18.1,routine surveillance,
+PT-0300,-32,MUGA,66.0,-22.6,Baseline,
+PT-0300,73,2D echo,65.0,,routine surveillance,

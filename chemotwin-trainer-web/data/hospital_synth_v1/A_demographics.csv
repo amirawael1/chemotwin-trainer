@@ -1,0 +1,301 @@
+patient_id,age_at_first_dose,sex,cancer_type,cancer_subtype,disease_stage,treatment_intent,performance_status,hypertension,diabetes,dyslipidemia,smoking,obesity,prior_mi,coronary_disease,valve_disease_moderate_plus,prior_heart_failure_or_cardiomyopathy,arrhythmia,ckd,chronic_liver_disease,copd,hiv,prior_anthracycline,prior_anthracycline_agent,prior_anthracycline_cumulative_mg_m2,prior_chest_radiotherapy,prior_chest_rt_side,prior_chest_rt_dose_gy,known_drug_allergies,prior_febrile_neutropenia,last_follow_up_day
+PT-0001,58,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,1,0,0,0,never,0,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,429
+PT-0002,65,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,428
+PT-0003,48,F,C50.9 Malignant neoplasm of breast,,III,adjuvant,0,1,0,1,never,1,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,408
+PT-0004,49,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,452
+PT-0005,33,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,419
+PT-0006,49,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,440
+PT-0007,34,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,453
+PT-0008,72,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,neoadjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0009,30,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,0,0,1,never,0,0,1,0,0,0,1,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,431
+PT-0010,67,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0011,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,480
+PT-0012,50,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,464
+PT-0013,49,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,448
+PT-0014,53,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,0,0,0,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,436
+PT-0015,27,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,2,0,1,0,never,1,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,466
+PT-0016,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,423
+PT-0017,41,F,C50.9 Malignant neoplasm of breast,HER2+,,metastatic (palliative),0,0,1,0,never,0,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,403
+PT-0018,58,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0019,68,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0020,64,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,0,0,0,never,1,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,419
+PT-0021,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,1,0,0,0,0,0,0,1,0,0,No,,,No,,,Penicillin – rash – moderate,No,422
+PT-0022,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,393
+PT-0023,67,F,C50.9 Malignant neoplasm of breast,triple-negative,II,neoadjuvant,1,0,0,0,former,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,425
+PT-0024,50,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,410
+PT-0025,47,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,1,0,1,1,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,453
+PT-0026,47,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,415
+PT-0027,55,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,0,never,0,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,424
+PT-0028,56,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,1,0,0,former,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,436
+PT-0029,62,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0030,64,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,403
+PT-0031,54,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,1,0,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,410
+PT-0032,54,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,1,0,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0033,53,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,1,0,Yes,Doxorubicin,180.0,No,,,NKDA,No,448
+PT-0034,36,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),,0,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0035,40,F,C50.9 Malignant neoplasm of breast,,II,neoadjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Iodinated contrast – urticaria – mild,No,438
+PT-0036,32,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,418
+PT-0037,38,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,1,1,never,1,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,443
+PT-0038,49,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,1,0,0,never,0,0,0,1,0,0,1,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,448
+PT-0039,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,422
+PT-0040,26,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,neoadjuvant,1,0,0,1,never,0,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,440
+PT-0041,47,F,C50.9 Malignant neoplasm of breast,,,adjuvant,2,0,1,0,never,0,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,399
+PT-0042,49,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,,1,0,0,never,0,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,441
+PT-0043,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,414
+PT-0044,39,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,1,never,0,0,0,0,0,0,0,1,0,0,No,,,No,,,Penicillin – rash – moderate,No,414
+PT-0045,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,2,0,1,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,391
+PT-0046,54,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,2,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,446
+PT-0047,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,508
+PT-0048,54,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,0,0,0,0,former,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,452
+PT-0049,53,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0050,23,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0051,58,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,2,0,1,1,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0052,53,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,428
+PT-0053,36,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,2,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,460
+PT-0054,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,
+PT-0055,47,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,441
+PT-0056,65,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,1,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,427
+PT-0057,45,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,412
+PT-0058,63,F,C50.9 Malignant neoplasm of breast,triple-negative,,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,442
+PT-0059,66,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,451
+PT-0060,35,F,C50.9 Malignant neoplasm of breast,HER2+,I,neoadjuvant,1,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – anaphylaxis – severe; Ciprofloxacin – rash – mild,No,451
+PT-0061,41,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,433
+PT-0062,45,F,C50.9 Malignant neoplasm of breast,HER2+,I,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,417
+PT-0063,44,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,417
+PT-0064,36,F,C50.9 Malignant neoplasm of breast,triple-negative,II,neoadjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,395
+PT-0065,75,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,1,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,463
+PT-0066,46,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,468
+PT-0067,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,425
+PT-0068,56,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,454
+PT-0069,46,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,422
+PT-0070,35,F,C50.9 Malignant neoplasm of breast,HER2+,,adjuvant,,0,0,1,never,1,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,459
+PT-0071,42,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,407
+PT-0072,41,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,468
+PT-0073,65,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,2,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,467
+PT-0074,56,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,409
+PT-0075,63,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,510
+PT-0076,66,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,427
+PT-0077,51,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),1,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,433
+PT-0078,38,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,411
+PT-0079,24,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,493
+PT-0080,63,F,C50.9 Malignant neoplasm of breast,HER2+,I,adjuvant,1,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,389
+PT-0081,25,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,1,1,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,465
+PT-0082,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,current,0,1,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,404
+PT-0083,45,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,412
+PT-0084,30,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,1,0,never,0,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,
+PT-0085,78,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,2,1,0,0,never,0,0,0,0,0,1,0,0,0,0,No,,,No,,,NKDA,No,400
+PT-0086,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,427
+PT-0087,53,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0088,60,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,420
+PT-0089,45,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,408
+PT-0090,71,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,488
+PT-0091,53,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,468
+PT-0092,46,F,C50.9 Malignant neoplasm of breast,HER2+,,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,431
+PT-0093,49,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,448
+PT-0094,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,424
+PT-0095,33,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,466
+PT-0096,69,F,C50.9 Malignant neoplasm of breast,HER2+,,adjuvant,,1,1,0,current,0,1,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0097,37,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,419
+PT-0098,58,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,0,1,1,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0099,56,F,C50.9 Malignant neoplasm of breast,triple-negative,IV,metastatic (palliative),0,1,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,448
+PT-0100,50,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,448
+PT-0101,41,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,Yes,Doxorubicin,240.0,No,,,Penicillin – rash – moderate,No,412
+PT-0102,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,458
+PT-0103,48,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,462
+PT-0104,60,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,
+PT-0105,27,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,1,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,436
+PT-0106,39,F,C50.9 Malignant neoplasm of breast,triple-negative,IV,metastatic (palliative),2,1,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,415
+PT-0107,52,F,C50.9 Malignant neoplasm of breast,,,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,1,No,,,No,,,NKDA,No,422
+PT-0108,52,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,413
+PT-0109,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0110,60,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,,0,0,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,498
+PT-0111,66,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,2,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,426
+PT-0112,30,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,475
+PT-0113,44,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,1,0,never,0,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,449
+PT-0114,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,1,1,0,1,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,Yes,391
+PT-0115,50,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,429
+PT-0116,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0117,60,F,C50.9 Malignant neoplasm of breast,HER2+,I,adjuvant,1,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,425
+PT-0118,44,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0119,41,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,423
+PT-0120,52,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,
+PT-0121,36,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),1,0,0,0,never,1,0,0,0,0,0,0,0,1,0,No,,,No,,,NKDA,No,418
+PT-0122,31,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,1,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,456
+PT-0123,50,F,C50.9 Malignant neoplasm of breast,HER2+,,neoadjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0124,68,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,422
+PT-0125,27,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,2,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,417
+PT-0126,56,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0127,36,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,418
+PT-0128,62,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,418
+PT-0129,34,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,464
+PT-0130,27,F,C50.9 Malignant neoplasm of breast,HER2+,,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,
+PT-0131,36,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0132,41,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0133,56,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,429
+PT-0134,47,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,447
+PT-0135,41,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0136,52,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,
+PT-0137,41,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0138,60,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,1,1,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,425
+PT-0139,33,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,442
+PT-0140,55,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,1,1,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0141,52,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,Yes,Doxorubicin,180.0,No,,,NKDA,No,456
+PT-0142,38,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,439
+PT-0143,67,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,2,1,0,0,never,0,0,0,0,0,1,1,0,0,0,No,,,No,,,NKDA,No,456
+PT-0144,27,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0145,23,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,460
+PT-0146,66,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),1,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0147,65,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,2,0,1,0,never,1,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,425
+PT-0148,53,F,C50.9 Malignant neoplasm of breast,triple-negative,II,neoadjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,388
+PT-0149,39,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,427
+PT-0150,67,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,426
+PT-0151,43,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,,0,0,0,never,1,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,420
+PT-0152,49,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,436
+PT-0153,34,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,474
+PT-0154,56,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0155,64,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,428
+PT-0156,28,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,Yes,Doxorubicin,240.0,No,,,NKDA,No,444
+PT-0157,71,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,1,0,0,No,,,No,,,Iodinated contrast – urticaria – mild,No,392
+PT-0158,54,F,C50.9 Malignant neoplasm of breast,HER2+,,neoadjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0159,56,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,
+PT-0160,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,475
+PT-0161,34,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,1,1,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,459
+PT-0162,34,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,437
+PT-0163,34,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,439
+PT-0164,44,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,393
+PT-0165,35,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,,0,0,1,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,408
+PT-0166,66,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,447
+PT-0167,31,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,2,1,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,425
+PT-0168,39,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0169,38,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,392
+PT-0170,42,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,434
+PT-0171,64,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0172,53,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,450
+PT-0173,53,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0174,41,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0175,50,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,1,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,425
+PT-0176,37,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,0,0,0,0,0,1,0,0,0,0,No,,,No,,,NKDA,No,423
+PT-0177,52,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,471
+PT-0178,48,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,398
+PT-0179,53,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,1,0,0,never,1,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,420
+PT-0180,33,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0181,50,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,0,1,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,466
+PT-0182,55,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,2,0,0,0,never,1,0,0,0,0,1,0,0,0,0,No,,,No,,,NKDA,No,435
+PT-0183,32,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0184,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,0,0,0,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,476
+PT-0185,63,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,394
+PT-0186,48,F,C50.9 Malignant neoplasm of breast,,III,adjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0187,28,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0188,29,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,434
+PT-0189,27,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,430
+PT-0190,40,F,C50.9 Malignant neoplasm of breast,triple-negative,II,neoadjuvant,2,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0191,21,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,2,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,458
+PT-0192,62,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Iodinated contrast – urticaria – mild,No,409
+PT-0193,33,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0194,64,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,0,1,1,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,509
+PT-0195,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,2,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0196,62,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,1,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,480
+PT-0197,56,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,439
+PT-0198,49,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,426
+PT-0199,23,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0200,37,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,433
+PT-0201,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0202,36,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0203,61,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,415
+PT-0204,30,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),2,1,0,0,never,1,0,0,0,0,0,1,0,0,0,Yes,Doxorubicin,180.0,No,,,NKDA,No,432
+PT-0205,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,1,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,488
+PT-0206,40,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,424
+PT-0207,31,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,427
+PT-0208,51,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,433
+PT-0209,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,IV,metastatic (palliative),1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,423
+PT-0210,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,0,1,1,0,never,0,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,413
+PT-0211,56,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,0,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,436
+PT-0212,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,458
+PT-0213,59,F,C50.9 Malignant neoplasm of breast,triple-negative,IV,metastatic (palliative),0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,438
+PT-0214,47,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,453
+PT-0215,55,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,1,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,431
+PT-0216,65,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,2,0,1,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,399
+PT-0217,37,F,C50.9 Malignant neoplasm of breast,,II,adjuvant,2,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,438
+PT-0218,48,F,C50.9 Malignant neoplasm of breast,,III,adjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,410
+PT-0219,67,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,1,0,No,,,No,,,NKDA,No,411
+PT-0220,44,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0221,78,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,445
+PT-0222,36,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,,1,0,0,current,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,462
+PT-0223,43,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0224,43,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,
+PT-0225,35,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,450
+PT-0226,56,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,,0,0,0,never,0,0,0,0,0,1,0,0,0,0,No,,,No,,,NKDA,No,429
+PT-0227,39,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,413
+PT-0228,52,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,1,0,0,1,current,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0229,54,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,1,1,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0230,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0231,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,403
+PT-0232,59,F,C50.9 Malignant neoplasm of breast,triple-negative,III,adjuvant,,1,1,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,417
+PT-0233,48,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,438
+PT-0234,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,1,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,393
+PT-0235,61,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NSAIDs – bronchospasm – moderate,No,
+PT-0236,39,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,441
+PT-0237,67,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,0,0,1,never,0,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,432
+PT-0238,41,F,C50.9 Malignant neoplasm of breast,HER2+,III,adjuvant,0,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,464
+PT-0239,38,F,C50.9 Malignant neoplasm of breast,triple-negative,II,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0240,45,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,1,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0241,26,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,1,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0242,30,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,430
+PT-0243,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,470
+PT-0244,59,F,C50.9 Malignant neoplasm of breast,HER2+,I,neoadjuvant,1,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0245,69,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,1,No,,,No,,,NKDA,No,444
+PT-0246,39,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,2,0,0,0,former,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,496
+PT-0247,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,2,1,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,414
+PT-0248,48,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,465
+PT-0249,32,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,,1,0,1,never,0,0,0,1,0,0,0,0,0,0,No,,,No,,,NKDA,No,417
+PT-0250,60,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0251,54,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0252,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0253,31,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,415
+PT-0254,29,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,1,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,455
+PT-0255,34,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,468
+PT-0256,56,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,0,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,412
+PT-0257,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,458
+PT-0258,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,435
+PT-0259,40,F,C50.9 Malignant neoplasm of breast,triple-negative,III,neoadjuvant,,0,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – rash – moderate,No,423
+PT-0260,55,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,431
+PT-0261,45,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,0,0,0,0,current,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,424
+PT-0262,44,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,2,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,504
+PT-0263,48,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0264,44,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,0,0,0,1,0,0,0,0,0,0,No,,,No,,,NKDA,No,423
+PT-0265,56,F,C50.9 Malignant neoplasm of breast,HER2+,,neoadjuvant,1,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,410
+PT-0266,57,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,466
+PT-0267,63,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,current,1,0,0,0,0,0,0,0,0,0,No,,,No,,,Penicillin – anaphylaxis – severe; NSAIDs – bronchospasm – moderate,No,412
+PT-0268,44,F,C50.9 Malignant neoplasm of breast,,,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,428
+PT-0269,42,F,C50.9 Malignant neoplasm of breast,HER2+,,adjuvant,2,1,0,0,never,1,0,0,0,0,0,1,0,0,0,No,,,No,,,NKDA,No,406
+PT-0270,54,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,409
+PT-0271,58,F,C50.9 Malignant neoplasm of breast,triple-negative,IV,metastatic (palliative),1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,454
+PT-0272,49,F,C50.9 Malignant neoplasm of breast,,III,neoadjuvant,1,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,412
+PT-0273,34,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,0,0,0,1,former,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,447
+PT-0274,47,F,C50.9 Malignant neoplasm of breast,HER2+,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,443
+PT-0275,52,F,C50.9 Malignant neoplasm of breast,triple-negative,IV,metastatic (palliative),1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0276,55,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,neoadjuvant,,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,396
+PT-0277,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,1,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0278,30,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,497
+PT-0279,38,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,442
+PT-0280,54,F,C50.9 Malignant neoplasm of breast,,III,adjuvant,,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,
+PT-0281,33,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,444
+PT-0282,49,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,1,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,506
+PT-0283,50,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,,0,0,0,never,1,0,0,0,0,0,0,1,0,0,No,,,No,,,NKDA,No,427
+PT-0284,58,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,1,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,457
+PT-0285,70,F,C50.9 Malignant neoplasm of breast,HER2+,II,neoadjuvant,0,1,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,428
+PT-0286,23,F,C50.9 Malignant neoplasm of breast,triple-negative,II,adjuvant,,1,0,0,never,1,0,1,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,419
+PT-0287,71,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,,1,0,1,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,516
+PT-0288,43,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,neoadjuvant,0,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,426
+PT-0289,56,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,414
+PT-0290,26,F,C50.9 Malignant neoplasm of breast,HER2+,IV,metastatic (palliative),0,0,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,421
+PT-0291,53,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,0,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,451
+PT-0292,65,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,461
+PT-0293,73,F,C50.9 Malignant neoplasm of breast,HER2+,I,adjuvant,,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,456
+PT-0294,56,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,II,adjuvant,0,1,0,1,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,Sulfonamide – rash – mild,No,387
+PT-0295,47,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,2,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,492
+PT-0296,48,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,1,0,0,0,current,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,393
+PT-0297,46,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,1,0,0,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,460
+PT-0298,60,F,C50.9 Malignant neoplasm of breast,HER2+,II,adjuvant,,1,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,433
+PT-0299,42,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,I,adjuvant,,0,1,0,never,0,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,446
+PT-0300,54,F,C50.9 Malignant neoplasm of breast,HR+/HER2-,III,adjuvant,0,0,0,0,never,1,0,0,0,0,0,0,0,0,0,No,,,No,,,NKDA,No,

@@ -1,0 +1,30 @@
+{
+  "high_risk_thresholds": {
+    "cumulative_doxorubicin_mg_m2": 250.0,
+    "baseline_lvef_pct": 50.0,
+    "age_years": 60
+  },
+  "rules": [
+    {
+      "id": "ASCO_CARD_001",
+      "name": "High Cumulative Anthracycline Dose",
+      "condition": "cumulative_doxorubicin_mg_m2 >= 250.0",
+      "action": "FLAG_CARDIAC_RISK"
+    },
+    {
+      "id": "ASCO_CARD_002",
+      "name": "Reduced Baseline LVEF (<50%)",
+      "condition": "baseline_lvef_pct < 50.0",
+      "action": "FLAG_CARDIAC_RISK",
+      "note": "ASCO 2017 Rec. 1.1 \"compromised cardiac function\". The ASCO borderline range (50-55%) is handled by Gate 8."
+    },
+    {
+      "id": "ASCO_CARD_003",
+      "name": "Geriatric Anthracycline Exposure",
+      "condition": "age_years >= 60 and cumulative_doxorubicin_mg_m2 > 0",
+      "action": "FLAG_CARDIAC_RISK",
+      "note": "ASCO 2017 Rec. 1.1 uses age >= 60 (was documented here as 65; the engine already used 60)."
+    }
+  ],
+  "source": "Armenian et al., ASCO Guidelines, J Clin Oncol 2017;35(8):893-911, Recommendation 1.1"
+}

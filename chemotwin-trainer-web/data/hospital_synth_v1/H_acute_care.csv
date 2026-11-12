@@ -1,0 +1,59 @@
+patient_id,encounter_start_day,encounter_start_time,encounter_end_day,encounter_type,diagnosis,fever_onset_setting,iv_fluids_for_dehydration,blood_culture_result,icu_admission,symptom_burden_documented
+PT-0002,28,04:35,34,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,not done,No,severe
+PT-0005,50,14:20,50,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,moderate
+PT-0020,7,18:35,12,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,moderate
+PT-0020,55,12:05,55,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0025,49,00:45,49,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0026,56,08:40,56,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0027,28,19:40,28,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0035,18,03:30,18,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0035,56,01:50,56,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0045,16,16:15,16,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0057,55,07:45,55,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0073,10,16:35,16,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,moderate
+PT-0078,30,02:50,30,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0079,18,09:15,18,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0091,26,21:30,26,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0100,15,15:40,15,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0101,458,13:20,461,unplanned admission,I50.9 – heart failure,,No,not done,No,moderate
+PT-0122,449,19:15,457,unplanned admission,I50.9 – heart failure,,No,not done,Yes,moderate
+PT-0128,52,00:50,57,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,moderate
+PT-0131,51,22:50,51,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,severe
+PT-0138,38,18:00,38,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0146,94,17:50,94,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0153,7,14:20,15,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,positive (S. aureus),No,moderate
+PT-0153,49,16:15,49,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0161,51,14:50,51,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0161,77,09:45,77,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0173,50,11:05,50,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0174,80,06:05,80,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0175,74,17:35,77,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,moderate
+PT-0189,30,02:20,33,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0194,49,07:05,57,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0195,4,00:05,4,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0195,70,06:50,70,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,moderate
+PT-0196,96,12:05,96,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0196,471,05:00,476,unplanned admission,I50.9 – heart failure,,No,not done,No,moderate
+PT-0198,9,00:40,9,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0219,404,07:20,412,unplanned admission,I50.9 – heart failure,,No,not done,No,moderate
+PT-0227,52,22:20,56,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,positive (E. coli),No,moderate
+PT-0229,11,18:50,17,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,moderate
+PT-0234,25,10:35,31,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,none-mild
+PT-0237,31,07:50,31,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,none-mild
+PT-0243,6,17:45,6,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0243,54,19:20,54,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,Yes,negative,No,none-mild
+PT-0244,74,21:05,78,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,not done,No,moderate
+PT-0248,70,21:50,70,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0250,25,13:40,25,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0253,26,08:00,26,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0254,11,21:20,19,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0257,74,07:20,74,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0264,52,11:40,52,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0267,7,01:50,15,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,not done,No,none-mild
+PT-0270,54,03:45,54,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0276,54,17:50,58,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0280,7,17:05,15,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,severe
+PT-0281,27,16:05,27,emergency visit,J06.9 – upper respiratory infection,outpatient,No,not done,No,none-mild
+PT-0282,71,05:05,71,emergency visit,"R50.9 – fever, unspecified",outpatient,No,not done,No,none-mild
+PT-0293,12,19:05,12,emergency visit,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,No,moderate
+PT-0299,10,22:50,17,unplanned admission,D70.1 – neutropenic fever (drug-induced agranulocytosis),outpatient,No,negative,Yes,severe

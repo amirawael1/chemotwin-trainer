@@ -1,0 +1,1 @@
+"""Agentic layer: Ground -> Verify -> Revise (see README_AGENTIC.md)."""

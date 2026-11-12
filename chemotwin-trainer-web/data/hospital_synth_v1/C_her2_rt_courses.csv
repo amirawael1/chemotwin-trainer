@@ -1,0 +1,342 @@
+patient_id,therapy_type,agent_or_site,start_day,stop_day,radiotherapy_total_dose
+PT-0001,Anti-HER2,Trastuzumab,56,,
+PT-0003,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0004,Anti-HER2,Trastuzumab,84,,
+PT-0004,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0005,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.0)
+PT-0006,Anti-HER2,Trastuzumab,-363,-63,
+PT-0006,Anti-HER2,Trastuzumab,84,,
+PT-0008,Radiotherapy,right breast/chest wall,198,230,50
+PT-0009,Anti-HER2,Trastuzumab,84,,
+PT-0009,Anti-HER2,Pertuzumab,84,441,
+PT-0010,Radiotherapy,right breast/chest wall,156,188,50
+PT-0011,Radiotherapy,right breast/chest wall,140,172,40.05
+PT-0013,Anti-HER2,Trastuzumab,84,,
+PT-0013,Radiotherapy,right breast/chest wall,184,216,50
+PT-0014,Anti-HER2,Trastuzumab,84,,
+PT-0014,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0015,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0017,Anti-HER2,Trastuzumab,56,,
+PT-0018,Radiotherapy,left breast/chest wall,156,188,50
+PT-0020,Anti-HER2,Trastuzumab,84,,
+PT-0020,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0021,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0022,Radiotherapy,left breast/chest wall,156,188,50 (MHD 2.5)
+PT-0023,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0024,Anti-HER2,Trastuzumab,84,182,
+PT-0024,Radiotherapy,right breast/chest wall,184,216,50
+PT-0025,Radiotherapy,right breast/chest wall,184,216,50
+PT-0026,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0027,Anti-HER2,Trastuzumab,84,,
+PT-0027,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.8)
+PT-0028,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 1.6)
+PT-0029,Anti-HER2,Trastuzumab,84,,
+PT-0029,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0030,Radiotherapy,left breast/chest wall,156,188,50
+PT-0031,Radiotherapy,right breast/chest wall,98,130,42.5
+PT-0032,Radiotherapy,left breast/chest wall,156,188,42.5
+PT-0033,Anti-HER2,Trastuzumab,-442,-142,
+PT-0033,Anti-HER2,Trastuzumab,84,,
+PT-0035,Radiotherapy,left breast/chest wall,98,130,50
+PT-0036,Radiotherapy,right breast/chest wall,105,137,40.05
+PT-0037,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0038,Anti-HER2,Trastuzumab,84,,
+PT-0038,Anti-HER2,Pertuzumab,84,441,
+PT-0038,Radiotherapy,right breast/chest wall,184,216,50
+PT-0040,Radiotherapy,left breast/chest wall,156,188,42.5 (MHD 4.0)
+PT-0041,Radiotherapy,left breast/chest wall,156,188,50
+PT-0042,Anti-HER2,Trastuzumab,91,,
+PT-0042,Radiotherapy,left breast/chest wall,191,223,50 (MHD 4.1)
+PT-0043,Radiotherapy,right breast/chest wall,156,188,50
+PT-0045,Radiotherapy,left breast/chest wall,156,188,40.05 (MHD 1.7)
+PT-0046,Anti-HER2,Trastuzumab,84,,
+PT-0046,Radiotherapy,left breast/chest wall,184,216,50 (MHD 2.6)
+PT-0047,Radiotherapy,left breast/chest wall,140,172,42.5
+PT-0049,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0050,Anti-HER2,Trastuzumab,84,190,
+PT-0050,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0051,Anti-HER2,Trastuzumab,56,,
+PT-0052,Radiotherapy,left breast/chest wall,156,188,50
+PT-0054,Radiotherapy,right breast/chest wall,184,216,50
+PT-0055,Anti-HER2,Trastuzumab,84,,
+PT-0056,Radiotherapy,right breast/chest wall,98,130,50
+PT-0057,Anti-HER2,Trastuzumab,84,279,
+PT-0057,Anti-HER2,Pertuzumab,84,441,
+PT-0059,Anti-HER2,Trastuzumab,84,,
+PT-0059,Radiotherapy,left breast/chest wall,184,216,50 (MHD 1.8)
+PT-0060,Anti-HER2,Trastuzumab,84,,
+PT-0060,Anti-HER2,Pertuzumab,84,441,
+PT-0061,Radiotherapy,left breast/chest wall,156,188,42.5 (MHD 2.2)
+PT-0062,Anti-HER2,Trastuzumab,84,,
+PT-0062,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0063,Anti-HER2,Trastuzumab,84,,
+PT-0063,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0064,Radiotherapy,right breast/chest wall,156,188,50
+PT-0065,Anti-HER2,Trastuzumab,84,,
+PT-0065,Anti-HER2,Pertuzumab,84,441,
+PT-0066,Anti-HER2,Trastuzumab,84,,
+PT-0066,Radiotherapy,left breast/chest wall,184,216,50 (MHD 4.1)
+PT-0069,Anti-HER2,Trastuzumab,84,,
+PT-0069,Anti-HER2,Pertuzumab,84,441,
+PT-0069,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0070,Anti-HER2,Trastuzumab,84,,
+PT-0070,Radiotherapy,right breast/chest wall,184,216,50
+PT-0071,Anti-HER2,Trastuzumab,56,145,
+PT-0071,Radiotherapy,right breast/chest wall,156,188,50
+PT-0073,Anti-HER2,Trastuzumab,84,,
+PT-0073,Anti-HER2,Pertuzumab,84,441,
+PT-0074,Radiotherapy,left breast/chest wall,184,216,50 (MHD 2.4)
+PT-0075,Radiotherapy,left breast/chest wall,140,172,50 (MHD 3.1)
+PT-0076,Radiotherapy,right breast/chest wall,184,216,50
+PT-0077,Anti-HER2,Trastuzumab,56,,
+PT-0077,Anti-HER2,Pertuzumab,56,,
+PT-0078,Anti-HER2,Trastuzumab,84,,
+PT-0080,Anti-HER2,Trastuzumab,56,241,
+PT-0081,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 1.6)
+PT-0082,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0083,Radiotherapy,left breast/chest wall,184,216,40.05
+PT-0085,Anti-HER2,Trastuzumab,56,,
+PT-0085,Radiotherapy,left breast/chest wall,156,188,40.05
+PT-0086,Radiotherapy,right breast/chest wall,98,130,42.5
+PT-0087,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0088,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0089,Anti-HER2,Trastuzumab,84,,
+PT-0089,Anti-HER2,Pertuzumab,84,441,
+PT-0089,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0090,Radiotherapy,left breast/chest wall,140,172,40.05
+PT-0091,Radiotherapy,right breast/chest wall,140,172,42.5
+PT-0092,Anti-HER2,Trastuzumab,84,,
+PT-0092,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0093,Anti-HER2,Trastuzumab,-369,-69,
+PT-0093,Anti-HER2,Trastuzumab,84,,
+PT-0094,Radiotherapy,right breast/chest wall,163,195,40.05
+PT-0095,Anti-HER2,Trastuzumab,-436,-136,
+PT-0095,Anti-HER2,Trastuzumab,84,,
+PT-0096,Anti-HER2,Trastuzumab,84,,
+PT-0096,Radiotherapy,right breast/chest wall,184,216,50
+PT-0097,Radiotherapy,right breast/chest wall,156,188,50
+PT-0100,Radiotherapy,right breast/chest wall,184,216,50
+PT-0101,Anti-HER2,Trastuzumab,-540,-240,
+PT-0101,Radiotherapy,right breast/chest wall,184,216,50
+PT-0103,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0104,Radiotherapy,right breast/chest wall,184,216,50
+PT-0107,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 3.6)
+PT-0108,Anti-HER2,Trastuzumab,84,,
+PT-0108,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0109,Radiotherapy,left breast/chest wall,156,188,40.05 (MHD 2.6)
+PT-0110,Radiotherapy,right breast/chest wall,140,172,40.05
+PT-0111,Anti-HER2,Trastuzumab,84,,
+PT-0111,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0112,Radiotherapy,right breast/chest wall,140,172,42.5
+PT-0113,Radiotherapy,left breast/chest wall,184,216,50
+PT-0115,Anti-HER2,Trastuzumab,84,,
+PT-0115,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0116,Radiotherapy,right breast/chest wall,184,216,50
+PT-0117,Anti-HER2,Trastuzumab,84,,
+PT-0118,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0119,Radiotherapy,left breast/chest wall,156,188,40.05
+PT-0120,Anti-HER2,Trastuzumab,84,,
+PT-0120,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0121,Anti-HER2,Trastuzumab,-472,-172,
+PT-0121,Anti-HER2,Trastuzumab,84,,
+PT-0121,Anti-HER2,Pertuzumab,84,,
+PT-0122,Radiotherapy,right breast/chest wall,140,172,50
+PT-0123,Anti-HER2,Trastuzumab,84,,
+PT-0124,Radiotherapy,left breast/chest wall,98,130,42.5
+PT-0125,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0126,Radiotherapy,left breast/chest wall,156,188,42.5
+PT-0127,Radiotherapy,right breast/chest wall,98,130,42.5
+PT-0128,Anti-HER2,Trastuzumab,84,,
+PT-0128,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 3.3)
+PT-0129,Anti-HER2,Trastuzumab,91,287,
+PT-0129,Radiotherapy,right breast/chest wall,191,223,40.05
+PT-0130,Anti-HER2,Trastuzumab,91,,
+PT-0130,Radiotherapy,right breast/chest wall,191,223,40.05
+PT-0131,Radiotherapy,left breast/chest wall,98,130,50 (MHD 3.4)
+PT-0132,Anti-HER2,Trastuzumab,56,,
+PT-0132,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0134,Anti-HER2,Trastuzumab,56,,
+PT-0134,Radiotherapy,left breast/chest wall,156,188,42.5 (MHD 4.4)
+PT-0135,Radiotherapy,left breast/chest wall,184,216,50 (MHD 3.1)
+PT-0136,Anti-HER2,Trastuzumab,56,,
+PT-0136,Anti-HER2,Pertuzumab,56,,
+PT-0138,Anti-HER2,Trastuzumab,56,,
+PT-0138,Radiotherapy,left breast/chest wall,156,188,40.05
+PT-0139,Anti-HER2,Trastuzumab,84,,
+PT-0139,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0140,Anti-HER2,Trastuzumab,56,,
+PT-0140,Radiotherapy,right breast/chest wall,156,188,50
+PT-0141,Anti-HER2,Trastuzumab,-527,-227,
+PT-0141,Anti-HER2,Trastuzumab,84,,
+PT-0141,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0142,Radiotherapy,left breast/chest wall,191,223,40.05 (MHD 4.5)
+PT-0143,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0145,Radiotherapy,left breast/chest wall,140,172,50 (MHD 2.5)
+PT-0147,Anti-HER2,Trastuzumab,84,,
+PT-0147,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0148,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0150,Anti-HER2,Trastuzumab,56,,
+PT-0150,Radiotherapy,left breast/chest wall,156,188,50
+PT-0151,Anti-HER2,Trastuzumab,84,,
+PT-0151,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0152,Anti-HER2,Trastuzumab,84,,
+PT-0152,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0154,Radiotherapy,left breast/chest wall,156,188,40.05 (MHD 3.1)
+PT-0155,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0156,Anti-HER2,Trastuzumab,-477,-177,
+PT-0156,Radiotherapy,right breast/chest wall,98,130,42.5
+PT-0158,Anti-HER2,Trastuzumab,84,,
+PT-0158,Anti-HER2,Pertuzumab,84,441,
+PT-0159,Anti-HER2,Trastuzumab,84,,
+PT-0160,Radiotherapy,right breast/chest wall,140,172,42.5
+PT-0161,Radiotherapy,right breast/chest wall,184,216,50
+PT-0162,Anti-HER2,Trastuzumab,84,,
+PT-0164,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0165,Anti-HER2,Trastuzumab,84,,
+PT-0165,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0167,Anti-HER2,Trastuzumab,84,,
+PT-0167,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 1.7)
+PT-0169,Radiotherapy,left breast/chest wall,156,188,50 (MHD 3.7)
+PT-0170,Anti-HER2,Trastuzumab,84,,
+PT-0170,Radiotherapy,right breast/chest wall,184,216,50
+PT-0171,Anti-HER2,Trastuzumab,84,,
+PT-0171,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0172,Radiotherapy,left breast/chest wall,98,130,42.5 (MHD 3.3)
+PT-0174,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 2.8)
+PT-0175,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 3.7)
+PT-0176,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0177,Radiotherapy,right breast/chest wall,140,172,40.05
+PT-0178,Anti-HER2,Trastuzumab,63,,
+PT-0178,Radiotherapy,right breast/chest wall,163,195,42.5
+PT-0179,Radiotherapy,left breast/chest wall,184,216,50
+PT-0180,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0181,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0182,Anti-HER2,Trastuzumab,84,,
+PT-0182,Radiotherapy,right breast/chest wall,184,216,50
+PT-0183,Radiotherapy,left breast/chest wall,98,130,42.5 (MHD 2.0)
+PT-0185,Radiotherapy,right breast/chest wall,156,188,50
+PT-0186,Radiotherapy,left breast/chest wall,98,130,42.5
+PT-0187,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0188,Radiotherapy,left breast/chest wall,156,188,42.5 (MHD 4.0)
+PT-0189,Anti-HER2,Trastuzumab,84,,
+PT-0190,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0191,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0192,Anti-HER2,Trastuzumab,84,272,
+PT-0194,Radiotherapy,left breast/chest wall,140,172,40.05 (MHD 2.2)
+PT-0196,Radiotherapy,left breast/chest wall,140,172,50
+PT-0197,Anti-HER2,Trastuzumab,84,,
+PT-0198,Anti-HER2,Trastuzumab,84,,
+PT-0199,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0200,Radiotherapy,right breast/chest wall,98,130,50
+PT-0201,Radiotherapy,right breast/chest wall,198,230,50
+PT-0202,Anti-HER2,Trastuzumab,84,,
+PT-0202,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0203,Anti-HER2,Trastuzumab,84,,
+PT-0203,Anti-HER2,Pertuzumab,84,441,
+PT-0203,Radiotherapy,right breast/chest wall,184,216,50
+PT-0204,Anti-HER2,Trastuzumab,-444,-144,
+PT-0204,Anti-HER2,Trastuzumab,56,,
+PT-0204,Anti-HER2,Pertuzumab,56,,
+PT-0206,Radiotherapy,right breast/chest wall,98,130,40.05
+PT-0207,Radiotherapy,left breast/chest wall,184,216,50 (MHD 3.8)
+PT-0208,Radiotherapy,left breast/chest wall,156,188,50 (MHD 2.4)
+PT-0210,Radiotherapy,left breast/chest wall,156,188,50
+PT-0211,Radiotherapy,left breast/chest wall,184,216,50
+PT-0214,Anti-HER2,Trastuzumab,84,,
+PT-0214,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0215,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0216,Anti-HER2,Trastuzumab,56,,
+PT-0216,Radiotherapy,left breast/chest wall,156,188,40.05 (MHD 4.4)
+PT-0218,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0219,Radiotherapy,right breast/chest wall,156,188,50
+PT-0220,Anti-HER2,Trastuzumab,84,,
+PT-0220,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0221,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0223,Anti-HER2,Trastuzumab,-482,-182,
+PT-0223,Anti-HER2,Trastuzumab,84,,
+PT-0223,Anti-HER2,Pertuzumab,84,,
+PT-0224,Anti-HER2,Trastuzumab,84,,
+PT-0225,Radiotherapy,left breast/chest wall,184,216,50
+PT-0226,Anti-HER2,Trastuzumab,84,,
+PT-0226,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0227,Anti-HER2,Trastuzumab,84,,
+PT-0227,Radiotherapy,left breast/chest wall,184,216,50
+PT-0228,Radiotherapy,left breast/chest wall,184,216,40.05
+PT-0229,Anti-HER2,Trastuzumab,84,,
+PT-0229,Anti-HER2,Pertuzumab,84,441,
+PT-0229,Radiotherapy,left breast/chest wall,184,216,42.5
+PT-0231,Radiotherapy,left breast/chest wall,156,188,50
+PT-0232,Radiotherapy,right breast/chest wall,191,223,40.05
+PT-0233,Anti-HER2,Trastuzumab,84,,
+PT-0234,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0235,Radiotherapy,right breast/chest wall,156,188,50
+PT-0236,Anti-HER2,Trastuzumab,56,,
+PT-0236,Radiotherapy,left breast/chest wall,156,188,40.05
+PT-0237,Anti-HER2,Trastuzumab,84,,
+PT-0238,Anti-HER2,Trastuzumab,84,,
+PT-0240,Anti-HER2,Trastuzumab,84,,
+PT-0243,Radiotherapy,left breast/chest wall,140,172,40.05 (MHD 1.5)
+PT-0244,Anti-HER2,Trastuzumab,84,,
+PT-0244,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 1.6)
+PT-0245,Radiotherapy,right breast/chest wall,105,137,42.5
+PT-0246,Radiotherapy,left breast/chest wall,140,172,50
+PT-0248,Anti-HER2,Trastuzumab,84,,
+PT-0248,Radiotherapy,left breast/chest wall,184,216,50 (MHD 4.0)
+PT-0250,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.8)
+PT-0251,Radiotherapy,right breast/chest wall,184,216,50
+PT-0252,Radiotherapy,left breast/chest wall,98,130,40.05 (MHD 2.7)
+PT-0253,Radiotherapy,right breast/chest wall,156,188,42.5
+PT-0254,Radiotherapy,right breast/chest wall,98,130,42.5
+PT-0255,Anti-HER2,Trastuzumab,84,,
+PT-0255,Anti-HER2,Pertuzumab,84,441,
+PT-0256,Anti-HER2,Trastuzumab,84,,
+PT-0257,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0258,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0259,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0260,Anti-HER2,Trastuzumab,84,,
+PT-0260,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 4.1)
+PT-0261,Radiotherapy,left breast/chest wall,156,188,40.05 (MHD 3.5)
+PT-0262,Radiotherapy,left breast/chest wall,140,172,50 (MHD 3.5)
+PT-0263,Anti-HER2,Trastuzumab,84,260,
+PT-0264,Radiotherapy,left breast/chest wall,98,130,40.05
+PT-0265,Anti-HER2,Trastuzumab,56,,
+PT-0265,Anti-HER2,Pertuzumab,56,413,
+PT-0265,Radiotherapy,right breast/chest wall,156,188,50
+PT-0266,Radiotherapy,left breast/chest wall,184,216,40.05
+PT-0267,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0268,Radiotherapy,left breast/chest wall,156,188,50
+PT-0269,Anti-HER2,Trastuzumab,56,161,
+PT-0269,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0270,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0272,Radiotherapy,right breast/chest wall,98,130,40.05
+PT-0273,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.5)
+PT-0274,Anti-HER2,Trastuzumab,56,,
+PT-0274,Anti-HER2,Pertuzumab,56,413,
+PT-0274,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0276,Radiotherapy,left breast/chest wall,156,188,40.05
+PT-0278,Radiotherapy,right breast/chest wall,140,172,50
+PT-0280,Anti-HER2,Trastuzumab,84,,
+PT-0280,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0281,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 1.7)
+PT-0282,Radiotherapy,left breast/chest wall,140,172,42.5 (MHD 4.2)
+PT-0283,Radiotherapy,right breast/chest wall,156,188,40.05
+PT-0284,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 1.7)
+PT-0285,Anti-HER2,Trastuzumab,84,353,
+PT-0285,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0286,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.7)
+PT-0288,Radiotherapy,right breast/chest wall,184,216,50
+PT-0289,Anti-HER2,Trastuzumab,56,,
+PT-0289,Anti-HER2,Pertuzumab,56,,
+PT-0290,Anti-HER2,Trastuzumab,-481,-181,
+PT-0290,Anti-HER2,Trastuzumab,84,,
+PT-0291,Anti-HER2,Trastuzumab,84,179,
+PT-0291,Radiotherapy,left breast/chest wall,184,216,40.05 (MHD 2.6)
+PT-0292,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0293,Radiotherapy,right breast/chest wall,184,216,40.05
+PT-0295,Radiotherapy,left breast/chest wall,140,172,40.05 (MHD 2.4)
+PT-0296,Radiotherapy,left breast/chest wall,156,188,50 (MHD 3.6)
+PT-0297,Radiotherapy,left breast/chest wall,184,216,42.5 (MHD 2.1)
+PT-0298,Anti-HER2,Trastuzumab,84,,
+PT-0298,Radiotherapy,right breast/chest wall,184,216,50
+PT-0299,Radiotherapy,right breast/chest wall,184,216,42.5
+PT-0300,Radiotherapy,left breast/chest wall,156,188,50

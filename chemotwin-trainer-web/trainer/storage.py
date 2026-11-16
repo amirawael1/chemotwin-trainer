@@ -19,7 +19,7 @@ import csv
 import os
 from typing import Dict, List
 
-FIELDS = ["time", "trainee", "case_id", "topic", "case_type", "score", "safe"]
+FIELDS = ["time", "trainee", "case_id", "topic", "case_type", "score", "safe", "codes"]
 PROGRESS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "progress")
 
 
@@ -48,6 +48,7 @@ def _clean(rows: List[Dict]) -> List[Dict]:
         except (TypeError, ValueError):
             r["score"] = None
         r["safe"] = str(r["safe"]).strip().lower() in ("true", "1", "yes")
+        r["codes"] = "" if r["codes"] is None else str(r["codes"])
         out.append(r)
     return out
 

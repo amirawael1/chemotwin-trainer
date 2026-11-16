@@ -1,6 +1,9 @@
 """
 ChemoTwin Trainer: chemotherapy-toxicity assessment training against current guidelines.
 
+Run from the project folder:
+    python -m streamlit run trainer/app.py
+
 Educational tool for doctors in training. It does not make clinical decisions.
 """
 import html
@@ -28,7 +31,6 @@ TEACHING_CASES = {
     "HER2 therapy surveillance: urgency": "CON-HER2-SURV",
     "Trastuzumab washout before anthracycline": "CON-WASHOUT",
     "Reported fever without a temperature value": "LA-12992047",
-    "Heart-failure symptoms in the nursing notes": "LB-0009",
 }
 
 st.set_page_config(page_title="ChemoTwin Trainer", page_icon="✚", layout="wide", initial_sidebar_state="expanded")
@@ -139,27 +141,30 @@ with st.sidebar:
     st.divider()
     st.markdown('<div class="sec">Trainee</div>', unsafe_allow_html=True)
     if ss.get("trainee"):
-        st.markdown(f"Signed in as **{html.escape(ss.trainee)}**")
-        if st.button("Change trainee", width="stretch"):
+        st.markdown(f"Signed in as **{html.escape(core.display_name(ss.trainee))}**")
+        if st.button("Sign out", width="stretch"):
             ss.trainee, ss.history, ss.results = "", [], {}
             st.rerun()
     else:
-        if storage.online():          # online: never list other students' names
-            typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed")
-        else:
-            known = trainees()
-            choice = st.selectbox("Your name", ["New trainee"] + known) if known else "New trainee"
-            typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed") if choice == "New trainee" else choice
-        if st.button("Sign in", type="primary", width="stretch", disabled=not (typed or "").strip()):
-            ss.trainee = typed.strip()
-            ss.history, ss.results = load_history(ss.trainee), {}
-            st.rerun()
-        st.caption("Sign in with the same name each time to keep your progress. "
-                   "Your results are stored for your course tutor.")
+        typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed")
+        code = st.text_input("Personal code", type="password", placeholder="Choose 4 or more characters",
+                             help="You choose it the first time. Use the same name and code each time.")
+        ready = bool((typed or "").strip()) and len(code or "") >= 4
+        if st.button("Sign in", type="primary", width="stretch", disabled=not ready):
+            tid = core.trainee_id(typed, code)
+            hist = load_history(tid)
+            known = [] if storage.online() else trainees()
+            if not hist and any(core.display_name(k).lower() == core.display_name(tid).lower() for k in known):
+                st.error("This name already has a record with a different code.")
+            else:
+                ss.trainee, ss.history, ss.results = tid, hist, {}
+                st.rerun()
+        st.caption("Your name and code open your own record. Results are stored for your course tutor.")
     if page == "Practice":
         topic = st.selectbox("Topic", ["All topics"] + core.TOPICS)
         kind_label = st.selectbox("Setting", ["All settings"] + list(core.CASE_TYPE.values()))
         kind = next((k for k, v in core.CASE_TYPE.items() if v == kind_label), "All settings")
+        ss.f_topic, ss.f_kind = topic, kind
         if st.button("New case", type="primary", width="stretch"):
             new_case(topic, kind)
         st.write("")
@@ -183,9 +188,11 @@ st.markdown('<div class="topbar"><div><div class="t1">ChemoTwin</div><div class=
 # ------------------------------------------------------------------ pages
 def practice():
     case = BY_ID[ss.case_id]
-    st.markdown(f'<div class="case-id">Case {html.escape(case.case_id)}</div>'
+    done = case.case_id in ss.results          # the case code and topic can give the answer away: shown afterwards
+    st.markdown(f'<div class="case-id">{"Case " + html.escape(case.case_id) if done else "Case"}</div>'
                 f'<div class="case-title">{html.escape(case.title)}</div>'
-                f'<span class="chip">{html.escape(case.topic)}</span><span class="chip">{html.escape(case.case_type)}</span>',
+                + (f'<span class="chip">{html.escape(case.topic)}</span>' if done else "")
+                + f'<span class="chip">{html.escape(case.case_type)}</span>',
                 unsafe_allow_html=True)
     st.write("")
     show = st.toggle("Show patient record", value=True, key="show_record")
@@ -209,7 +216,7 @@ def practice():
             ss.results.pop(case.case_id, None)
             st.rerun()
         if b2.button("Next case", type="primary", width="stretch"):
-            new_case("All topics", "All settings")
+            new_case(ss.get("f_topic", "All topics"), ss.get("f_kind", "All settings"))
             st.rerun()
 
 
@@ -221,20 +228,21 @@ def answer_form(case):
         cols = st.columns(4)
         for i, t in enumerate(TERMS_REQUIRED):
             with cols[i % 4]:
-                grades[t] = st.selectbox(core.TERM_SHORT[t], core.GRADE_OPTIONS, key=f"g_{k}_{i}")
+                grades[t] = st.selectbox(core.TERM_SHORT[t], core.GRADE_OPTIONS, index=None, placeholder="Choose",
+                                         key=f"g_{k}_{i}")
         sec("2 · Heart damage from treatment (ESC 2022)")
         c1, c2 = st.columns(2)
         with c1:
             ctrcd = st.selectbox("Seen on tests, no symptoms", list(core.CTRCD_ASYMPTOMATIC),
-                                 format_func=core.CTRCD_ASYMPTOMATIC.get, key=f"ca_{k}")
+                                 format_func=core.CTRCD_ASYMPTOMATIC.get, index=None, placeholder="Choose", key=f"ca_{k}")
         with c2:
             ctrcd_s = st.selectbox("With heart-failure symptoms", list(core.CTRCD_SYMPTOMATIC),
-                                   format_func=core.CTRCD_SYMPTOMATIC.get, key=f"cs_{k}")
+                                   format_func=core.CTRCD_SYMPTOMATIC.get, index=None, placeholder="Choose", key=f"cs_{k}")
         sec("3 · Chemotherapy plan")
-        decision = st.radio("Decision", list(core.DECISIONS), format_func=core.DECISIONS.get, horizontal=True,
+        decision = st.radio("Decision", list(core.DECISIONS), index=None, format_func=core.DECISIONS.get, horizontal=True,
                             label_visibility="collapsed", key=f"d_{k}")
         sec("4 · How urgent is it?")
-        level = st.radio("Urgency", list(core.LEVELS), index=3, format_func=core.LEVELS.get, horizontal=True,
+        level = st.radio("Urgency", list(core.LEVELS), index=None, format_func=core.LEVELS.get, horizontal=True,
                          label_visibility="collapsed", key=f"l_{k}")
         sec("5 · What would you do now?")
         actions = st.multiselect("Orders", list(core.ACTIONS), format_func=core.ACTION_LABELS.get,
@@ -244,13 +252,18 @@ def answer_form(case):
                                   label_visibility="collapsed", key=f"r_{k}", placeholder="Choose any results you are missing")
         st.write("")
         sent = st.form_submit_button("Submit assessment", type="primary", width="stretch")
-    if sent:
+    blank = [core.TERM_SHORT[t] for t in TERMS_REQUIRED if grades[t] is None] + \
+            [n for n, v in (("heart (no symptoms)", ctrcd), ("heart (with symptoms)", ctrcd_s),
+                            ("chemotherapy plan", decision), ("urgency", level)) if v is None]
+    if sent and blank:
+        st.error("Please answer every question. Still open: " + ", ".join(blank) + ".")
+    elif sent:
         a = core.build_assessment(grades, ctrcd, ctrcd_s, decision, level, actions, data_req)
         fb = core.feedback(case, a)
         ss.results[k] = fb
-        row = {"time":  datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.get("trainee", ""),
+        row = {"time": datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.get("trainee", ""),
                "case_id": k, "topic": case.topic,
-               "case_type": case.case_type, "score": fb["score"], "safe": fb["safe"]}
+               "case_type": case.case_type, "score": fb["score"], "safe": fb["safe"], "codes": "|".join(fb["codes"])}
         ss.history.append(row)
         save_progress(ss.get("trainee", ""), row)
         if not ss.get("trainee"):
@@ -266,7 +279,7 @@ def show_feedback(case, fb):
                 unsafe_allow_html=True)
 
     rows = fb["rows"]
-    shown = [r for r in rows if not (r["group"] == "grade" and r["ok"] and r["yours"] == "0")]
+    shown = [r for r in rows if not (r["group"] == "grade" and r["ok"] and r["guideline"] == "0")]
     body = ""
     for r in shown:
         st_ = pill("Correct", "ok") if r["ok"] else (pill("Unsafe", "bad") if r["significant"] else pill("Small difference", "warn"))
@@ -277,7 +290,9 @@ def show_feedback(case, fb):
                 + body + "</table>", unsafe_allow_html=True)
     hidden = len(rows) - len(shown)
     if hidden:
-        st.caption(f"{hidden} further grades: 0, correct.")
+        st.caption(f"{hidden} further grades are 0 and correct; they are not counted in the score.")
+    if fb.get("under_review"):
+        st.caption("This case is based on a published report. Its answer key is still under clinical review.")
 
     points = [f"<b>{html.escape(str(r['item']))}</b>: {html.escape(r['why'])}" for r in rows if not r["ok"] and r["why"]]
     points += [html.escape(t) for t in fb.get("tips", [])]
@@ -291,36 +306,48 @@ def show_feedback(case, fb):
 
 
 
+def _first_attempts(df):
+    """Adds the attempt number per case; averages use first attempts only (a retry has seen the answer)."""
+    df = df.copy()
+    df["score"] = pd.to_numeric(df["score"], errors="coerce")
+    df["safe"] = df["safe"].astype(str).str.lower().isin(["true", "1", "yes"])
+    df["attempt"] = df.groupby("case_id").cumcount() + 1
+    return df, df[df["attempt"] == 1]
+
+
 def progress():
     mine, everyone = st.tabs(["My progress", "All trainees"])
     with mine:
         if ss.trainee:
-            st.markdown(f"**{html.escape(ss.trainee)}**")
+            st.markdown(f"**{html.escape(core.display_name(ss.trainee))}**")
         else:
             st.caption("Not signed in: results from this session only, not saved. Sign in from the sidebar.")
         h = ss.history
         if not h:
             st.markdown('<div class="muted">No cases completed yet.</div>', unsafe_allow_html=True)
         else:
-            df = pd.DataFrame(h)
-            df["score"] = pd.to_numeric(df["score"], errors="coerce")
+            df, first = _first_attempts(pd.DataFrame(h))
             c1, c2, c3 = st.columns(3)
-            c1.metric("Cases completed", len(df))
-            c2.metric("Average agreement", f"{round(df['score'].mean())}%")
-            c3.metric("Safe plans", f"{round(100 * df['safe'].astype(bool).mean())}%")
+            c1.metric("Cases completed", len(first))
+            c2.metric("Average agreement", f"{round(first['score'].mean())}%")
+            c3.metric("Safe plans", f"{round(100 * first['safe'].mean())}%")
+            st.caption("First attempts only. Retries are listed below but not counted.")
             sec("Agreement by topic")
-            st.bar_chart(df.groupby("topic")["score"].mean(), color="#134E8E")
+            st.bar_chart(first.groupby("topic")["score"].mean(), color="#134E8E")
             sec("Case log")
-            show = df.drop(columns=["trainee"], errors="ignore").rename(columns={
+            show = df.drop(columns=["trainee", "codes"], errors="ignore").rename(columns={
                 "time": "Date", "case_id": "Case", "topic": "Topic", "case_type": "Setting",
-                "score": "Agreement (%)", "safe": "Safe plan"})
+                "score": "Agreement (%)", "safe": "Safe plan", "attempt": "Attempt"})
             st.dataframe(show, hide_index=True, width="stretch")
             buf = io.StringIO()
             df.to_csv(buf, index=False)
             st.download_button("Export (CSV)", buf.getvalue(),
-                               f"chemotwin_{(ss.trainee or 'session').replace(' ', '_')}.csv", "text/csv")
+                               f"chemotwin_{core.display_name(ss.trainee or 'session').replace(' ', '_')}.csv", "text/csv")
     with everyone:
         code = storage.tutor_code()
+        if storage.online() and not code:
+            st.caption("Closed: no tutor code is set for this app.")
+            return
         if code and st.text_input("Tutor code", type="password", key="tutor_code_in") != code:
             st.caption("For the course tutor.")
             return
@@ -329,13 +356,14 @@ def progress():
             d = pd.DataFrame(load_history(name))
             if d.empty:
                 continue
-            d["score"] = pd.to_numeric(d["score"], errors="coerce")
-            rows.append({"Trainee": name, "Cases": len(d), "Average agreement (%)": round(d["score"].mean()),
-                         "Safe plans (%)": round(100 * d["safe"].mean()), "Last activity": str(d["time"].iloc[-1])})
+            d, first = _first_attempts(d)
+            rows.append({"Trainee": name, "Cases": len(first), "Retries": len(d) - len(first),
+                         "Average agreement (%)": round(first["score"].mean()),
+                         "Safe plans (%)": round(100 * first["safe"].mean()), "Last activity": str(d["time"].iloc[-1])})
         if rows:
             st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
-            st.caption("Saved online in the course progress sheet." if storage.online()
-                       else "Saved on this computer in trainer/progress, one file per trainee.")
+            st.caption("First attempts only. " + ("Saved online in the course progress sheet." if storage.online()
+                       else "Saved on this computer in trainer/progress, one file per trainee."))
         else:
             st.markdown('<div class="muted">No saved progress yet.</div>', unsafe_allow_html=True)
 
@@ -347,7 +375,7 @@ def guide():
 2. Read the patient record.
 3. Answer the six questions: grades, heart, plan, urgency, management steps and results to request.
 4. Press **Submit assessment** to compare your answer with the guidelines and read the teaching points.
-5. Your results are saved under **Progress** when you enter your name.
+5. Sign in with your name and a personal code to save your results under **Progress**. Scores count your first attempt at each case.
 """)
     sec("Guidelines used")
     st.markdown("""

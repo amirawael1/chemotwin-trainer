@@ -11,9 +11,11 @@ Educational use only: the trainer teaches guideline-based assessment; it does no
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import random
+import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
@@ -46,7 +48,7 @@ LEVELS = {1: "1 · Emergency (now)", 2: "2 · Same day: hold or change", 3: "3 �
 ACTIONS = {
     "cultures": "Blood cultures before antibiotics",
     "antibiotics": "Empiric broad-spectrum IV antibiotics within 1 hour",
-    "hf_therapy": "Heart-failure therapy (ACE inhibitor + beta-blocker) and cardiology referral",
+    "hf_therapy": "Heart-failure therapy and cardiology referral",
     "cardiac_monitoring": "Closer cardiac monitoring: repeat echo and troponin",
     "interaction": "Address the trastuzumab–anthracycline interaction (washout)",
     "dose_reduction": "Dose reduction",
@@ -73,6 +75,16 @@ TOPICS = ["Heart", "Blood counts & fever", "Liver", "Kidney", "Medicines", "Miss
 HIDDEN_CODES = {"CITATION_ERROR", "FORMAT_FAILURE", "VALUE_NOT_IN_RECORD", "FALSE_TREATMENT_CLAIM", "FLAG_MISSED",
                 "CONFLICT_NOT_DISCLOSED"}
 STRESS_SETS = ("boundary", "currency", "missing", "conflict", "fault")
+# Cases whose answer key is disputed (symptom-conflict scenario, see the results log): not used for teaching
+# until the clinician review is back.
+EXCLUDED_CASES = {"LB-0009", "LB-0079", "LB-0084"}
+# Specific treatments: choosing one that the guidelines do not ask for is flagged (a "small difference").
+SPECIFIC_ACTIONS = {"cultures": ("culture",), "antibiotics": ("antibiotic",), "hf_therapy": ("hf_therapy",),
+                    "interaction": ("interaction",), "dose_reduction": ("dose_reduction", "dose_reduction_or_hold")}
+ACTION_FOR_KEY = {"culture": "cultures", "antibiotic": "antibiotics", "hf_therapy": "hf_therapy",
+                  "interaction": "interaction", "cardiac_monitoring": "cardiac_monitoring",
+                  "dose_reduction": "dose_reduction", "dose_reduction_or_hold": "dose_reduction"}
+MAX_REQUESTS_WHEN_COMPLETE = 2
 
 
 @dataclass
@@ -105,16 +117,16 @@ def _topic(case: Dict[str, Any], ref: Dict[str, Any]) -> str:
     desc = (case.get("description") or "").lower()
     if ref.get("high_interactions") or ref.get("chemo_allergy") or "allerg" in desc or "washout" in desc:
         return "Medicines"
-    if pos("Febrile neutropenia") or pos("Neutrophil count decreased") or any(k in desc for k in ("anc", "fn", "temp")):
+    if pos("Febrile neutropenia") or pos("Neutrophil count decreased") or re.search(r"\b(anc|fn)\b|\btemp|neutro|fever|febrile", desc):
         return "Blood counts & fever"
     if pos("Left ventricular dysfunction") or pos("Heart failure") or \
             ref["esc"].get("asymptomatic_ctrcd") not in (None, "none", "not_evaluable") or \
-            any(k in desc for k in ("lvef", "gls", "echo", "trop", "ntpro", "her2", "trastuzumab")):
+            re.search(r"\b(lvef|gls|echo|trop|ntpro|nt-pro|her2|trastuzumab)", desc):
         return "Heart"
     if any(pos(t) for t in ("Blood bilirubin increased", "Alanine aminotransferase increased",
-                            "Aspartate aminotransferase increased")) or "bili" in desc:
+                            "Aspartate aminotransferase increased")) or re.search(r"\bbili|hepat|\balt\b|\bast\b", desc):
         return "Liver"
-    if pos("Creatinine increased") or "creatinine" in desc or desc.startswith("cr"):
+    if pos("Creatinine increased") or re.search(r"creatinine|\bcr\b|renal|kidney", desc):
         return "Kidney"
     return "Routine check"
 
@@ -144,6 +156,8 @@ def load_bank(include=("stress", "hosp", "B", "A")) -> List[Case]:
             except (FileNotFoundError, ImportError):
                 continue
             for c in cases:
+                if c["case_id"] in EXCLUDED_CASES:
+                    continue
                 ref = reference_for(c)
                 out.append(Case(case_id=c["case_id"], dataset=kind, case_type=CASE_TYPE[kind],
                                 title=_title(c, kind), topic=_topic(c, ref), record=_record(c),
@@ -158,6 +172,24 @@ def pick(bank: List[Case], topic: Optional[str] = None, kind: Optional[str] = No
     if not pool:
         pool = [c for c in bank if (not topic or c.topic == topic) and (not kind or c.dataset == kind)]
     return (rng or random).choice(pool) if pool else None
+
+
+def trainee_id(name: str, code: str) -> str:
+    """Name plus a short tag made from the personal code: without the code, nobody can open that record."""
+    name = " ".join(name.split())
+    tag = hashlib.sha256((name.lower() + "|" + code).encode("utf-8")).hexdigest()[:6]
+    return f"{name} #{tag}"
+
+
+def display_name(trainee: str) -> str:
+    return trainee.split(" #")[0]
+
+
+def _cut(text: str, n: int = 240) -> str:
+    """Shorten at a word boundary."""
+    if len(text) <= n:
+        return text
+    return text[:n].rsplit(" ", 1)[0].rstrip(",;:") + " …"
 
 
 # ---------------------------------------------------------------- the guideline answer
@@ -246,7 +278,8 @@ def feedback(case: Case, assessment: Dict[str, Any]) -> Dict[str, Any]:
                  (f" / with symptoms: {CTRCD_SYMPTOMATIC.get(assessment['ctrcd']['symptomatic'], '-')}"
                   if key["ctrcd_symptomatic"] else ""),
                  "guideline": CTRCD_ASYMPTOMATIC.get(key["ctrcd"], str(key["ctrcd"])) +
-                 (f" / with symptoms: {key['ctrcd_symptomatic']}" if key["ctrcd_symptomatic"] else ""),
+                 (f" / with symptoms: {CTRCD_SYMPTOMATIC.get(key['ctrcd_symptomatic'], key['ctrcd_symptomatic'])}"
+                  if key["ctrcd_symptomatic"] else ""),
                  "ok": not ce, "significant": any(x["significant"] for x in ce),
                  "why": (ADVICE["CTRCD_ERROR"] + (f" {key['esc_management']}" if key["esc_management"] else "")) if ce else ""})
     de = [x for x in errs if x["code"] in ("NO_DEFER", "UNSAFE_CONTINUE", "UNNECESSARY_HOLD")
@@ -263,28 +296,66 @@ def feedback(case: Case, assessment: Dict[str, Any]) -> Dict[str, Any]:
         if key["missing"]:
             why += " Missing: " + ", ".join(key["missing"]) + "."
         elif key["hold_reasons"]:
-            why += " Reason: " + "; ".join(str(r) for r in key["hold_reasons"])[:220] + "."
+            why += " Reason: " + _cut("; ".join(str(r) for r in key["hold_reasons"])) + ("" if len("; ".join(str(r) for r in key["hold_reasons"])) > 240 else ".")
     rows.append({"item": "Chemotherapy plan", "group": "decision", "yours": DECISIONS.get(assessment["chemotherapy_decision"], "-"),
                  "guideline": key["decision"], "ok": not de, "significant": any(x["significant"] for x in de), "why": why})
     te = [x for x in errs if x["code"] in ("UNDER_TRIAGE", "OVER_TRIAGE")]
     lv = key["levels"]
+    if case.ref["triage_floor"] > case.ref["min_level"] and assessment["urgency_level"] == case.ref["min_level"]:
+        # the key's two urgency bounds contradict each other in this case: the required level is accepted
+        te = [x for x in te if x["code"] != "OVER_TRIAGE"]
+        errs = [x for x in errs if x["code"] != "OVER_TRIAGE"]
     rows.append({"item": "How urgent", "group": "decision", "yours": LEVELS.get(assessment["urgency_level"], "-"),
                  "guideline": LEVELS[lv[-1]] if len(lv) == 1 else f"{LEVELS[lv[0]]} to {LEVELS[lv[-1]]}",
                  "ok": not te, "significant": any(x["significant"] for x in te), "why": ADVICE[te[0]["code"]] if te else ""})
     ae = [x for x in errs if x["code"] == "MISSING_REQUIRED_ACTION"]
+    chosen = _chosen_actions(assessment)
+    needed = set(key["required_action_keys"])
+    extra = [] if case.ref["defer_required"] else [
+        a for a in chosen if a in SPECIFIC_ACTIONS and not needed.intersection(SPECIFIC_ACTIONS[a])
+        and not (a == "hf_therapy" and "cardiac_monitoring" in needed)]
+    why = "; ".join((["Missing: " + "; ".join(x["detail"] for x in ae)] if ae else []) +
+                    (["Not indicated here: " + ", ".join(ACTION_LABELS[a].lower() for a in extra)] if extra else []))
     rows.append({"item": "Management steps", "group": "actions",
-                 "yours": ", ".join(ACTION_LABELS[a] for a in _chosen_actions(assessment)) or "none",
+                 "yours": ", ".join(ACTION_LABELS[a] for a in chosen) or "none",
                  "guideline": "; ".join(key["required_actions"]) or "none required",
-                 "ok": not ae, "significant": any(x["significant"] for x in ae),
-                 "why": ("Missing: " + "; ".join(x["detail"] for x in ae)) if ae else ""})
+                 "ok": not ae and not extra, "significant": any(x["significant"] for x in ae), "why": why})
+    asked = assessment.get("data_requests") or []
+    useful = [m for m in (case.ref.get("completeness") or {}).get("other_missing", [])
+              if not m.startswith(("cardiac biomarkers", "institutional lab", "GLS"))]
+    if not key["missing"] and not useful and len(asked) > MAX_REQUESTS_WHEN_COMPLETE:
+        rows.append({"item": "Results requested", "group": "requests", "yours": f"{len(asked)} requested",
+                     "guideline": "nothing essential is missing", "ok": False, "significant": False,
+                     "why": "The record already has what the decision needs; repeat tests only with a reason."})
     xe = [x for x in errs if x["code"] == "CONTRAINDICATED_DRUG"]
     if xe:
         rows.append({"item": "Medicines", "group": "actions", "yours": "", "guideline": "", "ok": False, "significant": True,
                      "why": ADVICE["CONTRAINDICATED_DRUG"] + " " + xe[0]["detail"]})
-    n_ok = sum(r["ok"] for r in rows)
+    # the score counts only the items that matter in this case: a grade of 0 that is correctly 0 is not counted
+    counted = [r for r in rows if not (r["group"] == "grade" and r["ok"] and r["guideline"] == "0")]
+    n_ok = sum(r["ok"] for r in counted)
     unsafe = [r for r in rows if r["significant"]]
-    return {"rows": rows, "score": round(100 * n_ok / len(rows)), "safe": not unsafe, "n_unsafe": len(unsafe),
-            "errors": errs, "key": key, "tips": tips}
+    # safety follows the scorer itself, so a significant error is never lost if it has no row of its own
+    safe = not any(e["significant"] for e in errs)
+    codes = sorted({e["code"] for e in errs})
+    return {"rows": rows, "score": round(100 * n_ok / len(counted)), "safe": safe,
+            "n_unsafe": max(len(unsafe), 0 if safe else 1), "errors": errs, "codes": codes, "key": key, "tips": tips,
+            "under_review": case.dataset == "A"}
+
+
+def model_answer(case: Case) -> Dict[str, Any]:
+    """The answer key expressed with the form's own options (used to prove every case can be answered)."""
+    key = guideline_answer(case)
+    grades = {t: _g(key["grades"][t]["grade"]) for t in TERMS_REQUIRED}
+    ctrcd = key["ctrcd"] if key["ctrcd"] in CTRCD_ASYMPTOMATIC else "not_evaluable"
+    sym = key["ctrcd_symptomatic"] if key["ctrcd_symptomatic"] in CTRCD_SYMPTOMATIC else "not_documented"
+    decision = key["accepted_decisions"][0]
+    actions = sorted({ACTION_FOR_KEY[k] for k in key["required_action_keys"]})
+    need_data = bool(key["missing"]) or any(
+        not m.startswith(("cardiac biomarkers", "institutional lab", "GLS"))
+        for m in (case.ref.get("completeness") or {}).get("other_missing", []))
+    return build_assessment(grades, ctrcd, sym, decision, key["levels"][-1], actions,
+                            ["cbc"] if need_data else [])
 
 
 def _g(v):

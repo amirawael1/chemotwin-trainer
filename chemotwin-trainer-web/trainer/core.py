@@ -452,6 +452,99 @@ def record_view(text: str) -> Dict[str, Any]:
     return {"lines": lines, "labs": [labs[k] for k in order], "heads": heads, "notes": notes}
 
 
+# ---------------------------------------------------------------- what decided the answer (shown after submitting)
+_HEART_KW = r"lvef|gls|\bef\b|echo|troponin|tni\b|bnp|heart-failure symptoms|dyspn|oedema|edema|orthopn"
+DECIDING = {   # term -> (laboratory names, words that mark a record line)
+    "Neutrophil count decreased": ({"anc"}, r"\banc\b|neutro"),
+    "Febrile neutropenia": ({"anc"}, r"temperature|febrile|fever|\banc\b|neutro"),
+    "Left ventricular dysfunction": ({"troponin", "nt-probnp"}, _HEART_KW),
+    "Heart failure": ({"troponin", "nt-probnp"}, _HEART_KW),
+    "Creatinine increased": ({"creatinine"}, r"creatinine"),
+    "Blood bilirubin increased": ({"total bilirubin"}, r"bilirubin"),
+    "Alanine aminotransferase increased": ({"alt"}, r"\balt\b"),
+    "Aspartate aminotransferase increased": ({"ast"}, r"\bast\b"),
+}
+
+
+def deciding_values(case: Case, fb: Dict[str, Any]) -> Dict[str, Any]:
+    """Which parts of the record the guideline answer rests on, plus the items the trainee got wrong.
+    Used only AFTER the answer is submitted, to show where to look."""
+    key = fb["key"]
+    wrong = {r["item"] for r in fb["rows"] if not r["ok"]}
+    terms = [t for t in TERMS_REQUIRED
+             if key["grades"][t]["grade"] not in (0, "not_evaluable") or TERM_SHORT[t] in wrong]
+    if key["ctrcd"] in ("mild", "moderate", "severe") or str(key["ctrcd"]).startswith("none_lvef") \
+            or "Heart damage from treatment" in wrong:
+        terms.append("Left ventricular dysfunction")
+    labs, pats = set(), []
+    for t in terms:
+        labs |= DECIDING[t][0]
+        pats.append(DECIDING[t][1])
+    if "interaction" in key["required_action_keys"] or case.ref.get("high_interactions") or case.ref.get("chemo_allergy") \
+            or any(e["code"] == "CONTRAINDICATED_DRUG" for e in fb["errors"]):
+        pats.append(r"medication|\bmeds\b|allerg|trastuzumab|regimen")
+    return {"labs": labs, "pattern": re.compile("|".join(pats), re.I) if pats else None}
+
+
+# ---------------------------------------------------------------- targeted practice
+REPEAT_AFTER_DAYS = 3
+
+
+def _when(text: Any):
+    from datetime import datetime
+    try:
+        return datetime.fromisoformat(str(text)[:16].replace("T", " "))
+    except ValueError:
+        return None
+
+
+def practice_plan(bank: List[Case], history: List[Dict[str, Any]], now=None) -> Dict[str, Any]:
+    """From the trainee's own results: the weakest topic (first attempts only) and the cases to repeat
+    (first answered unsafely, not yet answered safely, last tried at least REPEAT_AFTER_DAYS days ago)."""
+    from datetime import datetime, timedelta
+    now = now or datetime.now()
+    by_id = {c.case_id: c for c in bank}
+    first, last, safe_later = {}, {}, set()
+    for h in history:
+        cid = h.get("case_id")
+        if cid not in by_id:
+            continue
+        ok = str(h.get("safe")).lower() in ("true", "1", "yes")
+        if cid not in first:
+            first[cid] = h
+        elif ok:
+            safe_later.add(cid)
+        last[cid] = h
+    per_topic: Dict[str, List[float]] = {}
+    for cid, h in first.items():
+        try:
+            per_topic.setdefault(by_id[cid].topic, []).append(float(h.get("score")))
+        except (TypeError, ValueError):
+            pass
+    scored = {t: sum(v) / len(v) for t, v in per_topic.items() if len(v) >= 2}
+    weakest = min(scored, key=scored.get) if scored else None
+    repeat = []
+    for cid, h in first.items():
+        if str(h.get("safe")).lower() in ("true", "1", "yes") or cid in safe_later:
+            continue
+        t = _when(last[cid].get("time"))
+        if t is None or now - t >= timedelta(days=REPEAT_AFTER_DAYS):
+            repeat.append(cid)
+    return {"weakest": weakest, "weakest_score": round(scored[weakest]) if weakest else None, "repeat": repeat,
+            "cases_done": len(first)}
+
+
+def pick_targeted(bank: List[Case], history: List[Dict[str, Any]], now=None,
+                  rng: Optional[random.Random] = None) -> Optional[Case]:
+    plan = practice_plan(bank, history, now)
+    by_id = {c.case_id: c for c in bank}
+    if plan["repeat"]:
+        return by_id[(rng or random).choice(plan["repeat"])]
+    if plan["weakest"]:
+        return pick(bank, topic=plan["weakest"], exclude=[h.get("case_id") for h in history], rng=rng)
+    return None
+
+
 # ---------------------------------------------------------------- saved AI answers (from the experiments)
 def load_ai_answers(path: Optional[str] = None) -> Dict[str, Dict[str, Any]]:
     for p in ([path] if path else []) + [os.path.join(ROOT, "viewer", "viewer_data.json"),

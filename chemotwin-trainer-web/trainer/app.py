@@ -58,6 +58,7 @@ header[data-testid="stHeader"] {background: transparent; height: 0.5rem;}
 .chart td.k {color:#5B6878; width:34%;}
 .chart .plain {font-size:0.88rem; padding:5px 0; border-bottom:1px solid #EEF1F4;}
 .chart .head {font-size:0.74rem; font-weight:700; color:#134E8E; letter-spacing:0.06em; padding-top:12px;}
+tr.hl td, .chart .plain.hl {background:#FFF6D6;}
 .chart .mono {font-family:Consolas,Menlo,monospace; font-size:0.8rem; white-space:pre-wrap;}
 .pill {display:inline-block; padding:1px 8px; border-radius:3px; font-size:0.76rem; font-weight:700; white-space:nowrap;}
 .ok {background:#E4F2EA; color:#1B6B45;} .bad {background:#FBE6E4; color:#A1261C;} .warn {background:#FCF1DC; color:#8A5300;}
@@ -182,6 +183,16 @@ def home():
         if st.button("Start a case", type="primary", width="stretch"):
             new_case()
             st.rerun()
+        plan = core.practice_plan(CASES, ss.history) if ss.history else None
+        if plan and (plan["repeat"] or plan["weakest"]):
+            if st.button("Practise what I got wrong", width="stretch"):
+                c = core.pick_targeted(CASES, ss.history)
+                if c:
+                    open_case(c.case_id)
+                    st.rerun()
+            bits = ([f"weakest topic: {plan['weakest']} ({plan['weakest_score']}%)"] if plan["weakest"] else []) + \
+                   ([f"{len(plan['repeat'])} case{'s' if len(plan['repeat']) > 1 else ''} to repeat"] if plan["repeat"] else [])
+            st.caption("From your results: " + "; ".join(bits) + ".")
         with st.expander("Choose a topic"):
             ss.f_topic = st.selectbox("Topic", ["All topics"] + core.TOPICS,
                                       index=(["All topics"] + core.TOPICS).index(ss.f_topic))
@@ -197,13 +208,16 @@ def home():
 
 
 # ------------------------------------------------------------------ the record as a chart
-def show_record(case):
+def show_record(case, mark=None):
+    """mark (only after submitting) = the values the guideline answer rests on; they are highlighted."""
     v = core.record_view(case.record)
+    pat = mark["pattern"] if mark else None
     out = ['<div class="chart">']
     rows = ""
     for label, content in v["lines"]:
+        hl = " hl" if pat and pat.search(label + " " + content) and not content.isupper() else ""
         if label:
-            rows += f'<tr><td class="k">{html.escape(label)}</td><td>{html.escape(content)}</td></tr>'
+            rows += f'<tr class="{hl.strip()}"><td class="k">{html.escape(label)}</td><td>{html.escape(content)}</td></tr>'
         else:
             if rows:
                 out.append(f"<table>{rows}</table>")
@@ -211,21 +225,26 @@ def show_record(case):
             if content.isupper() and len(content) < 60:
                 out.append(f'<div class="head">{html.escape(content)}</div>')
             elif " | " in content:
-                out.append(f'<div class="plain mono">{html.escape(content)}</div>')
+                out.append(f'<div class="plain mono{hl}">{html.escape(content)}</div>')
             else:
-                out.append(f'<div class="plain">{html.escape(content)}</div>')
+                out.append(f'<div class="plain{hl}">{html.escape(content)}</div>')
     if rows:
         out.append(f"<table>{rows}</table>")
     if v["labs"]:
         cols = [c for c in ("baseline", "current", "reference") if c in v["heads"]]
         head = "".join(f"<th>{html.escape(v['heads'][c])}</th>" for c in cols)
-        body = "".join("<tr><td class='k'>" + html.escape(r["name"]) + "</td>"
+        marked = mark["labs"] if mark else set()
+        body = "".join(("<tr class='hl'>" if r["name"].lower() in marked else "<tr>") + "<td class='k'>" + html.escape(r["name"]) + "</td>"
                        + "".join(f"<td>{html.escape(r.get(c, '–'))}</td>" for c in cols) + "</tr>" for r in v["labs"])
         out.append(f'<div class="head">LABORATORY</div><table><tr><th></th>{head}</tr>{body}</table>')
         for n in v["notes"]:
             out.append(f'<div class="plain muted">{html.escape(n)}</div>')
     out.append("</div>")
     st.markdown("".join(out), unsafe_allow_html=True)
+    if mark and any(m in "".join(out) for m in ('class="hl"', "class='hl'", ' hl"')):
+        st.caption("Highlighted: the parts of the record that decide the guideline answer.")
+    elif mark:
+        st.caption("Nothing in this record is abnormal enough to change the plan.")
 
 
 # ------------------------------------------------------------------ the case in three steps
@@ -242,7 +261,7 @@ def case_page():
     if st.toggle("Show patient record", value=True, key="show_record"):
         left_col, right_col = st.columns([6, 5], gap="large")
         with left_col:
-            show_record(case)
+            show_record(case, core.deciding_values(case, ss.results[case.case_id]) if done else None)
     else:
         right_col = st.container()
     with right_col:

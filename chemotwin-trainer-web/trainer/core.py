@@ -132,7 +132,9 @@ def _topic(case: Dict[str, Any], ref: Dict[str, Any]) -> str:
 
 
 def _record(case: Dict[str, Any]) -> str:
-    return case.get("record_text") or render_patient(case["patient"], case.get("clinical_note"))
+    text = case.get("record_text") or render_patient(case["patient"], case.get("clinical_note"))
+    # the case code (e.g. "MIS-NO-TEMP") can give the answer away: it is not shown in the record
+    return text.replace("Patient " + case["case_id"] + ":", "Patient:").replace(case["case_id"], "this patient")
 
 
 def _title(case: Dict[str, Any], kind: str) -> str:

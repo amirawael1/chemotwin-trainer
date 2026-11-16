@@ -5,12 +5,12 @@ Run from the project folder:
     python -m streamlit run trainer/app.py
 
 Educational tool for doctors in training. It does not make clinical decisions.
+The screen shows one thing at a time: a start page, then a case in three short steps, then the feedback.
 """
 import html
 import io
 import os
 import random
-import re
 import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -25,57 +25,53 @@ if ROOT not in sys.path:
 from agentic.assessment import TERMS_REQUIRED  # noqa: E402
 from trainer import core, storage  # noqa: E402
 
-
 TEACHING_CASES = {
     "Neutropenia grading after the CTCAE v6.0 update": "CUR-ANC-700",
     "HER2 therapy surveillance: urgency": "CON-HER2-SURV",
     "Trastuzumab washout before anthracycline": "CON-WASHOUT",
     "Reported fever without a temperature value": "LA-12992047",
 }
+PAGES = ["Practice", "Progress", "Help"]
 
-st.set_page_config(page_title="ChemoTwin Trainer", page_icon="✚", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="ChemoTwin Trainer", page_icon="✚", layout="wide", initial_sidebar_state="collapsed")
 st.markdown("""
 <style>
-/* hide Streamlit's own menu and Deploy button, but NOT the toolbar itself: it holds the arrow that reopens the sidebar */
 #MainMenu, footer, [data-testid="stDecoration"], [data-testid="stMainMenu"], [data-testid="stAppDeployButton"],
-[data-testid="stToolbarActions"], [data-testid="stStatusWidget"] {display: none;}
-header[data-testid="stHeader"] {background: transparent; height: 2.6rem;}
-[data-testid="stExpandSidebarButton"], [data-testid="stSidebarCollapsedControl"] {display: flex !important; visibility: visible !important;}
-.block-container {padding-top: 2.6rem; max-width: 1400px;}
-h1, h2, h3, h4 {letter-spacing: -0.01em;}
-.topbar {display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
-         background:#134E8E; border-radius:6px; padding:14px 22px; margin-bottom:20px;}
-.topbar .t1 {font-size:1.5rem; font-weight:700; color:#FFFFFF; line-height:1.1;}
-.topbar .t2 {font-size:0.95rem; color:#D6E4F5; margin-top:2px;}
-.topbar .refs {color:#FFFFFF; font-size:0.82rem; background:rgba(255,255,255,0.14); padding:4px 10px; border-radius:4px;}
-.brand {font-size:1.45rem; font-weight:700; color:#134E8E;}
-.case-id {color:#6B7785; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em;}
-.case-title {font-size:1.25rem; font-weight:650; color:#15202B; margin:2px 0 6px 0;}
-.chip {display:inline-block; padding:1px 9px; border-radius:4px; font-size:0.78rem; font-weight:600; margin-right:6px;
-       background:#EEF2F6; color:#3E4C5B; border:1px solid #DCE3EA;}
+[data-testid="stToolbarActions"], [data-testid="stStatusWidget"], [data-testid="stSidebar"],
+[data-testid="stExpandSidebarButton"], [data-testid="stSidebarCollapsedControl"] {display: none;}
+header[data-testid="stHeader"] {background: transparent; height: 0.5rem;}
+.block-container {padding-top: 1.6rem; max-width: 1180px;}
+.brand {font-size:1.35rem; font-weight:700; color:#134E8E; line-height:1.2;}
+.brand span {font-weight:400; color:#5B6878; font-size:0.95rem; margin-left:8px;}
+.rule {border-bottom:2px solid #134E8E; margin:6px 0 22px 0;}
+.hero {font-size:1.6rem; font-weight:650; color:#15202B; margin:18px 0 4px 0;}
+.muted {color:#5B6878; font-size:0.9rem;}
+.case-title {font-size:1.2rem; font-weight:650; color:#15202B; margin:0 0 10px 0;}
 .sec {font-size:0.76rem; font-weight:700; color:#134E8E; text-transform:uppercase; letter-spacing:0.07em;
-      margin:14px 0 4px 0; border-bottom:1px solid #E3E8EE; padding-bottom:3px;}
-.record {background:#FBFCFD; border:1px solid #DCE3EA; border-left:4px solid #134E8E; border-radius:4px;
-         padding:14px 16px; white-space:pre-wrap; font-family:"Consolas","Menlo",monospace; font-size:0.84rem;
-         line-height:1.5; color:#1E2A36; max-height:620px; overflow-y:auto;}
-.pill {display:inline-block; white-space:nowrap; padding:1px 8px; border-radius:3px; font-size:0.76rem; font-weight:700;}
+      margin:16px 0 6px 0;}
+.step {font-size:0.78rem; color:#5B6878; text-transform:uppercase; letter-spacing:0.06em;}
+.q {font-size:1.15rem; font-weight:650; color:#15202B; margin:2px 0 12px 0;}
+.chart {border:1px solid #DCE3EA; border-radius:6px; background:#FFFFFF; padding:6px 16px 12px 16px;}
+.chart table {width:100%; border-collapse:collapse; font-size:0.88rem;}
+.chart td, .chart th {padding:5px 8px 5px 0; vertical-align:top; border-bottom:1px solid #EEF1F4; text-align:left;}
+.chart th {color:#5B6878; font-weight:600; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.05em;}
+.chart td.k {color:#5B6878; width:34%;}
+.chart .plain {font-size:0.88rem; padding:5px 0; border-bottom:1px solid #EEF1F4;}
+.chart .head {font-size:0.74rem; font-weight:700; color:#134E8E; letter-spacing:0.06em; padding-top:12px;}
+.chart .mono {font-family:Consolas,Menlo,monospace; font-size:0.8rem; white-space:pre-wrap;}
+.pill {display:inline-block; padding:1px 8px; border-radius:3px; font-size:0.76rem; font-weight:700; white-space:nowrap;}
 .ok {background:#E4F2EA; color:#1B6B45;} .bad {background:#FBE6E4; color:#A1261C;} .warn {background:#FCF1DC; color:#8A5300;}
-.summary {display:flex; gap:28px; align-items:center; border:1px solid #DCE3EA; border-radius:6px; padding:12px 16px;
-          margin-bottom:12px; background:#FBFCFD;}
-.summary .num {font-size:1.9rem; font-weight:700; color:#134E8E; line-height:1;}
-.summary .lab {font-size:0.78rem; color:#5B6878; text-transform:uppercase; letter-spacing:0.05em;}
-table.review {width:100%; border-collapse:collapse; font-size:0.88rem;}
-table.review th {text-align:left; color:#5B6878; font-weight:600; font-size:0.76rem; text-transform:uppercase;
-                 letter-spacing:0.05em; border-bottom:1px solid #DCE3EA; padding:6px 8px;}
-table.review td {border-bottom:1px solid #EEF1F4; padding:6px 8px; vertical-align:top;}
-.notes {background:#FFF8EC; border:1px solid #F0D9A8; border-left:5px solid #C98A12; border-radius:6px;
-         padding:12px 18px; margin-top:16px; font-size:0.92rem; color:#2B2416;}
-.notes .h {font-weight:700; color:#8A5300; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;}
-.notes ul {margin:0; padding-left:18px;} .notes li {margin-bottom:5px;}
-.about {background:#F2F6FB; border:1px solid #D3DFEC; border-left:5px solid #134E8E; border-radius:6px;
-        padding:12px 18px; margin-top:12px; font-size:0.92rem;}
-.about .h {font-weight:700; color:#134E8E; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;}
-.muted {color:#5B6878; font-size:0.84rem;}
+.verdict {border-radius:6px; padding:14px 18px; margin-bottom:14px; font-size:1.05rem; font-weight:650;}
+.verdict.ok {background:#E4F2EA; color:#1B6B45;} .verdict.bad {background:#FBE6E4; color:#A1261C;}
+.verdict span {font-weight:400; font-size:0.9rem; margin-left:10px;}
+.item {border:1px solid #DCE3EA; border-left:4px solid #C98A12; border-radius:6px; padding:10px 14px; margin-bottom:8px;
+       font-size:0.9rem;}
+.item.unsafe {border-left-color:#A1261C;}
+.item .t {font-weight:650; color:#15202B;} .item .cmp {color:#3E4C5B; margin:3px 0;} .item .why {color:#5B6878;}
+table.review {width:100%; border-collapse:collapse; font-size:0.86rem;}
+table.review th {text-align:left; color:#5B6878; font-weight:600; font-size:0.74rem; text-transform:uppercase;
+                 border-bottom:1px solid #DCE3EA; padding:5px 8px;}
+table.review td {border-bottom:1px solid #EEF1F4; padding:5px 8px; vertical-align:top;}
 </style>""", unsafe_allow_html=True)
 
 
@@ -85,13 +81,11 @@ def bank():
     return cases, {c.case_id: c for c in cases}
 
 
-
 CASES, BY_ID = bank()
 ss = st.session_state
-ss.setdefault("case_id", None)
-ss.setdefault("results", {})      # case_id -> feedback
-ss.setdefault("history", [])      # list of dicts
-ss.setdefault("trainee", "")
+for _k, _v in (("case_id", None), ("results", {}), ("history", []), ("trainee", ""), ("answers", {}), ("steps", {}),
+               ("f_topic", "All topics"), ("f_kind", "All settings")):
+    ss.setdefault(_k, _v)
 
 
 def pill(text, cls):
@@ -102,12 +96,20 @@ def sec(text):
     st.markdown(f'<div class="sec">{html.escape(text)}</div>', unsafe_allow_html=True)
 
 
-def new_case(topic, kind):
+def open_case(case_id):
+    ss.case_id = case_id
+    ss.results.pop(case_id, None)
+    ss.answers.pop(case_id, None)
+    ss.steps[case_id] = 1
+
+
+def new_case():
+    topic, kind = ss.f_topic, ss.f_kind
     c = core.pick(CASES, topic=None if topic == "All topics" else topic,
                   kind=None if kind == "All settings" else kind,
                   exclude=[h["case_id"] for h in ss.history])
     if c:
-        ss.case_id = c.case_id
+        open_case(c.case_id)
 
 
 def trainees():
@@ -126,34 +128,37 @@ def load_history(name):
         return []
 
 
-def save_progress(name, row):
+def save_progress(row):
     try:
         storage.save(row)
-        return True
     except Exception:
         st.warning("This result could not be saved (connection problem). Your feedback is still shown.")
-        return False
 
 
-# ------------------------------------------------------------------ sidebar
-with st.sidebar:
-    st.markdown('<div class="brand">ChemoTwin</div><div class="muted">Toxicity assessment training</div>',
-                unsafe_allow_html=True)
-    st.write("")
-    page = st.radio("Section", ["Practice", "Progress", "How to use"], label_visibility="collapsed")
-    st.divider()
-    st.markdown('<div class="sec">Trainee</div>', unsafe_allow_html=True)
-    if ss.get("trainee"):
-        st.markdown(f"Signed in as **{html.escape(core.display_name(ss.trainee))}**")
-        if st.button("Sign out", width="stretch"):
-            ss.trainee, ss.history, ss.results = "", [], {}
+# ------------------------------------------------------------------ top bar (no sidebar: works on a phone too)
+left, right = st.columns([5, 4])
+with left:
+    st.markdown('<div class="brand">ChemoTwin<span>Chemotherapy toxicity training</span></div>', unsafe_allow_html=True)
+with right:
+    page = st.radio("Section", PAGES, horizontal=True, label_visibility="collapsed", key="page") or "Practice"
+st.markdown('<div class="rule"></div>', unsafe_allow_html=True)
+
+
+# ------------------------------------------------------------------ start page
+def sign_in_box():
+    if ss.trainee:
+        c1, c2 = st.columns([3, 1])
+        c1.markdown(f"Signed in as **{html.escape(core.display_name(ss.trainee))}**")
+        if c2.button("Sign out", width="stretch"):
+            ss.trainee, ss.history, ss.results, ss.case_id = "", [], {}, None
             st.rerun()
-    else:
+        return
+    with st.expander("Sign in to save your progress", expanded=True):
         typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed")
         code = st.text_input("Personal code", type="password", placeholder="Choose 4 or more characters",
                              help="You choose it the first time. Use the same name and code each time.")
         ready = bool((typed or "").strip()) and len(code or "") >= 4
-        if st.button("Sign in", type="primary", width="stretch", disabled=not ready):
+        if st.button("Sign in", type="primary", disabled=not ready):
             tid = core.trainee_id(typed, code)
             hist = load_history(tid)
             known = [] if storage.online() else trainees()
@@ -162,151 +167,216 @@ with st.sidebar:
             else:
                 ss.trainee, ss.history, ss.results = tid, hist, {}
                 st.rerun()
-        st.caption("Your name and code open your own record. Results are stored for your course tutor.")
-    if page == "Practice":
-        topic = st.selectbox("Topic", ["All topics"] + core.TOPICS)
-        kind_label = st.selectbox("Setting", ["All settings"] + list(core.CASE_TYPE.values()))
-        kind = next((k for k, v in core.CASE_TYPE.items() if v == kind_label), "All settings")
-        ss.f_topic, ss.f_kind = topic, kind
-        if st.button("New case", type="primary", width="stretch"):
-            new_case(topic, kind)
+        st.caption("Without signing in you can still practise, but nothing is saved.")
+
+
+def home():
+    _, mid, _ = st.columns([1, 2, 1])
+    with mid:
+        st.markdown('<div class="hero">Practise assessing chemotherapy side effects</div>'
+                    '<div class="muted">Read a patient record, give your assessment in three short steps, '
+                    'and compare it with the guidelines.</div>', unsafe_allow_html=True)
         st.write("")
-        st.markdown('<div class="sec">Teaching cases</div>', unsafe_allow_html=True)
-        for label, cid in TEACHING_CASES.items():
-            if st.button(label, key=f"teach_{cid}", width="stretch"):
-                ss.case_id = cid
-                ss.results.pop(cid, None)
-    st.divider()
-    st.caption("For training only. Not for clinical decisions.")
+        sign_in_box()
+        st.write("")
+        if st.button("Start a case", type="primary", width="stretch"):
+            new_case()
+            st.rerun()
+        with st.expander("Choose a topic"):
+            ss.f_topic = st.selectbox("Topic", ["All topics"] + core.TOPICS,
+                                      index=(["All topics"] + core.TOPICS).index(ss.f_topic))
+            kinds = ["All settings"] + list(core.CASE_TYPE.values())
+            label = st.selectbox("Setting", kinds, index=kinds.index(core.CASE_TYPE.get(ss.f_kind, "All settings")))
+            ss.f_kind = next((k for k, v in core.CASE_TYPE.items() if v == label), "All settings")
+        with st.expander("Teaching cases"):
+            for label, cid in TEACHING_CASES.items():
+                if cid in BY_ID and st.button(label, key=f"teach_{cid}", width="stretch"):
+                    open_case(cid)
+                    st.rerun()
+        st.caption("For training only. Not for clinical decisions.")
 
-if ss.case_id is None or ss.case_id not in BY_ID:
-    ss.case_id = core.pick(CASES, rng=random.Random()).case_id
 
-st.markdown('<div class="topbar"><div><div class="t1">ChemoTwin</div><div class="t2">Chemotherapy toxicity '
-            'assessment · training</div></div>'
-            '<div class="refs">CTCAE v6.0 · ESC 2022 · ESMO 2016 · FDA doxorubicin label</div></div>',
-            unsafe_allow_html=True)
-
-
-# ------------------------------------------------------------------ pages
-def practice():
-    case = BY_ID[ss.case_id]
-    done = case.case_id in ss.results          # the case code and topic can give the answer away: shown afterwards
-    st.markdown(f'<div class="case-id">{"Case " + html.escape(case.case_id) if done else "Case"}</div>'
-                f'<div class="case-title">{html.escape(case.title)}</div>'
-                + (f'<span class="chip">{html.escape(case.topic)}</span>' if done else "")
-                + f'<span class="chip">{html.escape(case.case_type)}</span>',
-                unsafe_allow_html=True)
-    st.write("")
-    show = st.toggle("Show patient record", value=True, key="show_record")
-    if show:
-        left, right = st.columns([5, 6], gap="large")
-        with left:
-            sec("Patient record")
-            st.markdown(f'<div class="record">{html.escape(case.record)}</div>', unsafe_allow_html=True)
-    else:
-        right = st.container()
-    with right:
-        res = ss.results.get(case.case_id)
-        if res is None:
-            answer_form(case)
+# ------------------------------------------------------------------ the record as a chart
+def show_record(case):
+    v = core.record_view(case.record)
+    out = ['<div class="chart">']
+    rows = ""
+    for label, content in v["lines"]:
+        if label:
+            rows += f'<tr><td class="k">{html.escape(label)}</td><td>{html.escape(content)}</td></tr>'
         else:
-            show_feedback(case, res)
-    if res is not None:              # full width below the record and the review
-        st.write("")
-        _, b1, b2 = st.columns([6, 2, 2])
-        if b1.button("Retry case", width="stretch"):
-            ss.results.pop(case.case_id, None)
-            st.rerun()
-        if b2.button("Next case", type="primary", width="stretch"):
-            new_case(ss.get("f_topic", "All topics"), ss.get("f_kind", "All settings"))
-            st.rerun()
+            if rows:
+                out.append(f"<table>{rows}</table>")
+                rows = ""
+            if content.isupper() and len(content) < 60:
+                out.append(f'<div class="head">{html.escape(content)}</div>')
+            elif " | " in content:
+                out.append(f'<div class="plain mono">{html.escape(content)}</div>')
+            else:
+                out.append(f'<div class="plain">{html.escape(content)}</div>')
+    if rows:
+        out.append(f"<table>{rows}</table>")
+    if v["labs"]:
+        cols = [c for c in ("baseline", "current", "reference") if c in v["heads"]]
+        head = "".join(f"<th>{html.escape(v['heads'][c])}</th>" for c in cols)
+        body = "".join("<tr><td class='k'>" + html.escape(r["name"]) + "</td>"
+                       + "".join(f"<td>{html.escape(r.get(c, '–'))}</td>" for c in cols) + "</tr>" for r in v["labs"])
+        out.append(f'<div class="head">LABORATORY</div><table><tr><th></th>{head}</tr>{body}</table>')
+        for n in v["notes"]:
+            out.append(f'<div class="plain muted">{html.escape(n)}</div>')
+    out.append("</div>")
+    st.markdown("".join(out), unsafe_allow_html=True)
 
 
-def answer_form(case):
-    k = case.case_id
-    with st.form(f"form_{k}", border=False):
-        sec("1 · Grade the side effects (CTCAE v6.0)")
-        grades = {}
-        cols = st.columns(4)
-        for i, t in enumerate(TERMS_REQUIRED):
-            with cols[i % 4]:
-                grades[t] = st.selectbox(core.TERM_SHORT[t], core.GRADE_OPTIONS, index=None, placeholder="Choose",
-                                         key=f"g_{k}_{i}")
-        sec("2 · Heart damage from treatment (ESC 2022)")
-        c1, c2 = st.columns(2)
-        with c1:
-            ctrcd = st.selectbox("Seen on tests, no symptoms", list(core.CTRCD_ASYMPTOMATIC),
-                                 format_func=core.CTRCD_ASYMPTOMATIC.get, index=None, placeholder="Choose", key=f"ca_{k}")
-        with c2:
-            ctrcd_s = st.selectbox("With heart-failure symptoms", list(core.CTRCD_SYMPTOMATIC),
-                                   format_func=core.CTRCD_SYMPTOMATIC.get, index=None, placeholder="Choose", key=f"cs_{k}")
-        sec("3 · Chemotherapy plan")
-        decision = st.radio("Decision", list(core.DECISIONS), index=None, format_func=core.DECISIONS.get, horizontal=True,
-                            label_visibility="collapsed", key=f"d_{k}")
-        sec("4 · How urgent is it?")
-        level = st.radio("Urgency", list(core.LEVELS), index=None, format_func=core.LEVELS.get, horizontal=True,
-                         label_visibility="collapsed", key=f"l_{k}")
-        sec("5 · What would you do now?")
-        actions = st.multiselect("Orders", list(core.ACTIONS), format_func=core.ACTION_LABELS.get,
-                                 label_visibility="collapsed", key=f"a_{k}", placeholder="Choose all that apply")
-        sec("6 · Which results would you request?")
-        data_req = st.multiselect("Investigations", list(core.DATA_REQUESTS), format_func=core.DATA_REQUESTS.get,
-                                  label_visibility="collapsed", key=f"r_{k}", placeholder="Choose any results you are missing")
-        st.write("")
-        sent = st.form_submit_button("Submit assessment", type="primary", width="stretch")
-    blank = [core.TERM_SHORT[t] for t in TERMS_REQUIRED if grades[t] is None] + \
-            [n for n, v in (("heart (no symptoms)", ctrcd), ("heart (with symptoms)", ctrcd_s),
-                            ("chemotherapy plan", decision), ("urgency", level)) if v is None]
-    if sent and blank:
-        st.error("Please answer every question. Still open: " + ", ".join(blank) + ".")
-    elif sent:
-        a = core.build_assessment(grades, ctrcd, ctrcd_s, decision, level, actions, data_req)
-        fb = core.feedback(case, a)
-        ss.results[k] = fb
-        row = {"time": datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.get("trainee", ""),
-               "case_id": k, "topic": case.topic,
-               "case_type": case.case_type, "score": fb["score"], "safe": fb["safe"], "codes": "|".join(fb["codes"])}
-        ss.history.append(row)
-        save_progress(ss.get("trainee", ""), row)
-        if not ss.get("trainee"):
-            st.toast("Not saved: sign in from the sidebar to keep your progress.")
+# ------------------------------------------------------------------ the case in three steps
+def case_page():
+    case = BY_ID[ss.case_id]
+    done = case.case_id in ss.results
+    top, back = st.columns([6, 1])
+    top.markdown(f'<div class="case-title">{html.escape(case.title)}'
+                 + (f' <span class="muted">· case {html.escape(case.case_id)} · {html.escape(case.topic)}</span>' if done else "")
+                 + '</div>', unsafe_allow_html=True)
+    if back.button("Start page", width="stretch"):
+        ss.case_id = None
         st.rerun()
+    if st.toggle("Show patient record", value=True, key="show_record"):
+        left_col, right_col = st.columns([6, 5], gap="large")
+        with left_col:
+            show_record(case)
+    else:
+        right_col = st.container()
+    with right_col:
+        if done:
+            show_feedback(case, ss.results[case.case_id])
+        else:
+            steps(case)
+
+
+def steps(case):
+    k = case.case_id
+    step = ss.steps.setdefault(k, 1)
+    ans = ss.answers.setdefault(k, {})
+    scope = core.terms_in_scope(case)
+    st.markdown(f'<div class="step">Step {step} of 3</div>', unsafe_allow_html=True)
+
+    if step == 1:
+        st.markdown('<div class="q">What is abnormal?</div>', unsafe_allow_html=True)
+        picked = st.pills("Mark every item that is abnormal or cannot be graded. Leave the others unmarked.",
+                          scope, selection_mode="multi", format_func=core.TERM_SHORT.get,
+                          default=[t for t in ans.get("abnormal", {}) if t in scope], key=f"p_{k}") or []
+        grades = {}
+        for t in picked:
+            prev = ans.get("abnormal", {}).get(t)
+            grades[t] = st.radio(f"{core.TERM_SHORT[t]}: CTCAE v6.0 grade", core.ABNORMAL_GRADES, horizontal=True,
+                                 index=core.ABNORMAL_GRADES.index(prev) if prev in core.ABNORMAL_GRADES else None,
+                                 key=f"g_{k}_{TERMS_REQUIRED.index(t)}")
+        heart_opts = list(core.CTRCD_ASYMPTOMATIC)
+        heart = st.radio("Heart damage from treatment (ESC 2022)", heart_opts, horizontal=True,
+                         format_func=core.CTRCD_ASYMPTOMATIC.get, index=heart_opts.index(ans.get("heart", "none")),
+                         key=f"h_{k}")
+        if st.button("Next", type="primary", width="stretch"):
+            open_ = [core.TERM_SHORT[t] for t in picked if grades[t] is None]
+            if open_:
+                st.error("Choose a grade for: " + ", ".join(open_) + ".")
+            else:
+                ans["abnormal"], ans["heart"] = grades, heart
+                ss.steps[k] = 2
+                st.rerun()
+
+    elif step == 2:
+        st.markdown('<div class="q">What is your plan?</div>', unsafe_allow_html=True)
+        d_opts, l_opts = list(core.DECISIONS), list(core.LEVELS)
+        decision = st.radio("Chemotherapy", d_opts, format_func=core.DECISIONS.get,
+                            index=d_opts.index(ans["decision"]) if ans.get("decision") in d_opts else None, key=f"d_{k}")
+        level = st.radio("How urgent is it?", l_opts, format_func=core.LEVELS.get,
+                         index=l_opts.index(ans["level"]) if ans.get("level") in l_opts else None, key=f"l_{k}")
+        b1, b2 = st.columns([1, 3])
+        if b1.button("Back", width="stretch"):
+            ss.steps[k] = 1
+            st.rerun()
+        if b2.button("Next", type="primary", width="stretch"):
+            if decision is None or level is None:
+                st.error("Choose a plan and how urgent it is.")
+            else:
+                ans["decision"], ans["level"] = decision, level
+                ss.steps[k] = 3
+                st.rerun()
+
+    else:
+        st.markdown('<div class="q">What do you do now?</div>', unsafe_allow_html=True)
+        actions = st.pills("Treatment and monitoring (choose any that apply)", list(core.ACTIONS),
+                           selection_mode="multi", format_func=core.ACTION_LABELS.get,
+                           default=ans.get("actions", []), key=f"a_{k}") or []
+        requests_ = st.pills("Results to request (only if something is missing)", list(core.DATA_REQUESTS),
+                             selection_mode="multi", format_func=core.DATA_REQUESTS.get,
+                             default=ans.get("requests", []), key=f"r_{k}") or []
+        b1, b2 = st.columns([1, 3])
+        if b1.button("Back", width="stretch"):
+            ans["actions"], ans["requests"] = list(actions), list(requests_)
+            ss.steps[k] = 2
+            st.rerun()
+        if b2.button("Submit", type="primary", width="stretch"):
+            a = core.simple_assessment(case, ans.get("abnormal", {}), ans.get("heart", "none"), ans["decision"],
+                                       ans["level"], list(actions), list(requests_))
+            fb = core.feedback(case, a)
+            fb["scope"] = scope
+            ss.results[k] = fb
+            row = {"time": datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.trainee,
+                   "case_id": k, "topic": case.topic, "case_type": case.case_type, "score": fb["score"],
+                   "safe": fb["safe"], "codes": "|".join(fb["codes"])}
+            ss.history.append(row)
+            if ss.trainee:
+                save_progress(row)
+            st.rerun()
 
 
 def show_feedback(case, fb):
-    status = (pill("Safe plan", "ok") if fb["safe"] else
-              pill(f"{fb['n_unsafe']} safety concern{'s' if fb['n_unsafe'] > 1 else ''}", "bad"))
-    st.markdown(f'<div class="summary"><div><div class="num">{fb["score"]}%</div>'
-                f'<div class="lab">Agreement with guidelines</div></div><div>{status}</div></div>',
+    cls = "ok" if fb["safe"] else "bad"
+    head = "Safe plan" if fb["safe"] else ("Not safe: " + str(fb["n_unsafe"]) + " safety concern" + ("s" if fb["n_unsafe"] > 1 else ""))
+    st.markdown(f'<div class="verdict {cls}">{head}<span>{fb["score"]}% agreement with the guidelines</span></div>',
                 unsafe_allow_html=True)
+    scope_short = {core.TERM_SHORT[t] for t in fb.get("scope", TERMS_REQUIRED)}
+    rows = [r for r in fb["rows"] if r["group"] != "grade" or r["item"] in scope_short or not r["ok"]]
+    wrong = [r for r in rows if not r["ok"]]
+    if not wrong:
+        st.markdown("Your assessment matches the guidelines on every item.")
+    for r in wrong:
+        tag = pill("Unsafe", "bad") if r["significant"] else pill("Small difference", "warn")
+        cmp_ = (f'<div class="cmp">You: {html.escape(str(r["yours"]))} · Guidelines: {html.escape(str(r["guideline"]))}</div>'
+                if r["yours"] or r["guideline"] else "")
+        st.markdown(f'<div class="item {"unsafe" if r["significant"] else ""}"><span class="t">{html.escape(str(r["item"]))}</span> {tag}'
+                    f'{cmp_}<div class="why">{html.escape(r["why"])}</div></div>', unsafe_allow_html=True)
+    for t in fb.get("tips", []):
+        st.caption(t)
+    if not ss.trainee:
+        st.caption("Not saved: sign in on the start page to keep your progress.")
+    with st.expander("Show all details"):
+        shown = [r for r in rows if not (r["group"] == "grade" and r["ok"] and r["guideline"] == "0")]
+        body = "".join(
+            f"<tr><td>{html.escape(str(r['item']))}</td><td>{html.escape(str(r['yours']))}</td>"
+            f"<td>{html.escape(str(r['guideline']))}</td><td>"
+            + (pill("Correct", "ok") if r["ok"] else pill("Unsafe", "bad") if r["significant"] else pill("Small difference", "warn"))
+            + "</td></tr>" for r in shown)
+        st.markdown('<table class="review"><tr><th>Item</th><th>Your answer</th><th>Guidelines say</th><th></th></tr>'
+                    + body + "</table>", unsafe_allow_html=True)
+        if case.what_it_tests:
+            st.markdown(f"**About this case.** {html.escape(case.what_it_tests)}")
+        if fb.get("under_review"):
+            st.caption("This case is based on a published report. Its answer key is still under clinical review.")
+    b1, b2 = st.columns(2)
+    if b1.button("Retry", width="stretch"):
+        open_case(case.case_id)
+        st.rerun()
+    if b2.button("Next case", type="primary", width="stretch"):
+        new_case()
+        st.rerun()
 
-    rows = fb["rows"]
-    shown = [r for r in rows if not (r["group"] == "grade" and r["ok"] and r["guideline"] == "0")]
-    body = ""
-    for r in shown:
-        st_ = pill("Correct", "ok") if r["ok"] else (pill("Unsafe", "bad") if r["significant"] else pill("Small difference", "warn"))
-        body += (f"<tr><td>{html.escape(str(r['item']))}</td><td>{html.escape(str(r['yours']))}</td>"
-                 f"<td>{html.escape(str(r['guideline']))}</td><td>{st_}</td></tr>")
-    sec("Your answer compared with the guidelines")
-    st.markdown('<table class="review"><tr><th>Item</th><th>Your answer</th><th>Guidelines say</th><th></th></tr>'
-                + body + "</table>", unsafe_allow_html=True)
-    hidden = len(rows) - len(shown)
-    if hidden:
-        st.caption(f"{hidden} further grades are 0 and correct; they are not counted in the score.")
-    if fb.get("under_review"):
-        st.caption("This case is based on a published report. Its answer key is still under clinical review.")
 
-    points = [f"<b>{html.escape(str(r['item']))}</b>: {html.escape(r['why'])}" for r in rows if not r["ok"] and r["why"]]
-    points += [html.escape(t) for t in fb.get("tips", [])]
-    if not points:
-        points = ["Your assessment matches the guidelines on every checked item."]
-    st.markdown('<div class="notes"><div class="h">Teaching points</div><ul>'
-                + "".join(f"<li>{p}</li>" for p in points) + "</ul></div>", unsafe_allow_html=True)
-    if case.what_it_tests:
-        st.markdown(f'<div class="about"><div class="h">About this case</div>{html.escape(case.what_it_tests)}</div>',
-                    unsafe_allow_html=True)
-
+def practice():
+    if ss.case_id is None or ss.case_id not in BY_ID:
+        home()
+    else:
+        case_page()
 
 
 def _first_attempts(df):
@@ -324,7 +394,7 @@ def progress():
         if ss.trainee:
             st.markdown(f"**{html.escape(core.display_name(ss.trainee))}**")
         else:
-            st.caption("Not signed in: results from this session only, not saved. Sign in from the sidebar.")
+            st.caption("Not signed in: results from this session only, not saved. Sign in on the start page.")
         h = ss.history
         if not h:
             st.markdown('<div class="muted">No cases completed yet.</div>', unsafe_allow_html=True)
@@ -372,23 +442,25 @@ def progress():
 
 
 def guide():
-    sec("How to use")
-    st.markdown("""
-1. Choose a topic and setting in the sidebar, then **New case**. Or open one of the **Teaching cases**.
-2. Read the patient record.
-3. Answer the six questions: grades, heart, plan, urgency, management steps and results to request.
-4. Press **Submit assessment** to compare your answer with the guidelines and read the teaching points.
-5. Sign in with your name and a personal code to save your results under **Progress**. Scores count your first attempt at each case.
+    _, mid, _ = st.columns([1, 3, 1])
+    with mid:
+        sec("How it works")
+        st.markdown("""
+1. Press **Start a case** and read the patient record.
+2. **Step 1:** mark what is abnormal and grade it. **Step 2:** choose your plan and how urgent it is. **Step 3:** choose what you do now.
+3. Press **Submit** to see whether your plan is safe and where it differs from the guidelines.
+
+Sign in with your name and a personal code to save your results. Only your first attempt at each case counts.
 """)
-    sec("Guidelines used")
-    st.markdown("""
+        sec("Guidelines")
+        st.markdown("""
 - **NCI CTCAE v6.0** (2025): grading of side effects
 - **ESC 2022 Cardio-oncology Guidelines**: heart damage from cancer treatment
 - **ESMO 2016**: cardiovascular toxicity of cancer treatment
 - **FDA doxorubicin label**: dosing, cumulative dose, liver function and the trastuzumab interval
 """)
-    st.caption("The cases are training cases written for practice; some are adapted from published case reports. "
-               "For education only, not for decisions about real patients.")
+        st.caption("The cases are written for practice; some are adapted from published case reports. "
+                   "For education only, not for decisions about real patients.")
 
 
-{"Practice": practice, "Progress": progress, "How to use": guide}[page]()
+{"Practice": practice, "Progress": progress, "Help": guide}[page]()

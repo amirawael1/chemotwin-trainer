@@ -369,6 +369,89 @@ def _chosen_actions(assessment):
     return [inv[a["action"]] for a in assessment.get("actions", []) if a["action"] in inv]
 
 
+# ---------------------------------------------------------------- the short form (three steps)
+HEART_TERMS = ("Left ventricular dysfunction", "Heart failure")
+ABNORMAL_GRADES = ["1", "2", "3", "4", "5", "Not evaluable"]
+
+
+def terms_in_scope(case: Case) -> List[str]:
+    """Cardio-oncology clinic records say that only the heart is to be assessed; the other items are out of scope."""
+    return list(HEART_TERMS) if case.dataset == "B" else list(TERMS_REQUIRED)
+
+
+def simple_assessment(case: Case, abnormal: Dict[str, str], heart: str, decision: str, level: int,
+                      actions: List[str], data_requests: List[str]) -> Dict[str, Any]:
+    """The short form: the trainee marks only what is abnormal. An item in scope that is not marked is grade 0;
+    an item out of scope is 'not evaluable'."""
+    scope = terms_in_scope(case)
+    grades = {t: (abnormal.get(t, "0") if t in scope else "Not evaluable") for t in TERMS_REQUIRED}
+    return build_assessment(grades, heart, "not_documented", decision, level, actions, data_requests)
+
+
+def simple_model_answer(case: Case) -> Dict[str, Any]:
+    """The answer key entered through the short form (proves every case can be answered with it)."""
+    key = guideline_answer(case)
+    scope = terms_in_scope(case)
+    abnormal = {t: _g(key["grades"][t]["grade"]) for t in scope if _g(key["grades"][t]["grade"]) != "0"}
+    full = model_answer(case)
+    inv = {v: k for k, v in DATA_REQUESTS.items()}
+    return simple_assessment(case, abnormal, full["ctrcd"]["asymptomatic"], full["chemotherapy_decision"],
+                             full["urgency_level"], _chosen_actions(full), [inv[d] for d in full["data_requests"]])
+
+
+# ---------------------------------------------------------------- the record as a chart
+_NUM = re.compile(r"^(.*?)\s+((?:not recorded|-?\d).*)$")
+
+
+def _items(content: str) -> List[tuple]:
+    out = []
+    for part in [x.strip() for x in content.rstrip(".").split(";") if x.strip()]:
+        m = _NUM.match(part)
+        if not m:
+            return []
+        out.append((m.group(1).strip(), m.group(2).strip()))
+    return out
+
+
+def record_view(text: str) -> Dict[str, Any]:
+    """Splits a record into labelled lines and one table of laboratory values (baseline beside current).
+    Nothing is left out: a line that cannot be read as 'label: values' is kept as it is."""
+    lines, labs, heads, notes = [], {}, {}, []
+    order: List[str] = []
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        label, sep, content = line.partition(": ")
+        col = ("baseline" if label.startswith(("Baseline labs", "Pre-treatment labs")) else
+               "current" if label.startswith("Current labs") else
+               "reference" if label.startswith("Reference ranges") else None)
+        if sep and col:
+            note = ""
+            m = re.search(r"\s*\(([^()]*)\)\.?$", content)
+            if m and col != "reference":
+                note, content = m.group(1), content[:m.start()]
+            items = _items(content)
+            if items and col not in heads:
+                heads[col] = label
+                for name, value in items:
+                    if col == "reference" and name.endswith(" ULN"):
+                        name, value = name[:-4], "up to " + value
+                    k = name.lower()
+                    if k not in labs:
+                        labs[k] = {"name": name}
+                        order.append(k)
+                    labs[k][col] = value
+                if note:
+                    notes.append(note)
+                continue
+        if sep and len(label) <= 60 and not label.startswith("-"):
+            lines.append((label, content))
+        else:
+            lines.append(("", line))
+    return {"lines": lines, "labs": [labs[k] for k in order], "heads": heads, "notes": notes}
+
+
 # ---------------------------------------------------------------- saved AI answers (from the experiments)
 def load_ai_answers(path: Optional[str] = None) -> Dict[str, Dict[str, Any]]:
     for p in ([path] if path else []) + [os.path.join(ROOT, "viewer", "viewer_data.json"),

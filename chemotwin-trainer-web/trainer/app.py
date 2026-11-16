@@ -36,8 +36,11 @@ TEACHING_CASES = {
 st.set_page_config(page_title="ChemoTwin Trainer", page_icon="✚", layout="wide", initial_sidebar_state="expanded")
 st.markdown("""
 <style>
-#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {display: none;}
-header[data-testid="stHeader"] {background: transparent; height: 2.6rem;}   /* keeps the sidebar open/close arrow */
+/* hide Streamlit's own menu and Deploy button, but NOT the toolbar itself: it holds the arrow that reopens the sidebar */
+#MainMenu, footer, [data-testid="stDecoration"], [data-testid="stMainMenu"], [data-testid="stAppDeployButton"],
+[data-testid="stToolbarActions"], [data-testid="stStatusWidget"] {display: none;}
+header[data-testid="stHeader"] {background: transparent; height: 2.6rem;}
+[data-testid="stExpandSidebarButton"], [data-testid="stSidebarCollapsedControl"] {display: flex !important; visibility: visible !important;}
 .block-container {padding-top: 2.6rem; max-width: 1400px;}
 h1, h2, h3, h4 {letter-spacing: -0.01em;}
 .topbar {display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;

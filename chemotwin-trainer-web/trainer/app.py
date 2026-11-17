@@ -17,13 +17,14 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1  # noqa: F401  (st.components.v1.html)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from agentic.assessment import TERMS_REQUIRED  # noqa: E402
-from trainer import core, storage  # noqa: E402
+from trainer import core, replay, storage  # noqa: E402
 
 TEACHING_CASES = {
     "Neutropenia grading after the CTCAE v6.0 update": "CUR-ANC-700",
@@ -269,6 +270,22 @@ def case_page():
             show_feedback(case, ss.results[case.case_id])
         else:
             steps(case)
+    if done:
+        show_pipeline(case)
+
+
+def show_pipeline(case):
+    """After the answer: an animated walk through the five agents on this same case (a recorded run)."""
+    run = replay.recorded(case.case_id)
+    if not run:
+        return
+    st.write("")
+    if st.toggle("See how ChemoTwin handled this case", key=f"pipe_{case.case_id}"):
+        stp = replay.pipeline_steps(case, run)
+        st.components.v1.html(replay.render(stp, replay.load_runs().get("model", "")), height=replay.height(stp),
+                              scrolling=False)
+        st.caption("Blue agents are rules in code; the orange agent is a language model. "
+                   "The run shown was recorded during the evaluation of the system; nothing is generated now.")
 
 
 def steps(case):

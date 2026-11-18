@@ -134,7 +134,23 @@ def _topic(case: Dict[str, Any], ref: Dict[str, Any]) -> str:
 def _record(case: Dict[str, Any]) -> str:
     text = case.get("record_text") or render_patient(case["patient"], case.get("clinical_note"))
     # the case code (e.g. "MIS-NO-TEMP") can give the answer away: it is not shown in the record
-    return text.replace("Patient " + case["case_id"] + ":", "Patient:").replace(case["case_id"], "this patient")
+    text = text.replace("Patient " + case["case_id"] + ":", "Patient:").replace(case["case_id"], "this patient")
+    return _days_since_stop(text)
+
+
+def _days_since_stop(text: str) -> str:
+    """'stopped day -48' is a day on the treatment timeline, not '48 days ago', and readers (and chat models) took it
+    as the latter. In the trainer the record also says how long before today that was."""
+    now = re.search(r"Current day (-?\d+)|Today is relative day (-?\d+)|on day (-?\d+)", text)
+    if not now:
+        return text
+    today = int(next(g for g in now.groups() if g is not None))
+
+    def add(m):
+        ago = today - int(m.group(1))
+        return f"stopped day {m.group(1)}, {ago} days before today" if ago > 0 else m.group(0)
+
+    return re.sub(r"stopped day (-?\d+)", add, text)
 
 
 def _title(case: Dict[str, Any], kind: str) -> str:

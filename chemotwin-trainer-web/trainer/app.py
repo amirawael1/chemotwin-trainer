@@ -72,6 +72,9 @@ tr.hl td, .chart .plain.hl {background:#FFF6D6;}
        font-size:0.9rem;}
 .item.unsafe {border-left-color:#A1261C;}
 .item .t {font-weight:650; color:#15202B;} .item .cmp {color:#3E4C5B; margin:3px 0;} .item .why {color:#5B6878;}
+.invite {border:1px solid #BFD3EA; background:#F2F7FC; border-radius:6px; padding:10px 14px; margin:0 0 8px 0;
+          font-size:0.92rem; color:#134E8E;}
+.invite span {display:block; color:#3E4C5B; font-size:0.86rem; margin-top:2px;}
 table.review {width:100%; border-collapse:collapse; font-size:0.86rem;}
 table.review th {text-align:left; color:#5B6878; font-weight:600; font-size:0.74rem; text-transform:uppercase;
                  border-bottom:1px solid #DCE3EA; padding:5px 8px;}
@@ -89,7 +92,7 @@ CASES, BY_ID = bank()
 ss = st.session_state
 for _k, _v in (("case_id", None), ("results", {}), ("history", []), ("trainee", ""), ("answers", {}), ("steps", {}),
                ("f_topic", "All topics"), ("f_kind", "All settings"), ("mode", "practice"), ("started", {}),
-               ("view", None), ("study_level", "")):
+               ("view", None), ("study_level", ""), ("pipe_open", {})):
     ss.setdefault(_k, _v)
 
 
@@ -107,6 +110,7 @@ def open_case(case_id, mode="practice"):
     ss.answers.pop(case_id, None)
     ss.steps[case_id] = 1
     ss.started[case_id] = time.time()
+    ss.pipe_open.pop(case_id, None)
 
 
 def study_locked():
@@ -361,6 +365,8 @@ def case_page():
     elif back.button("Save and leave" if ss.mode == "study" else "Start page", width="stretch"):
         ss.case_id = None
         st.rerun()
+    if done and ss.pipe_open.get(case.case_id):
+        show_pipeline(case)
     if st.toggle("Show patient record", value=True, key="show_record"):
         left_col, right_col = st.columns([6, 5], gap="large")
         with left_col:
@@ -372,23 +378,38 @@ def case_page():
             show_feedback(case, ss.results[case.case_id])
         else:
             steps(case)
-    if done:
-        show_pipeline(case)
 
 
 def show_pipeline(case):
-    """After the answer: an animated walk through the five agents on this same case (a recorded run)."""
+    """After the answer: an animated walk through the five agents on this same case (a recorded run), full width
+    at the top of the page, so it is seen as soon as it is opened."""
     run = replay.recorded(case.case_id)
     if not run:
         return
-    st.write("")
-    if st.toggle("See how ChemoTwin handled this case", key=f"pipe_{case.case_id}"):
-        stp = replay.pipeline_steps(case, run)
-        st.components.v1.html(replay.render(stp, replay.load_runs().get("model", "")), height=replay.height(stp),
-                              scrolling=False)
-        st.caption("This is the full ChemoTwin system. Four agents are rules in code (blue); only the clinical reasoning "
-                   "agent (orange) is a language model, and its answer is released only after the coordinator's checks. "
-                   "The run shown was recorded during the evaluation of the system; nothing is generated now.")
+    head, close = st.columns([6, 1])
+    head.markdown('<div class="sec">How ChemoTwin handled this case</div>', unsafe_allow_html=True)
+    if close.button("Hide", key=f"pipe_hide_{case.case_id}", width="stretch"):
+        ss.pipe_open[case.case_id] = False
+        st.rerun()
+    stp = replay.pipeline_steps(case, run)
+    st.components.v1.html(replay.render(stp, replay.load_runs().get("model", "")), height=replay.height(stp),
+                          scrolling=False)
+    st.caption("This is the full ChemoTwin system. Four agents are rules in code (blue); only the clinical reasoning "
+               "agent (orange) is a language model, and its answer is released only after the coordinator's checks. "
+               "The run shown was recorded during the evaluation of the system; nothing is generated now.")
+    st.markdown('<div class="rule"></div>', unsafe_allow_html=True)
+
+
+def pipeline_invite(case):
+    """A clear invitation right under the verdict (the first thing read after submitting)."""
+    if not replay.recorded(case.case_id) or ss.pipe_open.get(case.case_id):
+        return
+    st.markdown('<div class="invite"><b>See ChemoTwin work on this same case</b>'
+                '<span>Five agents, step by step: what each one checked and how the final answer was reached.</span></div>',
+                unsafe_allow_html=True)
+    if st.button("▶  Watch how ChemoTwin handled it", key=f"pipe_open_{case.case_id}", type="primary", width="stretch"):
+        ss.pipe_open[case.case_id] = True
+        st.rerun()
 
 
 def steps(case):
@@ -486,6 +507,7 @@ def show_feedback(case, fb):
     head = "Safe plan" if fb["safe"] else ("Not safe: " + str(fb["n_unsafe"]) + " safety concern" + ("s" if fb["n_unsafe"] > 1 else ""))
     st.markdown(f'<div class="verdict {cls}">{head}<span>{fb["score"]}% agreement with the guidelines</span></div>',
                 unsafe_allow_html=True)
+    pipeline_invite(case)
     scope_short = {core.TERM_SHORT[t] for t in fb.get("scope", TERMS_REQUIRED)}
     rows = [r for r in fb["rows"] if r["group"] != "grade" or r["item"] in scope_short or not r["ok"]]
     wrong = [r for r in rows if not r["ok"]]

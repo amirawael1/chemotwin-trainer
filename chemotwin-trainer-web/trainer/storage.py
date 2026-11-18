@@ -19,7 +19,8 @@ import csv
 import os
 from typing import Dict, List
 
-FIELDS = ["time", "trainee", "case_id", "topic", "case_type", "score", "safe", "codes"]
+FIELDS = ["time", "trainee", "case_id", "topic", "case_type", "score", "safe", "codes",
+          "session", "level", "seconds", "answer"]   # session = "study" for the 10 study cases, else "practice"
 PROGRESS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "progress")
 
 
@@ -49,6 +50,8 @@ def _clean(rows: List[Dict]) -> List[Dict]:
             r["score"] = None
         r["safe"] = str(r["safe"]).strip().lower() in ("true", "1", "yes")
         r["codes"] = "" if r["codes"] is None else str(r["codes"])
+        for k in ("session", "level", "answer"):
+            r[k] = "" if r[k] is None else str(r[k])
         out.append(r)
     return out
 

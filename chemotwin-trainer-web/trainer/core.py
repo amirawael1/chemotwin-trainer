@@ -184,7 +184,10 @@ def load_bank(include=("stress", "hosp", "B", "A")) -> List[Case]:
 
 
 def pick(bank: List[Case], topic: Optional[str] = None, kind: Optional[str] = None, exclude=(),
-         rng: Optional[random.Random] = None) -> Optional[Case]:
+         rng: Optional[random.Random] = None, never=()) -> Optional[Case]:
+    """exclude = cases already answered (allowed again once the pool is used up); never = cases kept out
+    altogether (the study cases, until the trainee has done the study)."""
+    bank = [c for c in bank if c.case_id not in never]
     pool = [c for c in bank if (not topic or c.topic == topic) and (not kind or c.dataset == kind)
             and c.case_id not in exclude]
     if not pool:
@@ -551,14 +554,50 @@ def practice_plan(bank: List[Case], history: List[Dict[str, Any]], now=None) -> 
 
 
 def pick_targeted(bank: List[Case], history: List[Dict[str, Any]], now=None,
-                  rng: Optional[random.Random] = None) -> Optional[Case]:
+                  rng: Optional[random.Random] = None, never=()) -> Optional[Case]:
     plan = practice_plan(bank, history, now)
     by_id = {c.case_id: c for c in bank}
-    if plan["repeat"]:
-        return by_id[(rng or random).choice(plan["repeat"])]
+    repeat = [cid for cid in plan["repeat"] if cid not in never]
+    if repeat:
+        return by_id[(rng or random).choice(repeat)]
     if plan["weakest"]:
-        return pick(bank, topic=plan["weakest"], exclude=[h.get("case_id") for h in history], rng=rng)
+        return pick(bank, topic=plan["weakest"], exclude=[h.get("case_id") for h in history], rng=rng, never=never)
     return None
+
+
+# ---------------------------------------------------------------- the study: students and residents vs the AI
+# Ten stress-set cases, the same for every participant and in the same order. All four models answered exactly
+# these cases in the experiments, so each participant's answers can be compared with theirs on the same scorer.
+# None of them is a teaching case, and they are kept out of random practice until the participant has done the study.
+STUDY_CASES = ["BND-FN-T38.3", "BND-LVEF49.9", "CUR-CR-1.3", "MIS-NO-ECHO", "BND-ANC-999",
+               "FLT-FALSE-REASSURE", "CUR-LVD-GLS", "MIS-NO-TEMP", "FLT-HEPATIC", "CON-HER2-MOD"]
+STUDY_LEVELS = ["Medical student (years 1-4)", "Medical student (final year)", "Intern (house officer)",
+                "Resident: oncology", "Resident: cardiology", "Resident: other specialty", "Specialist"]
+
+
+def study_rows(history: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """The participant's study answers: the first one per study case."""
+    out: Dict[str, Dict[str, Any]] = {}
+    for h in history:
+        if h.get("session") == "study" and h.get("case_id") in STUDY_CASES and h["case_id"] not in out:
+            out[h["case_id"]] = h
+    return out
+
+
+def next_study_case(history: List[Dict[str, Any]]) -> Optional[str]:
+    done = study_rows(history)
+    return next((cid for cid in STUDY_CASES if cid not in done), None)
+
+
+def study_level(history: List[Dict[str, Any]]) -> str:
+    return next((h["level"] for h in study_rows(history).values() if h.get("level")), "")
+
+
+def comparable_unsafe(errors: List[Dict[str, Any]]) -> bool:
+    """A safety-significant error of a kind a trainee can also make with the form. Codes about free text
+    (citations, claims, values not in the record, undisclosed conflicts, format) are left out, so models and
+    people are compared on the same items."""
+    return any(e["significant"] and e["code"] not in HIDDEN_CODES for e in errors)
 
 
 # ---------------------------------------------------------------- saved AI answers (from the experiments)

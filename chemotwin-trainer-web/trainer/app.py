@@ -9,9 +9,11 @@ The screen shows one thing at a time: a start page, then a case in three short s
 """
 import html
 import io
+import json
 import os
 import random
 import sys
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -86,7 +88,8 @@ def bank():
 CASES, BY_ID = bank()
 ss = st.session_state
 for _k, _v in (("case_id", None), ("results", {}), ("history", []), ("trainee", ""), ("answers", {}), ("steps", {}),
-               ("f_topic", "All topics"), ("f_kind", "All settings")):
+               ("f_topic", "All topics"), ("f_kind", "All settings"), ("mode", "practice"), ("started", {}),
+               ("view", None), ("study_level", "")):
     ss.setdefault(_k, _v)
 
 
@@ -98,18 +101,24 @@ def sec(text):
     st.markdown(f'<div class="sec">{html.escape(text)}</div>', unsafe_allow_html=True)
 
 
-def open_case(case_id):
-    ss.case_id = case_id
+def open_case(case_id, mode="practice"):
+    ss.case_id, ss.mode, ss.view = case_id, mode, None
     ss.results.pop(case_id, None)
     ss.answers.pop(case_id, None)
     ss.steps[case_id] = 1
+    ss.started[case_id] = time.time()
+
+
+def study_locked():
+    """The study cases stay out of practice until the participant has answered all ten."""
+    return core.STUDY_CASES if core.next_study_case(ss.history) else []
 
 
 def new_case():
     topic, kind = ss.f_topic, ss.f_kind
     c = core.pick(CASES, topic=None if topic == "All topics" else topic,
                   kind=None if kind == "All settings" else kind,
-                  exclude=[h["case_id"] for h in ss.history])
+                  exclude=[h["case_id"] for h in ss.history], never=study_locked())
     if c:
         open_case(c.case_id)
 
@@ -187,13 +196,14 @@ def home():
         plan = core.practice_plan(CASES, ss.history) if ss.history else None
         if plan and (plan["repeat"] or plan["weakest"]):
             if st.button("Practise what I got wrong", width="stretch"):
-                c = core.pick_targeted(CASES, ss.history)
+                c = core.pick_targeted(CASES, ss.history, never=study_locked())
                 if c:
                     open_case(c.case_id)
                     st.rerun()
             bits = ([f"weakest topic: {plan['weakest']} ({plan['weakest_score']}%)"] if plan["weakest"] else []) + \
                    ([f"{len(plan['repeat'])} case{'s' if len(plan['repeat']) > 1 else ''} to repeat"] if plan["repeat"] else [])
             st.caption("From your results: " + "; ".join(bits) + ".")
+        study_box()
         with st.expander("Choose a topic"):
             ss.f_topic = st.selectbox("Topic", ["All topics"] + core.TOPICS,
                                       index=(["All topics"] + core.TOPICS).index(ss.f_topic))
@@ -206,6 +216,92 @@ def home():
                     open_case(cid)
                     st.rerun()
         st.caption("For training only. Not for clinical decisions.")
+
+
+# ------------------------------------------------------------------ the study (10 fixed cases)
+def study_box():
+    if not ss.trainee:
+        st.caption("Sign in to take part in the study: 10 cases, about 35 minutes.")
+        return
+    done, nxt = core.study_rows(ss.history), core.next_study_case(ss.history)
+    if nxt is None:
+        if st.button("My study results", width="stretch"):
+            ss.view = "study_end"
+            st.rerun()
+    elif not done:
+        if st.button("Take part in the study (10 cases)", width="stretch"):
+            ss.view = "study_intro"
+            st.rerun()
+    else:
+        if st.button(f"Continue the study ({len(done)} of {len(core.STUDY_CASES)} done)", width="stretch"):
+            ss.study_level = ss.study_level or core.study_level(ss.history)
+            open_case(nxt, "study")
+            st.rerun()
+
+
+def study_intro():
+    _, mid, _ = st.columns([1, 2, 1])
+    with mid:
+        st.markdown('<div class="hero">The study</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+This study compares how doctors in training and AI systems assess chemotherapy side effects.
+
+- **{len(core.STUDY_CASES)} cases**, the same for everyone, in the same order. About 35 minutes.
+- Answer each case on your own, without books, websites or AI tools.
+- The correct answers and how ChemoTwin handled each case are shown **at the end**, not during the study.
+- Each answer is saved when you submit it. You can stop and continue later with the same name and code.
+
+Your answers are reported in a master's thesis **anonymously**, by training level only. Taking part is voluntary,
+and you can stop at any time.
+""")
+        level = st.selectbox("Your training level", core.STUDY_LEVELS, index=None, placeholder="Choose your level")
+        agree = st.checkbox("I agree that my answers are used anonymously in this research.")
+        b1, b2 = st.columns([1, 2])
+        if b1.button("Back", width="stretch"):
+            ss.view = None
+            st.rerun()
+        if b2.button("Start the study", type="primary", width="stretch", disabled=not (level and agree)):
+            ss.study_level = level
+            open_case(core.STUDY_CASES[0], "study")
+            st.rerun()
+
+
+def study_end():
+    rows = core.study_rows(ss.history)
+    _, mid, _ = st.columns([1, 3, 1])
+    with mid:
+        st.markdown('<div class="hero">Your study results</div>', unsafe_allow_html=True)
+        if len(rows) < len(core.STUDY_CASES):
+            st.markdown(f"{len(rows)} of {len(core.STUDY_CASES)} cases answered.")
+        fbs = {}
+        for cid, r in rows.items():
+            try:
+                fbs[cid] = core.feedback(BY_ID[cid], json.loads(r["answer"]))
+            except Exception:          # an answer saved without its details: show the saved verdict only
+                fbs[cid] = None
+        safe = sum(bool(r["safe"]) for r in rows.values())
+        c1, c2 = st.columns(2)
+        c1.metric("Safe plans", f"{safe} of {len(rows)}")
+        scores = [r["score"] for r in rows.values() if isinstance(r.get("score"), int)]
+        c2.metric("Average agreement with the guidelines", f"{round(sum(scores) / len(scores))}%" if scores else "-")
+        st.caption("Open each case to see the guideline answer and how ChemoTwin handled it.")
+        for i, cid in enumerate(core.STUDY_CASES, 1):
+            if cid not in rows:
+                continue
+            case, r = BY_ID[cid], rows[cid]
+            a, b = st.columns([5, 1])
+            a.markdown(f"**{i}. {html.escape(case.topic)}** · {html.escape(case.title)} &nbsp; "
+                       + (pill("Safe", "ok") if r["safe"] else pill("Not safe", "bad"))
+                       + f' <span class="muted">{r["score"]}% agreement</span>', unsafe_allow_html=True)
+            if fbs.get(cid) and b.button("Open", key=f"study_open_{cid}", width="stretch"):
+                fb = fbs[cid]
+                fb["scope"] = core.terms_in_scope(case)
+                ss.results[cid], ss.case_id, ss.mode, ss.view = fb, cid, "review", None
+                st.rerun()
+        st.write("")
+        if st.button("Start page", width="stretch"):
+            ss.view = None
+            st.rerun()
 
 
 # ------------------------------------------------------------------ the record as a chart
@@ -253,10 +349,16 @@ def case_page():
     case = BY_ID[ss.case_id]
     done = case.case_id in ss.results
     top, back = st.columns([6, 1])
-    top.markdown(f'<div class="case-title">{html.escape(case.title)}'
+    study_n = (f"Study case {core.STUDY_CASES.index(case.case_id) + 1} of {len(core.STUDY_CASES)} · "
+               if ss.mode == "study" else "")
+    top.markdown(f'<div class="case-title">{study_n}{html.escape(case.title)}'
                  + (f' <span class="muted">· case {html.escape(case.case_id)} · {html.escape(case.topic)}</span>' if done else "")
                  + '</div>', unsafe_allow_html=True)
-    if back.button("Start page", width="stretch"):
+    if ss.mode == "review":
+        if back.button("Study results", width="stretch"):
+            ss.case_id, ss.view = None, "study_end"
+            st.rerun()
+    elif back.button("Save and leave" if ss.mode == "study" else "Start page", width="stretch"):
         ss.case_id = None
         st.rerun()
     if st.toggle("Show patient record", value=True, key="show_record"):
@@ -284,7 +386,8 @@ def show_pipeline(case):
         stp = replay.pipeline_steps(case, run)
         st.components.v1.html(replay.render(stp, replay.load_runs().get("model", "")), height=replay.height(stp),
                               scrolling=False)
-        st.caption("Blue agents are rules in code; the orange agent is a language model. "
+        st.caption("This is the full ChemoTwin system. Four agents are rules in code (blue); only the clinical reasoning "
+                   "agent (orange) is a language model, and its answer is released only after the coordinator's checks. "
                    "The run shown was recorded during the evaluation of the system; nothing is generated now.")
 
 
@@ -356,13 +459,25 @@ def steps(case):
                                        ans["level"], list(actions), list(requests_))
             fb = core.feedback(case, a)
             fb["scope"] = scope
-            ss.results[k] = fb
+            study = ss.mode == "study"
             row = {"time": datetime.now(ZoneInfo("Africa/Cairo")).strftime("%Y-%m-%d %H:%M"), "trainee": ss.trainee,
                    "case_id": k, "topic": case.topic, "case_type": case.case_type, "score": fb["score"],
-                   "safe": fb["safe"], "codes": "|".join(fb["codes"])}
+                   "safe": fb["safe"], "codes": "|".join(fb["codes"]),
+                   "session": "study" if study else "practice", "level": ss.study_level if study else "",
+                   "seconds": round(time.time() - ss.started.get(k, time.time())),
+                   "answer": json.dumps(a, ensure_ascii=False, separators=(",", ":"))}
             ss.history.append(row)
             if ss.trainee:
                 save_progress(row)
+            if study:
+                # no feedback during the study: straight on to the next case, answers at the end
+                nxt = core.next_study_case(ss.history)
+                if nxt:
+                    open_case(nxt, "study")
+                else:
+                    ss.case_id, ss.view = None, "study_end"
+            else:
+                ss.results[k] = fb
             st.rerun()
 
 
@@ -409,7 +524,11 @@ def show_feedback(case, fb):
 
 
 def practice():
-    if ss.case_id is None or ss.case_id not in BY_ID:
+    if ss.view == "study_intro":
+        study_intro()
+    elif ss.view == "study_end":
+        study_end()
+    elif ss.case_id is None or ss.case_id not in BY_ID:
         home()
     else:
         case_page()
@@ -432,6 +551,10 @@ def progress():
         else:
             st.caption("Not signed in: results from this session only, not saved. Sign in on the start page.")
         h = ss.history
+        if core.next_study_case(h) and core.study_rows(h):
+            # mid-study: no verdicts yet, so the study answers stay hidden until all ten are done
+            h = [x for x in h if x.get("session") != "study"]
+            st.caption("Your study answers appear here after you finish the study.")
         if not h:
             st.markdown('<div class="muted">No cases completed yet.</div>', unsafe_allow_html=True)
         else:
@@ -444,9 +567,9 @@ def progress():
             sec("Agreement by topic")
             st.bar_chart(first.groupby("topic")["score"].mean(), color="#134E8E")
             sec("Case log")
-            show = df.drop(columns=["trainee", "codes"], errors="ignore").rename(columns={
+            show = df.drop(columns=["trainee", "codes", "answer", "level", "seconds"], errors="ignore").rename(columns={
                 "time": "Date", "case_id": "Case", "topic": "Topic", "case_type": "Setting",
-                "score": "Agreement (%)", "safe": "Safe plan", "attempt": "Attempt"})
+                "score": "Agreement (%)", "safe": "Safe plan", "attempt": "Attempt", "session": "Session"})
             st.dataframe(show, hide_index=True, width="stretch")
             buf = io.StringIO()
             df.to_csv(buf, index=False)
@@ -460,9 +583,11 @@ def progress():
         if code and st.text_input("Tutor code", type="password", key="tutor_code_in") != code:
             st.caption("For the course tutor.")
             return
-        rows = []
+        rows, study = [], []
         for name in trainees():
-            d = pd.DataFrame(load_history(name))
+            hist = load_history(name)
+            study += [dict(h, trainee=name) for h in core.study_rows(hist).values()]
+            d = pd.DataFrame(hist)
             if d.empty:
                 continue
             d, first = _first_attempts(d)
@@ -471,6 +596,11 @@ def progress():
                          "Safe plans (%)": round(100 * first["safe"].mean()), "Last activity": str(d["time"].iloc[-1])})
         if rows:
             st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+            if study:
+                buf = io.StringIO()
+                pd.DataFrame(study).to_csv(buf, index=False)
+                st.download_button(f"Download study answers ({len(study)} rows, CSV)", buf.getvalue(),
+                                   "chemotwin_study_answers.csv", "text/csv")
             st.caption("First attempts only. " + ("Saved online in the course progress sheet." if storage.online()
                        else "Saved on this computer in trainer/progress, one file per trainee."))
         else:

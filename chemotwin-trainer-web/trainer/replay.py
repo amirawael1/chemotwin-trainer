@@ -328,7 +328,8 @@ def render(steps: List[Dict[str, Any]], model: str = "") -> str:
         f'<div class="lab">{html.escape(a["name"])}</div>'
         f'<div class="kind">{"language model" if a["kind"] == "llm" else "rules in code"}</div></div>'
         for k, a in enumerate(AGENTS))
-    src = "Recorded run of the full system" + (f" · language model: {html.escape(model)}" if model else "")
+    src = ("ChemoTwin full system (all five agents, the safest set-up), recorded run"
+           + (f" · the clinical reasoning agent used {html.escape(model)}" if model else ""))
     safe = lambda o: json.dumps(o, ensure_ascii=False).replace("</", "<\\/")
     return (_PAGE.replace("__NODES__", nodes).replace("__SRC__", src)
             .replace("__STEPS__", safe(steps)).replace("__AGENTS__", safe(AGENTS)))

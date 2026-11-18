@@ -125,6 +125,7 @@ def new_case():
                   exclude=[h["case_id"] for h in ss.history], never=study_locked())
     if c:
         open_case(c.case_id)
+    return c is not None
 
 
 def trainees():
@@ -195,8 +196,9 @@ def home():
         sign_in_box()
         st.write("")
         if st.button("Start a case", type="primary", width="stretch"):
-            new_case()
-            st.rerun()
+            if new_case():
+                st.rerun()
+            st.warning("No cases match the topic and setting you chose. Choose another under 'Choose a topic'.")
         plan = core.practice_plan(CASES, ss.history) if ss.history else None
         if plan and (plan["repeat"] or plan["weakest"]):
             if st.button("Practise what I got wrong", width="stretch"):
@@ -208,12 +210,24 @@ def home():
                    ([f"{len(plan['repeat'])} case{'s' if len(plan['repeat']) > 1 else ''} to repeat"] if plan["repeat"] else [])
             st.caption("From your results: " + "; ".join(bits) + ".")
         study_box()
-        with st.expander("Choose a topic"):
-            ss.f_topic = st.selectbox("Topic", ["All topics"] + core.TOPICS,
-                                      index=(["All topics"] + core.TOPICS).index(ss.f_topic))
-            kinds = ["All settings"] + list(core.CASE_TYPE.values())
-            label = st.selectbox("Setting", kinds, index=kinds.index(core.CASE_TYPE.get(ss.f_kind, "All settings")))
-            ss.f_kind = next((k for k, v in core.CASE_TYPE.items() if v == label), "All settings")
+        with st.expander("Choose a topic", expanded=ss.f_topic != "All topics" or ss.f_kind != "All settings"):
+            # widget keys are separate from the saved choice: Streamlit forgets a widget's value while the start
+            # page is not shown, and the choice must survive "Next case"
+            ss.w_topic = ss.f_topic
+            st.selectbox("Topic", ["All topics"] + core.TOPICS, key="w_topic",
+                         on_change=lambda: ss.__setitem__("f_topic", ss.w_topic))
+            # only the settings that have cases on this topic are offered, so a choice never leads to nothing
+            pool = [c for c in CASES if ss.f_topic == "All topics" or c.topic == ss.f_topic]
+            kinds = ["All settings"] + [k for k in core.CASE_TYPE if any(c.dataset == k for c in pool)]
+            if ss.f_kind not in kinds:
+                ss.f_kind = "All settings"
+            ss.w_kind = ss.f_kind
+            st.selectbox("Setting", kinds, key="w_kind", format_func=lambda k: core.CASE_TYPE.get(k, k),
+                         on_change=lambda: ss.__setitem__("f_kind", ss.w_kind))
+            if st.button("Start a case on this topic", type="primary", width="stretch", key="start_topic"):
+                if new_case():
+                    st.rerun()
+                st.warning("No cases match this choice. Choose another setting.")
         with st.expander("Teaching cases"):
             for label, cid in TEACHING_CASES.items():
                 if cid in BY_ID and st.button(label, key=f"teach_{cid}", width="stretch"):

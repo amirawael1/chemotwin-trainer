@@ -416,6 +416,9 @@ def show_pipeline(case):
 
 def pipeline_invite(case):
     """A clear invitation right under the verdict (the first thing read after submitting)."""
+    if replay.load_error():
+        st.caption("The ChemoTwin replay is not available: " + replay.load_error() + ".")
+        return
     if not replay.recorded(case.case_id) or ss.pipe_open.get(case.case_id):
         return
     st.markdown('<div class="invite"><b>See ChemoTwin work on this same case</b>'

@@ -32,15 +32,33 @@ AGENTS = [
 _cache: Optional[Dict[str, Any]] = None
 
 
+_error = ""
+
+
 def load_runs() -> Dict[str, Any]:
-    global _cache
-    if _cache is None:
-        try:
-            with open(RUNS_FILE, encoding="utf-8") as f:
-                _cache = json.load(f)
-        except (FileNotFoundError, ValueError):
-            _cache = {"model": "", "runs": {}}
-    return _cache
+    """The recorded runs. Kept in memory only once read successfully, so a file added later is found
+    without restarting the app."""
+    global _cache, _error
+    if _cache is not None:
+        return _cache
+    try:
+        with open(RUNS_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        if not data.get("runs"):
+            raise ValueError("the file has no recorded runs")
+        _cache, _error = data, ""
+        return _cache
+    except FileNotFoundError:
+        _error = "trainer/data/pipeline_runs.json was not found"
+    except (ValueError, OSError) as err:
+        _error = f"trainer/data/pipeline_runs.json could not be read ({err})"
+    return {"model": "", "runs": {}}
+
+
+def load_error() -> str:
+    """Why no recorded runs are available ('' when they are)."""
+    load_runs()
+    return _error
 
 
 def recorded(case_id: str) -> Optional[Dict[str, Any]]:

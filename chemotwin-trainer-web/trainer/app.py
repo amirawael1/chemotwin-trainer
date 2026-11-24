@@ -262,8 +262,10 @@ def study_intro():
     with mid:
         st.markdown('<div class="hero">The study</div>', unsafe_allow_html=True)
         st.markdown(f"""
-This study compares how doctors in training and AI systems assess chemotherapy side effects.
-
+This study checks whether **ChemoTwin**, a decision-support tool, gives recommendations that agree with
+clinical judgement. Your answers are the clinical reference: we compare the decisions ChemoTwin recommends
+with the decisions that doctors and doctors in training make on the same cases. **We are evaluating the tool,
+not you.**
 - **{len(core.STUDY_CASES)} cases**, the same for everyone, in the same order. About 35 minutes.
 - Answer each case on your own, without books, websites or AI tools.
 - The correct answers and how ChemoTwin handled each case are shown **at the end**, not during the study.

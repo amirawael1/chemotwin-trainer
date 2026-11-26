@@ -206,6 +206,27 @@ def display_name(trainee: str) -> str:
     return trainee.split(" #")[0]
 
 
+def sign_in_verdict(tid: str, history: List[Dict[str, Any]], reached: bool, known: List[str]) -> str:
+    """What should happen when someone signs in with a name and a personal code:
+
+      "ok"          use this record; an empty one means a first sign-in
+      "offline"     the saved answers could not be read, so signing in would look as if they were gone
+      "name_taken"  this name already has answers under a different code: a mistyped code, or a namesake
+
+    Only display names are compared, so no other trainee's name is needed on screen or shown.
+    Without this check a participant who mistypes the code on the second day silently starts an empty
+    record and would answer the ten study cases again instead of continuing.
+    """
+    if not reached:
+        return "offline"
+    if history:
+        return "ok"
+    me = display_name(tid).strip().lower()
+    if any(k != tid and display_name(k).strip().lower() == me for k in known):
+        return "name_taken"
+    return "ok"
+
+
 def _cut(text: str, n: int = 240) -> str:
     """Shorten at a word boundary."""
     if len(text) <= n:

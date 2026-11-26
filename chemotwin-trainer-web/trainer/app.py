@@ -92,7 +92,7 @@ CASES, BY_ID = bank()
 ss = st.session_state
 for _k, _v in (("case_id", None), ("results", {}), ("history", []), ("trainee", ""), ("answers", {}), ("steps", {}),
                ("f_topic", "All topics"), ("f_kind", "All settings"), ("mode", "practice"), ("started", {}),
-               ("view", None), ("study_level", ""), ("pipe_open", {})):
+               ("view", None), ("study_level", ""), ("pipe_open", {}), ("clash", "")):
     ss.setdefault(_k, _v)
 
 
@@ -137,10 +137,20 @@ def trainees():
 
 
 def load_history(name):
+    """(rows, reached). reached is False when the progress store could not be read, so an empty list is
+    never mistaken for "this trainee has not answered anything yet"."""
     try:
-        return storage.load_history(name)
+        return storage.load_history(name), True
     except Exception:
-        st.warning("Your earlier results could not be loaded right now; new results will still be saved.")
+        return [], False
+
+
+def quiet_trainees():
+    """The saved trainee ids, for the duplicate-name check at sign-in only: never shown, and if they
+    cannot be read the check is simply not made."""
+    try:
+        return storage.trainees()
+    except Exception:
         return []
 
 
@@ -167,22 +177,35 @@ def sign_in_box():
         c1.markdown(f"Signed in as **{html.escape(core.display_name(ss.trainee))}**")
         if c2.button("Sign out", width="stretch"):
             ss.trainee, ss.history, ss.results, ss.case_id = "", [], {}, None
+            ss.clash, ss.in_name, ss.in_code = "", "", ""
             st.rerun()
         return
     with st.expander("Sign in to save your progress", expanded=True):
-        typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed")
+        typed = st.text_input("Full name", placeholder="e.g. Sara Ahmed", key="in_name")
         code = st.text_input("Personal code", type="password", placeholder="Choose 4 or more characters",
+                             key="in_code",
                              help="You choose it the first time. Use the same name and code each time.")
         ready = bool((typed or "").strip()) and len(code or "") >= 4
         if st.button("Sign in", type="primary", disabled=not ready):
+            ss.clash = ""
             tid = core.trainee_id(typed, code)
-            hist = load_history(tid)
-            known = [] if storage.online() else trainees()
-            if not hist and any(core.display_name(k).lower() == core.display_name(tid).lower() for k in known):
-                st.error("This name already has a record with a different code.")
+            hist, reached = load_history(tid)
+            verdict = core.sign_in_verdict(tid, hist, reached, quiet_trainees() if reached else [])
+            if verdict == "offline":
+                st.error("Your saved answers cannot be read at the moment, so signing in now would look as if "
+                         "they were gone. Please try again in a minute. You can practise without signing in.")
+            elif verdict == "name_taken":
+                ss.clash = tid          # kept in the session so the message survives the next run
             else:
                 ss.trainee, ss.history, ss.results = tid, hist, {}
                 st.rerun()
+        if ss.clash:
+            st.error("**This name already has saved answers under a different personal code.** Check the code "
+                     "you chose the first time and sign in again, so that you continue where you stopped.")
+            if st.button("This is my first time with this name: start a new record"):
+                ss.trainee, ss.history, ss.results, ss.clash = ss.clash, [], {}, ""
+                st.rerun()
+            st.caption("If someone with the same name already uses the trainer, add your middle name or surname.")
         st.caption("Without signing in you can still practise, but nothing is saved.")
 
 
@@ -266,6 +289,7 @@ This study checks whether **ChemoTwin**, a decision-support tool, gives recommen
 clinical judgement. Your answers are the clinical reference: we compare the decisions ChemoTwin recommends
 with the decisions that doctors and doctors in training make on the same cases. **We are evaluating the tool,
 not you.**
+
 - **{len(core.STUDY_CASES)} cases**, the same for everyone, in the same order. About 35 minutes.
 - Answer each case on your own, without books, websites or AI tools.
 - The correct answers and how ChemoTwin handled each case are shown **at the end**, not during the study.
@@ -624,9 +648,12 @@ def progress():
         if code and st.text_input("Tutor code", type="password", key="tutor_code_in") != code:
             st.caption("For the course tutor.")
             return
-        rows, study = [], []
+        rows, study, unread = [], [], 0
         for name in trainees():
-            hist = load_history(name)
+            hist, reached = load_history(name)
+            if not reached:
+                unread += 1
+                continue
             study += [dict(h, trainee=name) for h in core.study_rows(hist).values()]
             d = pd.DataFrame(hist)
             if d.empty:
@@ -635,6 +662,9 @@ def progress():
             rows.append({"Trainee": name, "Cases": len(first), "Retries": len(d) - len(first),
                          "Average agreement (%)": round(first["score"].mean()),
                          "Safe plans (%)": round(100 * first["safe"].mean()), "Last activity": str(d["time"].iloc[-1])})
+        if unread:
+            st.warning(f"{unread} record{'s' if unread > 1 else ''} could not be read just now, "
+                       "so the table below is incomplete.")
         if rows:
             st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
             if study:
